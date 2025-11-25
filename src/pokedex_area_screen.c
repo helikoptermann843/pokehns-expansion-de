@@ -623,15 +623,19 @@ static const u16 sMovingRegionMapSections[(IS_HNS ? 0 : 3)] =
 #endif // !IS_HNS
 };
 
-static const u16 sFeebasData[][(IS_HNS ? 0 : 3)] =
+// HnS input dummy map to support config build
+static const u16 sFeebasData[][3] =
 {
 #if !IS_HNS
-    {SPECIES_FEEBAS, MAP_GROUP(MAP_ROUTE119), MAP_NUM(MAP_ROUTE119)},
-    {NUM_SPECIES}
+    {SPECIES_FEEBAS, MAP_GROUP((MAP_ROUTE119)), MAP_NUM(MAP_ROUTE119)},
+#else
+    {SPECIES_FEEBAS, MAP_GROUP((MAP_TREES)), MAP_NUM(MAP_TREES)},
 #endif // !IS_HNS
+    {NUM_SPECIES}
 };
 
-static const u16 sHiddenPokemon[][(IS_HNS ? 0 : 3)] =
+// HnS input dummy map to support config build
+static const u16 sHiddenPokemon[][3] =
 {
 #if !IS_HNS
     {SPECIES_HOUNDOUR, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
@@ -640,8 +644,10 @@ static const u16 sHiddenPokemon[][(IS_HNS ? 0 : 3)] =
     {SPECIES_SPINARAK, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
     {SPECIES_SUNKERN,  MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
     {SPECIES_SNUBBULL, MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST), MAP_NUM(MAP_SAFARI_ZONE_NORTHWEST)},
-    {NUM_SPECIES}
+#else
+    {SPECIES_SNUBBULL, MAP_GROUP(MAP_TREES), MAP_NUM(MAP_TREES)}, 
 #endif // !IS_HNS
+    {NUM_SPECIES}
 };
 
 static const u16 sLandmarkData[][2] =
