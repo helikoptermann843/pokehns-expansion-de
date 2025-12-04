@@ -10,7 +10,7 @@
 # [PLEASE NOTE WHILE READING THIS DOCUMENTATION](FEATURES.md)
 **1:** This README and the rest of the documentation are very much **still work in progress**. They have been taken from the parent **`pokeemerald-expansion`** project and will gradually be updated over time. Please feel free to contribute to this effort.
 **2:** The **`pokehns-expansion`** project itself is also very much **still work in progress**. If this point is still in the documentation, the project will only be accepting pull requests for bug fixes, feature alignment to the original **`pokehns`** project, and the **`pokehns`** 2.0 release feature list, which may be found further down this page in the **`PULL REQUEST SCOPE`** section.
-**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.12.3`**. Efforts are already underway to update to version **`1.13.0`** and further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
+**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.13.0`**. Further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
 
 # [Features](FEATURES.md)
 
