@@ -382,6 +382,17 @@ $(NEEDS_GENERATED): generated
 endif
 endif
 
+# Automatically generate versioned JSON-derived outputs (groups/layouts headers, etc.)
+# for any invoked build target except clean-related ones, removing need to call
+# `make generated` explicitly. Skip for clean/tidy to avoid needless regeneration.
+ifneq ($(MAKECMDGOALS),)
+# Exclude clean-related goals plus generated + versioned-json to avoid circular deps.
+NEEDS_GENERATED := $(filter-out clean tidy clean-% generated versioned-json,$(MAKECMDGOALS))
+ifneq ($(NEEDS_GENERATED),)
+$(NEEDS_GENERATED): generated
+endif
+endif
+
 # NOTE: Tools must have been built prior (FIXME)
 # so you can't really call this rule directly
 generated: .versioned_json.stamp $(AUTO_GEN_TARGETS)

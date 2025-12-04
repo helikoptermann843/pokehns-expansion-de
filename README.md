@@ -7,6 +7,11 @@
 **`pokehns-expansion`** is a GBA ROM hack base that equips developers with a comprehensive toolkit for creating Pokémon ROM hacks. It provides a base with the Johto and Kanto regions.
 **`pokehns-expansion`** is built on top of [RHH's `pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion), which is itself built from [pret's `pokeemerald`](https://github.com/pret/pokeemerald) decompilation project, with features from [`pokemonHnS`](https://github.com/PokemonHnS-Development/pokemonHnS) integrated. **On its own it is a clone of pokemonHnS with the capability to add later-generation features.** 
 
+# [PLEASE NOTE WHILE READING THIS DOCUMENTATION](FEATURES.md)
+**1:** This README and the rest of the documentation are very much **still work in progress**. They have been taken from the parent **`pokeemerald-expansion`** project and will gradually be updated over time. Please feel free to contribute to this effort.
+**2:** The **`pokehns-expansion`** project itself is also very much **still work in progress**. If this point is still in the documentation, the project will only be accepting pull requests for bug fixes, feature alignment to the original **`pokehns`** project, and the **`pokehns`** 2.0 release feature list, which may be found further down this page in the **`PULL REQUEST SCOPE`** section.
+**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.12.3`**. Efforts are already underway to update to version **`1.13.0`** and further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
+
 # [Features](FEATURES.md)
 
 **`pokehns-expansion`** offers hundreds of features from various [core series Pokémon games](https://bulbapedia.bulbagarden.net/wiki/Core_series), along with popular quality-of-life enhancements designed to streamline development and improve the player experience. A full list of those featues can be found in [`FEATURES.md`](FEATURES.md).
@@ -45,6 +50,26 @@ For detailed documentation, visit the [pokehns-expansion documentation page](htt
 
 # [Contributions](CONTRIBUTING.md)
 If you are looking to [report a bug](CONTRIBUTING.md#Bug-Report), [open a pull request](CONTRIBUTING.md#Pull-Requests), or [request a feature](CONTRIBUTING.md#Feature-Request), our [`CONTRIBUTING.md`](CONTRIBUTING.md) has guides for each.
+
+# [`PULL REQUEST SCOPE`]
+All pull requests are to be made to the `development-bugfix` branch.
+At this time the **`pokehns-expansion`** will only accept pull requests for the following:
+1. Bug fixes. Current known bugs include but are not restricted to:
+- Battle music mapping correction
+- Battle background fixes
+- Battle Frontier restoration
+2. Feature alignment to the original **`pokehns`** project.
+3. Optimization and widening of the **`IS_HNS`** configuration implementation, introduced to decrease HnS ROM size.
+4. Restoration of the **`make emerald`** build capability, which as a long-term goal will build base **`pokeemerald-expansion`**.
+5. The **`pokehns`** 2.0 release feature list:
+- Full HGSS TM list, 100TMs
+- Later gen learnsets with HnS spice
+- Trainer rematches and phonecalls via pokegear
+- Radio in pokegear
+- GBC music player item
+- Hidden items
+- Restore bike and surf music
+- Revert Ice Path puzzle to the GSC/HGSS boulder-in-hole puzzle
 
 # [Community](https://discord.gg/w66hrmhGNq)
 

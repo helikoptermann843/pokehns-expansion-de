@@ -612,10 +612,10 @@ void CB2_InitTitleScreen(void)
         DecompressDataWithHeaderVram(sTitleScreenHnSGfx, (void *)(BG_CHAR_ADDR(2)));
         DecompressDataWithHeaderVram(sTitleScreenHnSTilemap, (void *)(BG_SCREEN_ADDR(26)));
 #else
-        //DecompressDataWithHeaderVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2))); - Emerald
-        //DecompressDataWithHeaderVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26))); - Emerald
         // bg1
         // HnS PORT - Apparently clouds were not wanted
+        // DecompressDataWithHeaderVram(sTitleScreenRayquazaGfx, (void *)(BG_CHAR_ADDR(2))); - Emerald
+        // DecompressDataWithHeaderVram(sTitleScreenRayquazaTilemap, (void *)(BG_SCREEN_ADDR(26))); - Emerald
         // DecompressDataWithHeaderVram(sTitleScreenCloudsGfx, (void *)(BG_CHAR_ADDR(3)));
         // DecompressDataWithHeaderVram(gTitleScreenCloudsTilemap, (void *)(BG_SCREEN_ADDR(27)));
 #endif // IS_HNS
