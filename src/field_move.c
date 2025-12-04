@@ -38,7 +38,12 @@ static bool32 IsFieldMoveUnlocked_Fly(void)
     return FlagGet(FLAG_BADGE06_GET);
 }
 
-static bool32 IsFieldMoveUnlocked_Dive(void)
+static bool32 UNUSED IsFieldMoveUnlocked_Dive(void)
+{
+    return FlagGet(FLAG_BADGE07_GET);
+}
+
+static bool32 IsFieldMoveUnlocked_Whirlpool(void)
 {
     return FlagGet(FLAG_BADGE07_GET);
 }
@@ -65,7 +70,7 @@ static bool32 IsFieldMoveUnlocked_Dig(void)
     return TRUE;
 }
 
-static bool32 IsFieldMoveUnlocked_SecretPower(void)
+static bool32 UNUSED IsFieldMoveUnlocked_SecretPower(void)
 {
     return TRUE;
 }
@@ -142,6 +147,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
+#if OW_DIVE_FIELD_MOVE == TRUE
     [FIELD_MOVE_DIVE] =
     {
         .fieldMoveFunc = SetUpFieldMove_Dive,
@@ -150,6 +156,17 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
+#endif
+#if OW_WHIRLPOOL_FIELD_MOVE == TRUE
+    [FIELD_MOVE_WHIRLPOOL] =
+    {
+        .fieldMoveFunc = SetUpFieldMove_Whirlpool,
+        .isUnlockedFunc = IsFieldMoveUnlocked_Whirlpool,
+        .moveID = MOVE_WHIRLPOOL,
+        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+    },
+
+#endif
     [FIELD_MOVE_WATERFALL] =
     {
         .fieldMoveFunc = SetUpFieldMove_Waterfall,
@@ -174,6 +191,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
+#if OW_SECRET_POWER_FIELD_MOVE == TRUE
     [FIELD_MOVE_SECRET_POWER] =
     {
         .fieldMoveFunc = SetUpFieldMove_SecretPower,
@@ -182,6 +200,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
+#endif
     [FIELD_MOVE_MILK_DRINK] =
     {
         .fieldMoveFunc = SetUpFieldMove_SoftBoiled,

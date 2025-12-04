@@ -1,4 +1,4 @@
-voice_group rg_vermillion
+voice_group rg_vermilion
 	voice_keysplit_all voicegroup_frlg_drumset
 	voice_keysplit voicegroup_piano_keysplit, keysplit_piano
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0

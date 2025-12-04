@@ -58,8 +58,10 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *, u8, u8);
 static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *, u8, u8);
 static const u8 *GetInteractedMetatileScript(struct MapPosition *, u8, u8);
 static const u8 *GetInteractedWaterScript(struct MapPosition *, u8, u8);
+#if OW_DIVE_FIELD_MOVE == TRUE
 static bool32 TrySetupDiveDownScript(void);
 static bool32 TrySetupDiveEmergeScript(void);
+#endif
 static bool8 TryStartStepBasedScript(struct MapPosition *, u16, u16);
 static bool8 CheckStandardWildEncounter(u16);
 static bool8 TryArrowWarp(struct MapPosition *, u16, u8);
@@ -179,8 +181,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
 
+#if OW_DIVE_FIELD_MOVE == TRUE
     if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
+#endif
     if (input->tookStep)
     {
         IncrementGameStat(GAME_STAT_STEPS);
@@ -221,8 +225,10 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         if (TryDoorWarp(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
+#if OW_DIVE_FIELD_MOVE == TRUE
     if (input->pressedAButton && TrySetupDiveDownScript() == TRUE)
         return TRUE;
+#endif
     if (input->pressedStartButton)
     {
         PlaySE(SE_WIN_OPEN);
@@ -614,6 +620,7 @@ static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metati
     return NULL;
 }
 
+#if OW_DIVE_FIELD_MOVE == TRUE
 static bool32 TrySetupDiveDownScript(void)
 {
     if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE))
@@ -639,6 +646,7 @@ static bool32 TrySetupDiveEmergeScript(void)
     }
     return FALSE;
 }
+#endif
 
 static bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileBehavior, u16 direction)
 {
