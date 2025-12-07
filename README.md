@@ -7,10 +7,10 @@
 **`pokehns-expansion`** is a GBA ROM hack base that equips developers with a comprehensive toolkit for creating Pokémon ROM hacks. It provides a base with the Johto and Kanto regions.
 **`pokehns-expansion`** is built on top of [RHH's `pokeemerald-expansion`](https://github.com/rh-hideout/pokeemerald-expansion), which is itself built from [pret's `pokeemerald`](https://github.com/pret/pokeemerald) decompilation project, with features from [`pokemonHnS`](https://github.com/PokemonHnS-Development/pokemonHnS) integrated. **On its own it is a clone of pokemonHnS with the capability to add later-generation features.** 
 
-# [PLEASE NOTE WHILE READING THIS DOCUMENTATION](FEATURES.md)
+# PLEASE NOTE WHILE READING THIS DOCUMENTATION
 **1:** This README and the rest of the documentation are very much **still work in progress**. They have been taken from the parent **`pokeemerald-expansion`** project and will gradually be updated over time. Please feel free to contribute to this effort.
 **2:** The **`pokehns-expansion`** project itself is also very much **still work in progress**. If this point is still in the documentation, the project will only be accepting pull requests for bug fixes, feature alignment to the original **`pokehns`** project, and the **`pokehns`** 2.0 release feature list, which may be found further down this page in the **`PULL REQUEST SCOPE`** section.
-**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.13.2`**. Further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
+**3:** **`pokehns-expansion`** is currently up to date with **`pokeemerald-expansion`** version **`1.13.3`**. Further incremental updates will be made until the project is aligned with the latest **`pokeemerald-expansion`** **`master`** branch.
 
 # [Features](FEATURES.md)
 
@@ -23,7 +23,7 @@
 If you use **`pokehns-expansion`**, please credit **RHH (Rom Hacking Hideout)** and **pokemonHnS**. Optionally, include the version number for clarity.
 
 ```
-Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.13.2 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
+Based off pokehns-expansion https://github.com/TixoRebel/pokehns-expansion, using RHH's pokeemerald-expansion 1.13.3 https://github.com/rh-hideout/pokeemerald-expansion/ and pokemonHnS https://github.com/PokemonHnS-Development/pokemonHnS.
 ```
 
 Please consider [crediting all contributors](CREDITS.md) involved in the upstream pokeemerald-expansion project!

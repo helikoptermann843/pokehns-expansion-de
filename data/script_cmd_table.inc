@@ -264,6 +264,7 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_BAOBACHECKMON					ScrCmd_baobacheckmon				requests_effects=1	@ 0xef
 	script_cmd_table_entry SCR_OP_GIVEODDEGG					ScrCmd_giveoddegg					requests_effects=1	@ 0xf0
 	script_cmd_table_entry SCR_OP_GIVEBP						ScrCmd_givebp						requests_effects=1  @ 0xf1
+	script_cmd_table_entry SCR_OP_HIDEFOLLOWER                  ScrCmd_hidefollower,                requests_effects=1  @ 0xf2
 
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
