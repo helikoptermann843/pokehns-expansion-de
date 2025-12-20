@@ -71,7 +71,8 @@ NewBarkTown_PlayersHouse_2F_EventScript_NES::
 	end
 
 NewBarkTown_PlayersHouse_2F_Text_NES:
-	.string "Ein schöner NES$"
+	.string "Eine NES-Spielkonsole,\n"
+	.string "dafür habe ich jetzt keine Zeit$"
 
 NewBarkTown_PlayersHouse_2F_Text_ClockIsStopped:
 	.string "Die Uhr ist stehengeblieben…\p"
