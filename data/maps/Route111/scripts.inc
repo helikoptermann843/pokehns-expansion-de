@@ -75,10 +75,10 @@ Route111_EventScript_EndCheckSetSandstorm::
 	return
 
 Route111_EventScript_SetWinstratesNotDefeated::
-	clearflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE
+	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
+	setflag FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE
+	setflag FLAG_HIDE_ROUTE_111_VICKY_WINSTRATE
 	cleartrainerflag TRAINER_VICTOR
 	cleartrainerflag TRAINER_VICTORIA
 	cleartrainerflag TRAINER_VIVI
@@ -123,7 +123,7 @@ Route111_EventScript_MirageTowerDisappear::
 	special StartMirageTowerFossilFallAndSink
 	waitstate
 	setvar VAR_MIRAGE_TOWER_STATE, 2
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_DESERT_UNDERPASS_FOSSIL
 	goto_if_set FLAG_CHOSE_CLAW_FOSSIL, Route111_EventScript_RootFossilDisappeared
 	msgbox Route111_Text_ClawFossilDisappeared, MSGBOX_DEFAULT
 	releaseall
@@ -429,7 +429,7 @@ Route111_EventScript_RockSmashTipFatMan::
 	end
 
 Route111_EventScript_Drew::
-	trainerbattle_single TRAINER_KOJI, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
+	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -439,17 +439,17 @@ Route111_EventScript_Heidi::
 	end
 
 Route111_EventScript_Beau::
-	trainerbattle_single TRAINER_DANIEL, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
+	trainerbattle_single TRAINER_BEAU, Route111_Text_BeauIntro, Route111_Text_BeauDefeat
 	msgbox Route111_Text_BeauPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Becky::
-	trainerbattle_single TRAINER_DARIN, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
+	trainerbattle_single TRAINER_BECKY, Route111_Text_BeckyIntro, Route111_Text_BeckyDefeat
 	msgbox Route111_Text_BeckyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Dusty::
-	trainerbattle_single TRAINER_KRISE, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
+	trainerbattle_single TRAINER_DUSTY_1, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchDusty
 	msgbox Route111_Text_DustyPostBattle, MSGBOX_DEFAULT
@@ -460,12 +460,12 @@ Route111_EventScript_RegisterDusty::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_DustyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KRISE
+	register_matchcall TRAINER_DUSTY_1
 	release
 	end
 
 Route111_EventScript_RematchDusty::
-	trainerbattle_rematch TRAINER_KRISE, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
+	trainerbattle_rematch TRAINER_DUSTY_1, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
 	msgbox Route111_Text_DustyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -480,7 +480,7 @@ Route111_EventScript_Irene::
 	end
 
 Route111_EventScript_Daisuke::
-	trainerbattle_single TRAINER_JED, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
+	trainerbattle_single TRAINER_DAISUKE, Route111_Text_DaisukeIntro, Route111_Text_DaisukeDefeat
 	msgbox Route111_Text_DaisukePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -506,7 +506,7 @@ Route111_EventScript_RematchWilton::
 	end
 
 Route111_EventScript_Brooke::
-	trainerbattle_single TRAINER_EMMA, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
+	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchBrooke
 	msgbox Route111_Text_BrookePostBattle, MSGBOX_DEFAULT
@@ -517,17 +517,17 @@ Route111_EventScript_RegisterBrooke::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_BrookeRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_EMMA
+	register_matchcall TRAINER_BROOKE_1
 	release
 	end
 
 Route111_EventScript_RematchBrooke::
-	trainerbattle_rematch TRAINER_EMMA, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
+	trainerbattle_rematch TRAINER_BROOKE_1, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
 	msgbox Route111_Text_BrookePostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Hayden::
-	trainerbattle_single TRAINER_PRYCE_1_3, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
+	trainerbattle_single TRAINER_HAYDEN, Route111_Text_HaydenIntro, Route111_Text_HaydenDefeat
 	msgbox Route111_Text_HaydenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -542,12 +542,12 @@ Route111_EventScript_Tyron::
 	end
 
 Route111_EventScript_Celina::
-	trainerbattle_single TRAINER_GRUNT_10, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
+	trainerbattle_single TRAINER_CELINA, Route111_Text_CelinaIntro, Route111_Text_CelinaDefeat
 	msgbox Route111_Text_CelinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Celia::
-	trainerbattle_single TRAINER_GRUNT_9, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
+	trainerbattle_single TRAINER_CELIA, Route111_Text_CeliaIntro, Route111_Text_CeliaDefeat
 	msgbox Route111_Text_CeliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -566,86 +566,92 @@ Route111_EventScript_TrainerHillSign::
 	end
 
 Route111_Text_BattleOurFamily:
-	.string "Hello! I take it you're a traveler.\p"
-	.string "How's this? What do you say to taking\n"
-	.string "on our family of four in a series of\l"
-	.string "POKéMON battles?$"
+	.string "Hallo! Ich hab’s, du bist ein\n"
+	.string "Reisender. \p"
+	.string "Was hältst du davon? Du trittst mit\n"
+	.string "deinen POKéMON gegen alle vier\l"
+	.string "Familienmitglieder hintereinander an?$"
 
 Route111_Text_IsThatSo:
-	.string "Is that so?\n"
-	.string "Drop in, if you change your mind!$"
+	.string "Ach, wirklich? Nun, wenn du deine\n"
+	.string "Meinung änderst, komm einfach wieder.$"
 
 Route111_Text_VictorIntro:
-	.string "That's the spirit! I like you!$"
+	.string "Das nenne ich Kampfgeist! Ich mag\n"
+	.string "dich!$"
 
 Route111_Text_VictorDefeat:
 	.string "Aiyah!\n"
-	.string "You're a lot tougher than I expected!$"
+	.string "Du bist stärker, als ich dachte.$"
 
 Route111_Text_VictorPostBattle:
-	.string "Hey, all!\n"
-	.string "I've found a pretty strong TRAINER!$"
+	.string "Hey, ihr! Ich habe einen starken\n"
+	.string "TRAINER gefunden!$"
 
 Route111_Text_VictoriaIntro:
-	.string "Oh, my goodness! Aren't you young?\p"
-	.string "You must be quite the TRAINER to beat\n"
-	.string "my husband, though.\p"
-	.string "It's my turn to battle now!$"
+	.string "Oh, du meine Güte! Bist du jung!\p"
+	.string "Du musst ein sehr guter TRAINER sein,\n"
+	.string "wenn du meinen Mann besiegen konntest.\n"
+	.string "\p"
+	.string "Nun bin ich an der Reihe.$"
 
 Route111_Text_VictoriaDefeat:
-	.string "Oh, gosh!\n"
-	.string "I can't get over how strong you are!$"
+	.string "Ach, nein! Ich komme nicht darüber\n"
+	.string "hinweg, wie stark du bist!$"
 
 Route111_Text_VictoriaPostBattle:
-	.string "There's a strong TRAINER here!\n"
-	.string "This one's really strong!$"
+	.string "Hier draußen ist ein starker TRAINER!\n"
+	.string "Ein wirklich starker, sage ich euch!$"
 
 Route111_Text_ViviIntro:
-	.string "You're stronger than Mommy? Wow!\p"
-	.string "But I'm strong, too!\n"
-	.string "Really! Honestly!$"
+	.string "Du bist stärker als Mami? Wow!\p"
+	.string "Aber ich bin auch stark!\n"
+	.string "Wirklich! Ganz ehrlich!$"
 
 Route111_Text_ViviDefeat:
-	.string "Huh? Did I just lose?$"
+	.string "Was? Habe ich verloren?$"
 
 Route111_Text_ViviPostBattle:
-	.string "This stinks…\p"
-	.string "…Snivel… Grandma!$"
+	.string "Das ist gemein…\p"
+	.string "… Schluchz… Heul… Omaaaaa… Schluchz…$"
 
 Route111_Text_VickyIntro:
-	.string "How dare you make my granddaughter\n"
-	.string "cry!\p"
-	.string "For that, I'm going to smack you!\n"
-	.string "Prepare to lose!$"
+	.string "Wie konntest du nur meine Enkelin zum\n"
+	.string "Weinen bringen? Schäm dich!\p"
+	.string "Dafür werde ich dich in Grund und\n"
+	.string "Boden\l"
+	.string "stampfen. Mach dich auf was gefasst!$"
 
 Route111_Text_VickyDefeat:
-	.string "Kwah! You are strong…\n"
-	.string "My granddaughter was right…$"
+	.string "Uaah! Du bist stark…\n"
+	.string "Meine Enkelin hatte Recht…$"
 
 Route111_Text_VickyPostBattle:
-	.string "If you're not in any hurry,\n"
-	.string "visit with us awhile.$"
+	.string "Wenn du es nicht allzu eilig hast,\n"
+	.string "besuche uns doch mal wieder!$"
 
 Route111_Text_ToughToKeepWinningUpTheRanks:
-	.string "If you don't raise your POKéMON some\n"
-	.string "more, it could be tough to keep winning\l"
-	.string "up through the ranks.\p"
-	.string "I've heard the POKéMON LEAGUE's\n"
-	.string "ELITE FOUR are far stronger than\l"
-	.string "any GYM LEADER.$"
+	.string "Wenn du deine POKéMON nicht ein\n"
+	.string "bisschen besser trainierst, wird es\l"
+	.string "schwer, sich hier durchzukämpfen.\p"
+	.string "Ich habe gehört, dass die TOP VIER der\n"
+	.string "POKéMON LIGA um einiges schwerer zu\l"
+	.string "besiegen sind als die ARENALEITER.$"
 
 Route111_Text_WinstrateFamilyDestroyedMe:
-	.string "I challenged the WINSTRATE family,\n"
-	.string "but four matches in a row is tough\l"
-	.string "going… They destroyed me.$"
+	.string "Ich habe die Familie SIHGERS heraus-\n"
+	.string "gefordert und viermal hintereinander\l"
+	.string "gekämpft… Hinterher war ich kaputt…$"
 
 Route111_Text_RouteSignMauville:
 	.string "ROUTE 111\n"
-	.string "{DOWN_ARROW} MAUVILLE CITY$"
+	.string "{DOWN_ARROW} MALVENFROH CITY$"
 
 Route111_Text_WinstrateHouseSign:
-	.string "“Our family's hearts beat as one!”\n"
-	.string "THE WINSTRATE'S HOUSE$"
+	.string "DAS HAUS DER SIHGERS\n"
+	.string "“Die Herzen unserer Familie schlagen\n"
+	.string "im\l"
+	.string "Einklang!”$"
 
 Route111_Text_RouteSign112:
 	.string "ROUTE 111\n"
@@ -656,66 +662,69 @@ Route111_Text_RouteSign113:
 	.string "{LEFT_ARROW} ROUTE 113$"
 
 Route111_Text_OldLadysRestStopSign:
-	.string "OLD LADY'S REST STOP\n"
-	.string "“Come in and rest your tired bones.”$"
+	.string "HOTEL DER ALTEN DAME\n"
+	.string "“Komm, ruh deine müden Knochen aus.”$"
 
 Route111_Text_TrainerTipsSpAtkSpDef:
-	.string "TRAINER TIPS\p"
-	.string "One of the indicators of a POKéMON's\n"
-	.string "powerfulness is SP. ATK. It stands for\l"
-	.string "“SPECIAL ATTACK.”\p"
-	.string "Likewise, SP. DEF stands for “SPECIAL\n"
-	.string "DEFENSE.”$"
+	.string "TIPPS für TRAINER\p"
+	.string "Ein Indikator für die Stärke eines\n"
+	.string "POKéMON ist der SP. ANG. Das steht\l"
+	.string "für “SPEZIAL ANGRIFF”.\p"
+	.string "SP. VER. steht für “SPEZIAL\n"
+	.string "VERTEIDIGUNG”.$"
 
 Route111_Text_ShouldBeMirageTowerAroundHere:
-	.string "There should be a tower made of sand\n"
-	.string "around here somewhere.\p"
-	.string "But for some reason, it can be seen\n"
-	.string "sometimes, and sometimes not.\p"
-	.string "That's why I call it the MIRAGE TOWER.$"
+	.string "Hier in der Nähe sollte eigentlich ein\n"
+	.string "Turm sein, der ganz aus Sand besteht.\n"
+	.string "\p"
+	.string "Aber aus irgendeinem Grund ist er\n"
+	.string "nur manchmal sichtbar.\p"
+	.string "Deshalb nenne ich ihn WUNDERTURM.$"
 
 Route111_Text_MirageTowerClearlyVisible:
-	.string "I see it!\n"
-	.string "The tower of sand!\p"
-	.string "The sand tower they called a mirage\n"
-	.string "is clearly visible!\p"
-	.string "But it looks so fragile…\n"
-	.string "It could crumble away anytime…\p"
-	.string "I want to go inside it, but I can't\n"
-	.string "get my courage up for it…$"
+	.string "Ich sehe ihn!\n"
+	.string "Den Turm aus Sand!\p"
+	.string "Der Sandturm, den sie ein Wunder\n"
+	.string "nennen, zeigt sich!\p"
+	.string "Aber er sieht sehr brüchig aus…\n"
+	.string "Er kann jeden Moment zusammenbrechen…\n"
+	.string "\p"
+	.string "Ich würde gerne mal hineingehen, aber\n"
+	.string "so mutig bin ich dann doch nicht…$"
 
 Route111_Text_ThatWasShockingSandRainedDown:
 	.string "Whoa…\n"
-	.string "That was shocking.\p"
-	.string "Sand rained down in chunks all of\n"
-	.string "a sudden.\p"
-	.string "What was it like inside?\n"
-	.string "Were there sandy ghosts and such?$"
+	.string "Das war vielleicht ein Schreck!\p"
+	.string "Plötzlich war überall Sand.\p"
+	.string "Und wie war es da drin?\n"
+	.string "Gibt es da Sandgeister und so?$"
 
 Route111_Text_MirageTowerHasntBeenSeenSince:
-	.string "Since I spoke to you, the tower of sand\n"
-	.string "hasn't been seen.\p"
-	.string "Perhaps it really was\n"
-	.string "the MIRAGE TOWER…$"
+	.string "Seit ich das letzte Mal mit dir\n"
+	.string "gesprochen habe, ist der Turm noch\l"
+	.string "nicht wieder sichtbar gewesen.\p"
+	.string "Vielleicht war es wirklich der\n"
+	.string "WUNDERTURM…$"
 
 Route111_Text_ClawFossilDisappeared:
-	.string "The CLAW FOSSIL disappeared into\n"
-	.string "the sand…$"
+	.string "Das KLAUENFOSSIL ist im Sand\n"
+	.string "versunken…$"
 
 Route111_Text_RootFossilDisappeared:
-	.string "The ROOT FOSSIL disappeared into\n"
-	.string "the sand…$"
+	.string "Das WURZELFOSSIL ist im Sand\n"
+	.string "versunken…$"
 
 Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
-	.string "Oh, no!\p"
-	.string "My uncle in MAUVILLE told me to take\n"
-	.string "ROCK SMASH with me if I was going to\l"
-	.string "ROUTE 111!\p"
-	.string "My uncle? He lives across from\n"
-	.string "the bike shop in MAUVILLE.$"
+	.string "Oh, nein!\p"
+	.string "Und mein Onkel in MALVENFROH CITY hat\n"
+	.string "mir extra noch gesagt, ich soll\l"
+	.string "ZERTRÜMMERER mitnehmen, wenn ich\p"
+	.string "zur ROUTE 111 gehe.\n"
+	.string "Mein Onkel? Der lebt gegenüber vom\l"
+	.string "Fahrradladen in MALVENFROH.$"
 
 Route111_Text_TrainerHillSign:
-	.string "{RIGHT_ARROW} TRAINER HILL ENTRANCE\p"
-	.string "“Scale the heights, you hot-blooded\n"
-	.string "TRAINERS!”$"
+	.string "{RIGHT_ARROW} EINGANG TRAINERBERG\p"
+	.string "“Erklimm den Gipfel, heißblütiger\n"
+	.string "TRAINER!”$"
 

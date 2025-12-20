@@ -149,79 +149,79 @@ Route25_BillsHouse_Test::
 	end
 
 Route25_BillsHouse_Text_GrandpaIntro:
-	.string "Hm? You know BILL? He's my\n"
-	.string "grandson.\p"
-	.string "He's in JOHTO. He does\n"
-	.string "something with PCs, so I'm\l"
-	.string "housesitting.$"
+	.string "Hm? Du kennst Bill?\n"
+	.string "Er ist mein Enkel.\p"
+	.string "Er ist in JOHTO.\n"
+	.string "Er arbeitet mit PCs,\l"
+	.string "also passe ich aufs Haus auf.$"
 
 Route25_BillsHouse_Text_Spinda:
-	.string "My grandson BILL told me about\n"
-	.string "a POKéMON that is covered in\l"
-	.string "a random pattern.$"
+	.string "Mein Enkel Bill erzählte mir\n"
+	.string "von einem Pokémon mit einem\l"
+	.string "zufälligen Muster.$"
 
 Route25_BillsHouse_Text_Roselia:
-	.string "Ah, my grandson mentioned a\n"
-	.string "green POKéMON that has flowers\l"
-	.string "growing from its wrists.$"
+	.string "Ah, mein Enkel erwähnte ein\n"
+	.string "grünes Pokémon, aus dessen\l"
+	.string "Handgelenken Blumen wachsen.$"
 
 Route25_BillsHouse_Text_Lotad:
-	.string "Do you know of a water POKéMON\n"
-	.string "that has a big lily pad on\l"
-	.string "its head?"
-	.string "I heard there are some at the\n"
-	.string "FUCHSIA SAFARI ZONE.\p"
-	.string "I would surely like to see it.$"
+	.string "Kennst du ein Wasser-Pokémon\n"
+	.string "mit einem großen Seerosenblatt\l"
+	.string "auf dem Kopf?\p"
+	.string "Man sagt, es gibt welche in der\n"
+	.string "SAFARI-ZONE von FUCHSANIA.\p"
+	.string "Ich würde es gern einmal sehen.$"
 
 Route25_BillsHouse_Text_Growlithe:
-	.string "BILL told me about a POKéMON\n"
-	.string "that is\l"
-	.string "very loyal to its trainer.\p"
-	.string "It's supposed to ROAR well.$"
+	.string "Bill erzählte mir von einem\n"
+	.string "Pokémon, das seinem Trainer\l"
+	.string "sehr treu ist.\p"
+	.string "Es soll gut bellen können.$"
 
 Route25_BillsHouse_Text_Pichu:
-	.string "Do you know that hugely popular\n"
-	.string "POKéMON?\p"
-	.string "The POKéMON that has a yellow\n"
-	.string "body and red cheeks.\p"
-	.string "I would love to see what it\n"
-	.string "looks like before it evolves$"
+	.string "Kennst du dieses sehr beliebte\n"
+	.string "Pokémon?\p"
+	.string "Das Pokémon mit gelbem Körper\n"
+	.string "und roten Backen.\p"
+	.string "Ich würde es gern sehen,\n"
+	.string "bevor es sich entwickelt.$"
 
 Route25_BillsHouse_Text_AskToSeeMon:
-	.string "If you have that POKéMON, may I\n"
-	.string "see it, please?$"
+	.string "Wenn du dieses Pokémon hast,\n"
+	.string "darf ich es bitte sehen?$"
 
 Route25_BillsHouse_Text_ExcitedToSee:
-	.string "You will show me? How good of\n"
-	.string "you!$"
+	.string "Du zeigst es mir?\n"
+	.string "Wie freundlich von dir!$"
 
 Route25_BillsHouse_Text_YouDontHaveIt:
-	.string "You don't have it?\n"
-	.string "That's too bad…$"
+	.string "Du hast es nicht?\n"
+	.string "Das ist aber schade…$"
 
 Route25_BillsHouse_Text_ShownPokemon:
-	.string "Ah, so that is {STR_VAR_1}?\p"
-	.string "Isn't it cute! That's so kind\n"
-	.string "of you.$"
+	.string "Ah, das ist also {STR_VAR_1}?\p"
+	.string "Ist das nicht niedlich?\n"
+	.string "Vielen Dank dafür.$"
 
 Route25_BillsHouse_Text_Appreciation:
-	.string "Thanks!\p"
-	.string "This is a token of my\n"
-	.string "appreciation.$"
+	.string "Danke!\p"
+	.string "Bitte nimm dies als Zeichen\n"
+	.string "meiner Dankbarkeit.$"
 
 Route25_BillsHouse_Text_ComeAgain:
-	.string "Come visit again sometime.$"
+	.string "Komm mich doch mal wieder\n"
+	.string "besuchen.$"
 
 Route25_BillsHouse_Text_ShownAll:
-	.string "Thanks for showing me so many\n"
-	.string "cute POKéMON.\p"
-	.string "I really enjoyed myself. I'm\n"
-	.string "glad\l"
-	.string "I've lived such a long life.$"
+	.string "Danke, dass du mir so viele\n"
+	.string "niedliche Pokémon gezeigt hast.\p"
+	.string "Ich hatte viel Freude daran.\n"
+	.string "Ich bin froh,\l"
+	.string "so lange gelebt zu haben.$"
 
 Route25_BillsHouse_Text_WrongPokemon:
 	.string "Hm?\p"
-	.string "That's not the POKéMON that I\n"
-	.string "was told about.$"
-
+	.string "Das ist nicht das Pokémon,\n"
+	.string "von dem man mir erzählt hat.$"
 

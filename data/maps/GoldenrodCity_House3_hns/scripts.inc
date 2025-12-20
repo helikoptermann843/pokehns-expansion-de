@@ -18,14 +18,16 @@ GoldenrodCity_House3_EventScript_Twin::
 	end
 
 GoldenrodHappinessRater_Text_PokefanM:
-    .string "I keep losing in battles, and my\n"
-    .string "POKéMON end up fainting…\p"
-    .string "Maybe that's why my POKéMON don't\n"
-    .string "like me much…$"
+	.string "Ständig verliere ich in Kämpfen und\p"
+	.string "meine Pokémon werden immer besiegt…\p"
+	.string "Das mag der Grund\n"
+	.string "sein, warum mich meine Pokémon nicht\l"
+	.string "mögen…$"
 
 GoldenrodHappinessRater_Text_Twin:
-    .string "When I use an item on my POKéMON,\n"
-    .string "it acts really glad!$"
+	.string "Wenn ich meinem\n"
+	.string "Pokémon ein Item gebe, dann freut es\l"
+	.string "sich!$"
 
 GoldenrodHappinessRater_EventScript_FriendshipRater::
 	lock
@@ -89,42 +91,49 @@ GoldenrodHappinessRater_EventScript_Pikachu::
 	end
 
 GoldenrodHappinessRater_Text_SeeHowMuchPokemonLikesYou:
-	.string "Let me see your POKéMON.\n"
-	.string "I'll check to see how much it likes you.\p"
-	.string "Oh.\n"
-	.string "Your POKéMON…$"
+	.string "Lass mich dein Pokémon anschauen.\n"
+	.string "Ich prüfe wie sehr es dich mag\p"
+	.string "Oh. Dein Pokémon…$"
 
 GoldenrodHappinessRater_Text_AdoresYou:
-	.string "It adores you.\n"
-	.string "It can't possibly love you any more.\l"
-	.string "I even feel happy seeing it.$"
+	.string "Behandelst du deine Pokémon gut,\p"
+	.string "werden sie dich regelrecht lieben.\p"
+	.string "Oh! Lass mich dein\n"
+	.string "Pokémon sehen…$"
 
 GoldenrodHappinessRater_Text_VeryHappy:
-	.string "It seems to be very happy.\n"
-	.string "It obviously likes you a whole lot.$"
+	.string "Behandelst du deine Pokémon gut,\p"
+	.string "werden sie dich regelrecht lieben.\p"
+	.string "Oh! Lass mich dein\n"
+	.string "Pokémon sehen…$"
 
 GoldenrodHappinessRater_Text_LikesYouQuiteALot:
-	.string "It likes you quite a lot.\n"
-	.string "It seems to want to be babied a little.$"
+	.string "Es sieht sehr\n"
+	.string "glücklich aus! Es muss dich sehr gern\l"
+	.string "haben.$"
 
 GoldenrodHappinessRater_Text_GettingUsedToYou:
-	.string "It's getting used to you.\n"
-	.string "It seems to believe in you.$"
+	.string "Du solltest es\n"
+	.string "besser behandeln. Es hat sich noch\l"
+	.string "nicht an dich gewöhnt.$"
 
 GoldenrodHappinessRater_Text_NotUsedToYou:
-	.string "It's not very used to you yet.\n"
-	.string "It neither loves nor hates you.$"
+	.string "Du solltest es\n"
+	.string "besser behandeln. Es hat sich noch\l"
+	.string "nicht an dich gewöhnt.$"
 
 GoldenrodHappinessRater_Text_VeryWary:
-	.string "It's very wary.\n"
-	.string "It has scary viciousness in its eyes.\l"
-	.string "It doesn't like you much at all.$"
+	.string "Wenn ich meinem\n"
+	.string "Pokémon ein Item gebe, dann freut es\l"
+	.string "sich!$"
 
 GoldenrodHappinessRater_Text_DetestsYou:
-	.string "This is a little hard for me to say…\p"
-	.string "Your POKéMON simply detests you.\n"
-	.string "Doesn't that make you uncomfortable?$"
+	.string "Ich habe den Ein-\n"
+	.string "druck, dass es dir wirklich vertraut.$"
 
 GoldenrodHappinessRater_Text_Pikachu:
-	.string "PIKACHU: Pika pika!$"
+	.string "Behandelst du deine Pokémon gut,\p"
+	.string "werden sie dich regelrecht lieben.\p"
+	.string "Oh! Lass mich dein\n"
+	.string "Pokémon sehen…$"
 

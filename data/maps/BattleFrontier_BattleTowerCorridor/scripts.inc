@@ -5,15 +5,13 @@ BattleFrontier_BattleTowerCorridor_MapScripts::
 
 BattleFrontier_BattleTowerCorridor_OnLoad:
 	goto_if_eq VAR_0x8006, 1, BattleFrontier_BattleTowerCorridor_EventScript_OpenFarDoor
-	opendoor 12, 1
-	@ setmetatile 12, 0, METATILE_BattleFrontier_CorridorOpenDoor_Top, FALSE
-	@ setmetatile 12, 1, METATILE_BattleFrontier_CorridorOpenDoor_Bottom, FALSE
+	setmetatile 12, 0, METATILE_BattleFrontier_CorridorOpenDoor_Top, FALSE
+	setmetatile 12, 1, METATILE_BattleFrontier_CorridorOpenDoor_Bottom, FALSE
 	end
 
 BattleFrontier_BattleTowerCorridor_EventScript_OpenFarDoor::
-	opendoor 15, 1
-	@ setmetatile 15, 0, METATILE_BattleFrontier_CorridorOpenDoor_Top, FALSE
-	@ setmetatile 15, 1, METATILE_BattleFrontier_CorridorOpenDoor_Bottom, FALSE
+	setmetatile 15, 0, METATILE_BattleFrontier_CorridorOpenDoor_Top, FALSE
+	setmetatile 15, 1, METATILE_BattleFrontier_CorridorOpenDoor_Bottom, FALSE
 	end
 
 BattleFrontier_BattleTowerCorridor_OnFrame:
@@ -53,3 +51,4 @@ BattleFrontier_BattleTowerCorridor_Movement_AttendantWalkToDoor:
 	walk_up
 	set_invisible
 	step_end
+

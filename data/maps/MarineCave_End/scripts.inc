@@ -18,7 +18,7 @@ MarineCave_End_OnTransition:
 	end
 
 MarineCave_End_EventScript_ShowKyogre::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MARINE_CAVE_KYOGRE
 	setvar VAR_TEMP_1, 1
 	return
 
@@ -27,11 +27,6 @@ MarineCave_End_EventScript_Kyogre::
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	applymovement LOCALID_MARINE_CAVE_KYOGRE, MarineCave_End_Movement_KyogreApproach
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 52  @ num shakes
-	setvar VAR_0x8007, 5  @ shake delay
-	special ShakeCamera
 	waitmovement 0
 	waitse
 	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
@@ -65,8 +60,8 @@ MarineCave_End_EventScript_RanFromKyogre::
 	end
 
 MarineCave_End_Movement_KyogreApproach:
-	@init_affine_anim
-	walk_down_affine
+	init_affine_anim
+	walk_down_start_affine
 	delay_16
 	delay_16
 	walk_down_affine

@@ -1,279 +1,5 @@
-.set LOCALID_CELEBI, 17
-.set LOCALID_OLD_MAN, 15
-.set LOCALID_DUSCLOPS, 16
-
 PetalburgWoods_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PetalburgWoods_OnTransition
 	.byte 0
-
-PetalburgWoods_OnTransition::
-	goto_if_unset FLAG_EXTRA_LEGENDARIES, PetalburgWoods_SwitchToOld
-	call_if_unset FLAG_SYS_GAME_CLEAR, PetalburgWoods_NoCelebiEvent
-	call_if_set FLAG_SYS_GAME_CLEAR, PetalburgWoods_YesCelebiEvent
-	end
-
-PetalburgWoods_SwitchToOld::
-	setmaplayoutindex LAYOUT_PETALBURG_WOODS_OLD
-	setflag FLAG_OLD_MAN_AND_DUSCLOPS
-	removeobject LOCALID_OLD_MAN
-	removeobject LOCALID_DUSCLOPS
-	return
-	end
-
-PetalburgWoods_NoCelebiEvent::
-	checkflag FLAG_GARBAGEFLAG
-	call_if_unset FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEvent_End
-	end
-
-PetalburgWoods_YesCelebiEvent::
-	checkflag FLAG_DEFEATEDCELEBI
-	call_if_set FLAG_DEFEATEDCELEBI, PetalburgWoods_CelebiEvent_End
-	call_if_unset FLAG_DEFEATEDCELEBI, PetalburgWoods_YesCelebiEvent2
-	end
-
-PetalburgWoods_YesCelebiEvent2::
-	setflag FLAG_GARBAGEFLAG
-	end
-
-PetalburgWoods_CelebiEvent::
-	lock
-	playse SE_SUDOWOODO_SHAKE
-	waitse
-	msgbox Text_PetalburgWoods_Celebi0, MSGBOX_SIGN
-	closemessage
-	checkflag FLAG_GARBAGEFLAG
-	call_if_unset FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEvent_End
-	call_if_set FLAG_GARBAGEFLAG, PetalburgWoods_CelebiEventGo
-	end
-
-PetalburgWoods_CelebiEventGo::
-	applymovement LOCALID_PLAYER, Movement_PetalburgWoods_Celebi1
-	waitmovement 0
-	msgbox Text_PetalburgWoods_Celebi1, MSGBOX_SIGN
-	special ChoosePartyMon
-	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	goto_if_eq VAR_RESULT, SPECIES_RAIKOU, PetalburgWoods_CelebiEvent_Continue1
-	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
-	end
-
-PetalburgWoods_CelebiEvent_Continue1::
-	msgbox Text_PetalburgWoods_Celebi2, MSGBOX_SIGN
-	special ChoosePartyMon
-	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	goto_if_eq VAR_RESULT, SPECIES_ENTEI, PetalburgWoods_CelebiEvent_Continue2
-	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
-	end
-
-PetalburgWoods_CelebiEvent_Continue2::
-	msgbox Text_PetalburgWoods_Celebi3, MSGBOX_SIGN
-	special ChoosePartyMon
-	waitstate
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_CelebiEvent_End
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-	goto_if_eq VAR_RESULT, SPECIES_SUICUNE, PetalburgWoods_CelebiBattle
-	msgbox Text_PetalburgWoods_Celebi_Donthave, MSGBOX_SIGN
-	end
-
-PetalburgWoods_CelebiEvent_End::
-	releaseall
-	end
-
-PetalburgWoods_CelebiBattle::
-	faceplayer
-	playse SE_PIN
-	applymovement LOCALID_PLAYER, Movement_PetalburgWoods_Celebi1
-	waitmovement 0
-	msgbox Text_PetalburgWoods_Celebi4, MSGBOX_DEFAULT
-	setwildbattle SPECIES_CELEBI, 50
-	waitse
-	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves
-	waitmovement 0
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	special BattleSetup_StartLegendaryBattle
-	waitstate
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, PetalburgWoods_CelebiEvent_Won
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, PetalburgWoods_CelebiEvent_Won
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, PetalburgWoods_CelebiEvent_Ran
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PetalburgWoods_CelebiEvent_Ran
-	releaseall
-	end
-
-PetalburgWoods_CelebiEvent_Won::
-	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves2
-	waitmovement 0
-	setflag FLAG_DEFEATEDCELEBI
-	clearflag FLAG_GARBAGEFLAG
-	end
-
-PetalburgWoods_CelebiEvent_Ran::
-	applymovement LOCALID_CELEBI, PetalburgWoods_EventScript_CelebiMoves2
-	waitmovement 0
-	end
-
-PetalburgWoods_EventScript_CelebiMoves:
-	delay_16
-	delay_16
-	delay_16
-	walk_down
-	set_visible
-	step_end
-
-PetalburgWoods_EventScript_CelebiMoves2:
-	set_invisible
-	walk_up
-	step_end
-
-Text_PetalburgWoods_Celebi0:
-	.string "The tree is rattling.\p"
-	.string "You also feel that someone or\n"
-	.string "something is observing you…\p"
-	.string "But… you cannot see any POKéMON…$"
-
-Text_PetalburgWoods_Celebi1:
-	.string ". . . \p"
-	.string ". . . \p"
-	.string "You can hear a dim voice.\p"
-	.string "S..w .. ..e . . .ER . K. ON\p"
-	.string ". . . \p"
-	.string "S..w me the THUND.R PO..MON…$"
-
-Text_PetalburgWoods_Celebi2:
-	.string ". . . \p"
-	.string ". . . \p"
-	.string "Sh.. me .he .OLCANO . ..MON$"
-
-Text_PetalburgWoods_Celebi3:
-	.string ". . . \p"
-	.string ". . . \p"
-	.string "Sho.. me t.. AU.ORA …éMON.$"
-
-Text_PetalburgWoods_Celebi4:
-	.string ". . . \p"
-	.string "Something is approaching…\p"
-	.string ". . . $"
-
-Text_PetalburgWoods_Celebi_Donthave:
-	.string ". . . \p"
-	.string "..u d..'t h… i….\p"
-	.string "You don't have it…$"
-
-Movement_PetalburgWoods_Celebi1:
-	emote_exclamation_mark
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	step_end
-
-PetalburgWoods_Dusclops::
-	lock
-	faceplayer
-	waitse
-	playmoncry SPECIES_DUSCLOPS, CRY_MODE_NORMAL
-	msgbox PetalburgWoods_Text_Dusclops, MSGBOX_DEFAULT
-	waitmoncry
-	release
-	end
-
-PetalburgWoods_Text_Dusclops:
-	.string "DUSKY: Dusk, dusk!$"
-
-PetalburgWoods_Celebi_Sign::
-	faceplayer
-	goto_if_unset FLAG_ROBERTO1, PetalburgWoods_Celebi_SignFirstTime
-	goto_if_set FLAG_DEFEATEDCELEBI, PetalburgWoods_Celebi_SignEventFinished
-	goto_if_set FLAG_SYS_GAME_CLEAR, PetalburgWoods_Celebi_SignChampion
-	msgbox Text_PetalburgWoods_Celebi_Sign, MSGBOX_NPC
-	end
-
-PetalburgWoods_Celebi_SignFirstTime::
-	faceplayer
-	msgbox Text_PetalburgWoods_Celebi_SignFirstTime, MSGBOX_NPC
-	setflag FLAG_ROBERTO1
-	end
-
-PetalburgWoods_Celebi_SignEventFinished::
-	faceplayer
-	msgbox Text_PetalburgWoods_Celebi_SignEventFinished, MSGBOX_NPC
-	end
-
-PetalburgWoods_Celebi_SignChampion::
-	faceplayer
-	msgbox Text_PetalburgWoods_Celebi_SignEventChampion, MSGBOX_NPC
-	end
-
-Text_PetalburgWoods_Celebi_Sign:
-	.string "Hi trainer.\p"
-	.string "Dangerous? No, no. Do not worry.\l"
-	.string "DUSKY is patrolling around.\p"
-	.string "And you? How is your adventure\n"
-	.string "going?$"
-
-Text_PetalburgWoods_Celebi_SignFirstTime:
-	.string "Oh, a youngster…\p"
-	.string "What are you doing here in these\n"
-	.string "dark, shady woods?\p"
-	.string ". . .\p"
-	.string "Oh, I see. You are just passing by.\p"
-	.string "What? Ah, me?\p"
-	.string "I am just watering the tree shrine\n"
-	.string "like I have always done.\p"
-	.string "Ah, you are wondering why I am watering\n"
-	.string "an innocent looking tree in the middle\l"
-	.string "of some woods, right?\p"
-	.string "But you see, this tree is special.\n"
-	.string "In these woods, a MYTHICAL POKéMON\l"
-	.string "lives. It is the FOREST GUARDIAN.\p"
-	.string "I have been watering this tree for\n"
-	.string "over twenty years of my life.\p"
-	.string "And I can assure you that this story\n"
-	.string "is as real as the air we breath.\l"
-	.string "The FOREST GUARDIAN is small, GREEN,\l"
-	.string "and just gazing at it feels…\p"
-	.string "Like I am watching a spirit from the\n"
-	.string "forest. Sadly, last time I saw it\l" 
-	.string "was many, many years ago…\p"
-	.string "Where could the GUARDIAN be?\p"
-	.string "Maybe I need to be STRONGER to make\n"
-	.string "it appear…\p"
-	.string "It really makes me unhappy how weak\n"
-	.string "I have become with the years.\p"
-	.string "Anyway, I will continue my deeds.\n"
-	.string "See you soon, young one.$"
-
-Text_PetalburgWoods_Celebi_SignEventFinished:
-	.string ". . . \p"
-	.string "I truly cannot believe my eyes!\n"
-	.string "You battled with the GUARDIAN!?\p"
-	.string "I will never forget this moment.\n"
-	.string "I will keep watering this shrine\l"
-	.string "until it comes back in the future.$"
-
-Text_PetalburgWoods_Celebi_SignEventChampion:
-	.string "Hi again, young one.\p"
-	.string "Something has been going on with the\n"
-	.string "GUARDIAN tree.\p"
-	.string "I have been hearing a small muttering\n"
-	.string "around it for many hours.\p"
-	.string "Something about a THUNDER, VOLCANO\n"
-	.string "and AURORA POKéMON…\p"
-	.string "Wait… I know those descriptions…\n"
-	.string "Something about three beasts? But…\p"
-	.string "Not from this region…? Where were\n"
-	.string "they from? GIOTO? HOJO? JONO? JOHTO?\p"
-	.string "And if they are here, in HOENN…\n"
-	.string "Maybe they are hiding in places related\l"
-	.string "to their descriptions?\p"
-	.string "If you have time, maybe you could have\n"
-	.string "a look. What do you think?$"
 
 PetalburgWoods_EventScript_DevonResearcherLeft::
 	lockall
@@ -300,7 +26,7 @@ PetalburgWoods_EventScript_DevonResearcherLeft::
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaApproachPlayer
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_TONY, PetalburgWoods_Text_YoureKiddingMe
+	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaBackOff
 	waitmovement 0
 	call PetalburgWoods_EventScript_DevonResearcherPostBattle
@@ -336,7 +62,7 @@ PetalburgWoods_EventScript_DevonResearcherRight::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	msgbox PetalburgWoods_Text_NoOneCrossesTeamAqua, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_TONY, PetalburgWoods_Text_YoureKiddingMe
+	trainerbattle_no_intro TRAINER_GRUNT_PETALBURG_WOODS, PetalburgWoods_Text_YoureKiddingMe
 	applymovement LOCALID_PETALBURG_WOODS_GRUNT, PetalburgWoods_Movement_AquaBackOff
 	waitmovement 0
 	call PetalburgWoods_EventScript_DevonResearcherPostBattle
@@ -382,7 +108,7 @@ PetalburgWoods_EventScript_DevonResearcherFinish::
 
 PetalburgWoods_EventScript_RemoveDevonResearcher::
 	removeobject LOCALID_PETALBURG_WOODS_DEVON_EMPLOYEE
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_PETALBURG_WOODS_STATE, 1
 	releaseall
 	end
 
@@ -549,10 +275,10 @@ PetalburgWoods_EventScript_Lyle::
 	end
 
 PetalburgWoods_EventScript_James::
-	trainerbattle_single TRAINER_RIVAL_CYNDAQUIL_4, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
+	trainerbattle_single TRAINER_JAMES_1, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_RIVAL_CYNDAQUIL_4
+	setvar VAR_0x8004, TRAINER_JAMES_1
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_TryRegisterJames2
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
@@ -568,7 +294,7 @@ PetalburgWoods_EventScript_TryRegisterJames::
 
 PetalburgWoods_EventScript_RegisterJames::
 	msgbox PetalburgWoods_Text_IWantRematch1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RIVAL_CYNDAQUIL_4
+	register_matchcall TRAINER_JAMES_1
 	release
 	end
 
@@ -580,168 +306,182 @@ PetalburgWoods_EventScript_TryRegisterJames2::
 
 PetalburgWoods_EventScript_RegisterJames2::
 	msgbox PetalburgWoods_Text_IWantRematch2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RIVAL_CYNDAQUIL_4
+	register_matchcall TRAINER_JAMES_1
 	release
 	end
 
 PetalburgWoods_EventScript_JamesRematch::
-	trainerbattle_rematch TRAINER_RIVAL_CYNDAQUIL_4, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
+	trainerbattle_rematch TRAINER_JAMES_1, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
 	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
 	end
 
 PetalburgWoods_Text_NotAOneToBeFound:
-	.string "Hmmm…\n"
-	.string "Not a one to be found…$"
+	.string "Hmmm… Kein Einziges zu finden.$"
 
 PetalburgWoods_Text_HaveYouSeenShroomish:
-	.string "Hello, have you seen any POKéMON\n"
-	.string "called SHROOMISH around here?\p"
-	.string "I really love that POKéMON.$"
+	.string "Hallo, du hast nicht zufällig einige\n"
+	.string "POKéMON namens KNILZ hier\p"
+	.string "gesehen? Ich liebe diese POKéMON.$"
 
 PetalburgWoods_Text_IWasGoingToAmbushYou:
-	.string "I was going to ambush you, but you\n"
-	.string "had to dawdle in PETALBURG WOODS\l"
-	.string "forever, didn't you?\p"
-	.string "I got sick of waiting, so here I am!$"
+	.string "Ich wollte dich eigentlich aus dem\n"
+	.string "Hinterhalt angreifen, aber du trödelst\l"
+	.string "wohl auf ewig im BLÜTENBURGWALD\l"
+	.string "herum, oder?\p"
+	.string "Das Warten machte mich ganz krank.\n"
+	.string "Also, hier bin ich.$"
 
 PetalburgWoods_Text_HandOverThosePapers:
-	.string "You! DEVON RESEARCHER!\p"
-	.string "Hand over those papers!$"
+	.string "He, du! FORSCHER von DEVON!\p"
+	.string "Gib sofort die Papiere her!$"
 
 PetalburgWoods_Text_YouHaveToHelpMe:
-	.string "Aiyeeeh!\p"
-	.string "You're a POKéMON TRAINER, aren't you?\n"
-	.string "You've got to help me, please!$"
+	.string "Attackeee!\p"
+	.string "Du bist ein POKéMON-TRAINER, oder?\n"
+	.string "Du musst mir bitte helfen!$"
 
 PetalburgWoods_Text_NoOneCrossesTeamAqua:
-	.string "Hunh? What do you think you're doing?\n"
-	.string "What, you're going to protect him?\p"
-	.string "No one who crosses TEAM AQUA\n"
-	.string "gets any mercy, not even a kid!\p"
-	.string "Come on and battle me!$"
+	.string "Huch. Was machst du da eigentlich???\n"
+	.string "Was?!? Du schützt ihn???\p"
+	.string "Niemand, der sich TEAM AQUA in den Weg\n"
+	.string "stellt, kann auf Gnade hoffen.\n"
+	.string "Niemand! \p"
+	.string "Los, kämpfe gegen mich!$"
 
 PetalburgWoods_Text_YoureKiddingMe:
-	.string "You're kidding me! You're tough!$"
+	.string "Du hast mich geleimt! Du bist stark!$"
 
 PetalburgWoods_Text_YouveGotSomeNerve:
-	.string "Grrr… You've got some nerve\n"
-	.string "meddling with TEAM AQUA!\l"
-	.string "Come on and battle me again!\p"
-	.string "I wish I could say that, but I'm out of\n"
-	.string "POKéMON…\p"
-	.string "And, hey, we of TEAM AQUA are also\n"
-	.string "after something in RUSTBORO.\p"
-	.string "I'll let you go today!$"
+	.string "Grrr… Du hast vielleicht Nerven, dich\n"
+	.string "mit TEAM AQUA anzulegen!\l"
+	.string "Los, kämpfen wir noch einmal!\p"
+	.string "Hm, das würde ich jetzt zu gerne\n"
+	.string "sagen,\n"
+	.string "aber ich habe keine POKéMON mehr…\p"
+	.string "Außerdem sind wir, TEAM AQUA, auf dem\n"
+	.string "Weg nach METAROST CITY.\p"
+	.string "Für heute lasse ich dich gehen.$"
 
 PetalburgWoods_Text_ThatWasAwfullyClose:
-	.string "Whew…\n"
-	.string "That was awfully close!\p"
-	.string "Thanks to you, he didn't rob me of\n"
-	.string "these important papers.\p"
-	.string "I know, I'll give you a GREAT BALL as\n"
-	.string "my thanks!$"
+	.string "Huuuh… Das war aber mehr als knapp!\p"
+	.string "Dank dir konnte er mir diese\n"
+	.string "wichtigen Papiere nicht rauben.\p"
+	.string "Ich weiß! Ich gebe dir diesen\n"
+	.string "SUPERBALL als Dankeschön!$"
 
 PetalburgWoods_Text_TeamAquaAfterSomethingInRustboro:
-	.string "Didn't that TEAM AQUA thug say\n"
-	.string "they were after something in\l"
-	.string "RUSTBORO, too?$"
+	.string "Hat dieser Schuft von TEAM AQUA nicht\n"
+	.string "gesagt, dass sie irgendetwas in\l"
+	.string "METAROST CITY erledigen wollen?$"
 
 PetalburgWoods_Text_ICantBeWastingTime:
-	.string "Uh-oh! It's a crisis!\n"
-	.string "I can't be wasting time!$"
+	.string "Oh oh! Das ist ein Notfall!\n"
+	.string "Ich darf keine Zeit verlieren!$"
 
 PetalburgWoods_Text_YoureLoadedWithItems:
-	.string "You're loaded with items.\n"
-	.string "I can't give you this GREAT BALL.$"
+	.string "Du bist mit Items überfrachtet.\n"
+	.string "Ich kann dir den SUPERBALL nicht\l"
+	.string "geben.$"
 
 PetalburgWoods_Text_GoBugPokemonTeam:
-	.string "I caught a whole bunch of POKéMON!\p"
-	.string "Go, go, go!\n"
-	.string "My BUG POKéMON team!$"
+	.string "Ich habe eine Menge POKéMON gefangen!\n"
+	.string "\p"
+	.string "Los, los, los!\n"
+	.string "Mein KÄFER-POKéMON-Team!$"
 
 PetalburgWoods_Text_ICouldntWin:
-	.string "I have all these POKéMON,\n"
-	.string "but I couldn't win…$"
+	.string "Ich habe all diese POKéMON, aber ich\n"
+	.string "konnte doch nicht gewinnen…$"
 
 PetalburgWoods_Text_ImOutOfPokeBalls:
-	.string "I caught a bunch of POKéMON.\n"
-	.string "Now I'm out of POKé BALLS.$"
+	.string "Ich habe eine Menge POKéMON gefangen.\n"
+	.string "Nun habe ich keine POKéBÄLLe mehr.$"
 
 PetalburgWoods_Text_InstantlyPopularWithBugPokemon:
-	.string "If you take BUG POKéMON to school,\n"
-	.string "you get to be instantly popular!$"
+	.string "Wenn du ein KÄFER-POKéMON mit zur\n"
+	.string "Schule bringst, bist du sofort\l"
+	.string "beliebt.$"
 
 PetalburgWoods_Text_CantBePopularIfILose:
-	.string "I can't be popular if I lose.$"
+	.string "Wenn ich verliere, kann ich nicht\n"
+	.string "beliebt werden.$"
 
 PetalburgWoods_Text_PeopleRespectYou:
-	.string "If you have a big BUG POKéMON,\n"
-	.string "people respect you for it.$"
+	.string "Hast du ein großes KÄFER-POKéMON,\n"
+	.string "werden die Leute dich respektieren.$"
 
 PetalburgWoods_Text_IWantRematch1:
-	.string "I want a rematch when my BUG\n"
-	.string "POKéMON grow up!\p"
-	.string "I'm registering you in my POKéNAV!$"
+	.string "Ich möchte wieder kämpfen, wenn meine\n"
+	.string "KÄFER-POKéMON stärker geworden sind.\p"
+	.string "Ich trage dich in meinen POKéNAV ein.$"
 
 PetalburgWoods_Text_IWantRematch2:
-	.string "I want a rematch when my BUG \n"
-	.string "POKéMON grow up!\p"
-	.string "I'm registering you in my POKéNAV!$"
+	.string "Ich möchte wieder kämpfen, wenn meine\n"
+	.string "KÄFER-POKéMON stärker geworden sind.\p"
+	.string "Ich trage dich in meinen POKéNAV ein.$"
 
 PetalburgWoods_Text_MyPokemonHaveGrown:
-	.string "My BUG POKéMON have grown.\n"
-	.string "I'll be popular again.$"
+	.string "Meine KÄFER-POKéMON sind gewachsen.\n"
+	.string "Ich werde wieder beliebt sein.$"
 
 PetalburgWoods_Text_CantBePopularIfLose:
-	.string "I can't be popular if I lose.$"
+	.string "Ich werde nie beliebt, wenn ich\n"
+	.string "immer verliere.$"
 
 PetalburgWoods_Text_IveBeenTrainingHard:
-	.string "You get to be popular if you have\n"
-	.string "strong POKéMON, right?\l"
-	.string "So, I've been training hard.$"
+	.string "Du wirst beliebt, wenn du starke\n"
+	.string "POKéMON besitzt, oder?\l"
+	.string "Daher trainiere ich bis zum Umfallen.$"
 
 PetalburgWoods_Text_StayOutOfTallGrass:
-	.string "Yo, there!\n"
-	.string "Your POKéMON doing okay?\p"
-	.string "If your POKéMON are weak and you want\n"
-	.string "to avoid battles, you should stay out\l"
-	.string "of tall grass.$"
+	.string "Hey, du!\n"
+	.string "Geht es deinen POKéMON gut?\p"
+	.string "Wenn deine POKéMON schwach sind und\n"
+	.string "du Kämpfe vermeiden willst, solltest\n"
+	.string "du\l"
+	.string "dich von hohem Gras fernhalten.$"
 
 PetalburgWoods_Text_HiddenItemsExplanation:
-	.string "Sometimes, there are things on the\n"
-	.string "ground even if you can't see them.\p"
-	.string "That's why I always check where I'm\n"
-	.string "walking.$"
+	.string "Manchmal liegen auf dem Boden Dinge,\n"
+	.string "die einem auf Anhieb gar nicht\l"
+	.string "auffallen.\p"
+	.string "Daher schaue ich mich bei jedem\n"
+	.string "Schritt sorgfältig um.$"
 
 PetalburgWoods_Text_TryUsingThisItem:
-	.string "Oh, neat!\n"
-	.string "That's the BADGE from RUSTBORO GYM!\p"
-	.string "You must be a TRAINER.\n"
-	.string "You should try using this item.$"
+	.string "Oh, hübsch! Das ist der ORDEN\n"
+	.string "der ARENA in METAROST CITY!\p"
+	.string "Du siehst wie ein TRAINER aus. Dann\n"
+	.string "musst du dieses Item ausprobieren.$"
 
 PetalburgWoods_Text_MiracleSeedExplanation:
-	.string "It's a MIRACLE SEED.\n"
-	.string "If a POKéMON holds that item, its\l"
-	.string "GRASS-type moves become stronger.\p"
-	.string "Besides MIRACLE SEED, I think there are\n"
-	.string "other convenient items for POKéMON\l"
-	.string "to hold.$"
+	.string "Das ist WUNDERSAAT.\n"
+	.string "Wenn ein POKéMON sie trägt, werden\l"
+	.string "die PFLANZEN-Attacken stärker.\p"
+	.string "Neben der WUNDERSAAT gibt es bestimmt\n"
+	.string "noch andere nützliche Items, die von\l"
+	.string "POKéMON getragen werden können.$"
 
 PetalburgWoods_Text_TrainerTipsExperience:
-	.string "TRAINER TIPS\p"
-	.string "Any POKéMON that appears even once\n"
-	.string "in a battle is awarded EXP Points.\p"
-	.string "To raise a weak POKéMON, put it at the\n"
-	.string "left of the team list.\p"
-	.string "As soon as a battle starts, switch it\n"
-	.string "out. It will earn EXP Points without\l"
-	.string "being exposed to any harm.$"
+	.string "TIPPS für TRAINER\p"
+	.string "Jedes POKéMON, das am Kampf teilnimmt,\n"
+	.string "erhält ERFAHRUNGSPUNKTE, auch wenn es\l"
+	.string "nur ganz kurz dabei ist.\p"
+	.string "Setze eines deiner schwachen POKéMON\n"
+	.string "daher an die Spitze der Liste.\p"
+	.string "Sobald der Kampf beginnt, wechselst du\n"
+	.string "es aus. Es wird E-Punkte bekommen und\l"
+	.string "bleibt trotzdem immer unbeschadet.$"
 
 PetalburgWoods_Text_TrainerTipsPP:
-	.string "TRAINER TIPS\p"
-	.string "In addition to Hit Points (HP), POKéMON\n"
-	.string "have Power Points (PP) that are used to\l"
-	.string "make moves during battle.\p"
-	.string "If a POKéMON runs out of PP, it must be\n"
-	.string "taken to a POKéMON CENTER.$"
+	.string "TIPPS für TRAINER\p"
+	.string "Neben den Kraftpunkten (KP) besitzt\n"
+	.string "ein POKéMON auch Angriffspunkte (AP),\l"
+	.string "die für die Attacken im Kampf\n"
+	.string "gebraucht\l"
+	.string "werden.\p"
+	.string "Wenn ein POKéMON keine AP mehr\n"
+	.string "besitzt,\n"
+	.string "muss es in ein POKéMON-CENTER gebracht\l"
+	.string "werden.$"
 

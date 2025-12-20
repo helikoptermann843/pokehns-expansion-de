@@ -8,16 +8,16 @@ Route40_EventScript_Simon::
 	end
 
 Route40_Text_SwimmermSimonSeen:
-	.string "You have to warm up before\n"
-	.string "going into the water.\p"
-	.string "That's basic.$"
+	.string "Du musst dich erst\n"
+	.string "aufwärmen, bevor du schwimmen gehst.\p"
+	.string "Das ist Grundwissen.$"
 
 Route40_Text_SwimmermSimonBeaten:
-	.string "OK! Uncle! I give!$"
+	.string "O.K.! Onkel! Ich gebe auf!$"
 
 Route40_Text_SwimmermSimonAfter:
-	.string "CIANWOOD CITY is a good\n"
-	.string "distance away from here.$"
+	.string "Anemonia City ist ziemlich\n"
+	.string "weit weg von hier.$"
 
 Route40_EventScript_Randall::
 	trainerbattle_single TRAINER_RANDALL, Route40_Text_SwimmermRandallSeen, Route40_Text_SwimmermRandallBeaten
@@ -25,16 +25,16 @@ Route40_EventScript_Randall::
 	end
 
 Route40_Text_SwimmermRandallSeen:
-	.string "Hey, you're young and fit!\p"
-	.string "Don't ride your POKéMON!\n"
-	.string "Swim!$"
+	.string "Heh, du bist jung und fit!\p"
+	.string "Surfe nicht auf\n"
+	.string "deinem Pokémon! Schwimme!$"
 
 Route40_Text_SwimmermRandallBeaten:
-	.string "Uh-oh. I lost…$"
+	.string "Oh, oh. Ich habe verloren…$"
 
 Route40_Text_SwimmermRandallAfter:
-	.string "Swimming exercises your\n"
-	.string "entire body. It's healthy.$"
+	.string "Schwimmen ist gut für\n"
+	.string "deinen gesamten Körper.$"
 
 Route40_EventScript_Elaine::
 	trainerbattle_single TRAINER_ELAINE, Route40_Text_SwimmerfElaineSeen, Route40_Text_SwimmerfElaineBeaten
@@ -42,16 +42,16 @@ Route40_EventScript_Elaine::
 	end
 
 Route40_Text_SwimmerfElaineSeen:
-	.string "Are you going to CIANWOOD?\p"
-	.string "How about a quick battle\n"
-	.string "first?$"
+	.string "Gehst du nach ANEMONIA CITY?\p"
+	.string "Wie wäre es erst\n"
+	.string "mit einem kleinen Kampftraining?$"
 
 Route40_Text_SwimmerfElaineBeaten:
-	.string "I lost that one!$"
+	.string "Diesmal habe ich verloren!$"
 
 Route40_Text_SwimmerfElaineAfter:
-	.string "I'd say I'm a better swimmer\n"
-	.string "than you. Yeah!$"
+	.string "Ich denke ich bin ein besserer\n"
+	.string "Schwimmer als du. Yeah!$"
 
 Route40_EventScript_Paula::
 	trainerbattle_single TRAINER_PAULA, Route40_Text_SwimmerfPaulaSeen, Route40_Text_SwimmerfPaulaBeaten
@@ -59,16 +59,16 @@ Route40_EventScript_Paula::
 	end
 
 Route40_Text_SwimmerfPaulaSeen:
-	.string "No inner tube for me.\p"
-	.string "I'm hanging on to a sea\n"
-	.string "POKéMON!$"
+	.string "Ich habe keine Schwimmreifen.\p"
+	.string "Ich halte mich an\n"
+	.string "einem WasserPokémon fest!$"
 
 Route40_Text_SwimmerfPaulaBeaten:
-	.string "Ooh, I'm feeling dizzy!$"
+	.string "Oh, ich fühle mich so schwindelig!$"
 
 Route40_Text_SwimmerfPaulaAfter:
-	.string "While I float like this,\n"
-	.string "the waves carry me along.$"
+	.string "Ich gleite unbeschwert\n"
+	.string "über die Wellen.$"
 
 Route40_EventScript_Woman1::
 	lock
@@ -79,8 +79,9 @@ Route40_EventScript_Woman1::
 	end
 
 Route40_Text_Lass1:
-	.string "Although you can't see it from here,\n"
-	.string "CIANWOOD is across the sea.$"
+	.string "Du kannst es zwar nicht von hier\p"
+	.string "sehen, aber ANEMO-\n"
+	.string "NIA CITY liegt jenseits des Meeres.$"
 
 Route40_EventScript_Woman2::
 	lock
@@ -91,11 +92,12 @@ Route40_EventScript_Woman2::
 	end
 
 Route40_Text_Lass2:
-	.string "I came to OLIVINE by ship to see\n"
-	.string "the sights and soak up the\l"
-	.string "atmosphere.\p"
-	.string "Being a port, it feels so\n"
-	.string "different from a big city.$"
+	.string "Ich reiste mit dem Schiff nach\p"
+	.string "OLIVIANA, um die Sehenswürdigkeiten\p"
+	.string "und die Atmosphäre zu genießen.\p"
+	.string "Da es eine Hafenstadt ist, unter-\p"
+	.string "scheidet sie sich\n"
+	.string "von anderen großen Städten.$"
 
 Route40_EventScript_Youngster::
 	lock
@@ -106,44 +108,44 @@ Route40_EventScript_Youngster::
 	end
 
 Route40_Text_StandingYoungster:
-	.string "Have you gone to the BATTLE\n"
-	.string "TOWER?\p"
-	.string "I think a lot of tough trainers\n"
-	.string "have gathered there already.\p"
-	.string "But since you have so many\n"
-	.string "BADGES,\p"
-	.string "you shouldn't do badly\n"
-	.string "at all.$"
+	.string "Warst du schon am DUELLTURM?\p"
+	.string "Ich denke, dass sich bereits viele\p"
+	.string "starke Trainer dort versammeln.\p"
+	.string "Da du so viele ORDEN besitzt,\p"
+	.string "wirst du dich dort wacker schlagen.$"
 
-Route40_Text_Monica:
-	.string "MONICA: Glad to meet you.\n"
-	.string "I'm MONICA of the WEEKDAY FAMILY.\p"
-	.string "I bet you can't guess my favorite\n"
-	.string "day of the week!$"
+Route40_Text_Monica::
+	.string "Monja: Schön, dich zu treffen.\n"
+	.string "Ich bin Monja von der WOCHENFAMILIE.\p"
+	.string "Ich wette, du kannst nicht\n"
+	.string "erraten, welcher mein Lieblingstag\l"
+	.string "ist!$"
 
-Route40_Text_MonicaGivesGift:
-	.string "That's right!\p"
-	.string "As a token of our friendship,\n"
-	.string "I have a gift for you!$"
+Route40_Text_MonicaGivesGift::
+	.string "Als Zeichen\n"
+	.string "unserer Freundschaft schenke ich dir\l"
+	.string "dies!$"
 
-Route40_Text_MonicaGaveGift:
-	.string "MONICA: It's an item that raises\n"
-	.string "the power of FLYING-TYPE moves.\p"
-	.string "You should equip a bird\n"
-	.string "POKéMON with that item.$"
+Route40_Text_MonicaGaveGift::
+	.string "Monja: Das ist ein Item, das die\n"
+	.string "Kraft von Flug-Attacken\n"
+	.string "erhöht.\p"
+	.string "Du solltest ein Vogel-Pokémon\n"
+	.string "damit ausrüsten.$"
 
-Route40_Text_MonicaMonday:
-	.string "MONICA: My brothers and\n"
-	.string "sisters are all over the place.\p"
-	.string "See if you could find\n"
-	.string "them all!$"
+Route40_Text_MonicaMonday::
+	.string "Monja: Meine Brüder und\n"
+	.string "Schwestern sind überall.\p"
+	.string "Schau mal, ob du sie alle\n"
+	.string "finden kannst!$"
 
 Route40_Text_MonicaNotMonday:
-	.string "MONICA: I don't think today\n"
-	.string "is Monday. How sad…$"
+	.string "MONJA: Ich\n"
+	.string "fürchte, heute ist nicht Montag. Wie\l"
+	.string "schade…$"
 
 Route40_Text_MonicaNope:
-	.string "Not that one.$"
+	.string "Nicht dieser.$"
 
 Rotue40_EventScript_Monica::
 	lock

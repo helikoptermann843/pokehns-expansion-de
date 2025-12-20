@@ -4,13 +4,13 @@ LittlerootTown_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, LittlerootTown_OnWarp
 	.byte 0
 
-	@ State descriptions for VAR_GARBAGEVAR
+	@ State descriptions for VAR_LITTLEROOT_TOWN_STATE
 	@ 1: Met Rival
 	@ 2: Saving Birch
 	@ 3: Received Pokedex
 	@ 4: Received Running Shoes
 
-	@ State descriptions for VAR_GARBAGEVAR
+	@ State descriptions for VAR_LITTLEROOT_INTRO_STATE
 	@ 1: In truck male
 	@ 2: In truck female
 	@ 3: Entered house
@@ -19,15 +19,15 @@ LittlerootTown_MapScripts::
 	@ 6: Set clock
 	@ 7: Told to go meet rival
 
-	@ State descriptions for VAR_GARBAGEVAR
-	@                    and VAR_GARBAGEVAR
+	@ State descriptions for VAR_LITTLEROOT_HOUSES_STATE_MAY
+	@                    and VAR_LITTLEROOT_HOUSES_STATE_BRENDAN
 	@ 1: On Truck (and is corresponding gender)
 	@ 2: Met Rival's Mom (and is corresponding gender)
 	@ 3: Entered Hall of Fame
 	@ 4: Completed Lati TV / SS Ticket event
 	@ 5: Exited house after above event
 
-	@ State descriptions for VAR_GARBAGEVAR
+	@ State descriptions for VAR_LITTLEROOT_RIVAL_STATE
 	@ 1: Never occurs
 	@ 2: Entered Rival's bedroom
 	@ 3: Met Rival
@@ -35,26 +35,18 @@ LittlerootTown_MapScripts::
 
 
 LittlerootTown_OnTransition:
-	call_if_unset FLAG_MINTS_ENABLED, LittlerootTown_Disable_Pokeball_Mints
-	setflag FLAG_VISITED_NEWBARK_TOWN
+	setflag FLAG_VISITED_LITTLEROOT_TOWN
 	call Common_EventScript_SetupRivalGfxId
-	call_if_eq VAR_GARBAGEVAR, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
+	call_if_eq VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_MoveMomToMaysDoor
 	call_if_unset FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_SetTwinPos
-	call_if_eq VAR_GARBAGEVAR, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
-	call_if_eq VAR_GARBAGEVAR, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
-	call_if_eq VAR_GARBAGEVAR, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
+	call_if_eq VAR_LITTLEROOT_TOWN_STATE, 3, LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos
+	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_MAY, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
+	call_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent
 	call_if_eq VAR_OLDALE_RIVAL_STATE, 1, LittlerootTown_EventScript_MoveRivalFromOldale
-	call_if_eq VAR_GARBAGEVAR, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
+	call_if_eq VAR_LITTLEROOT_RIVAL_STATE, 3, LittlerootTown_EventScript_SetRivalLeftForRoute103
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_HideMapNamePopup
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_EventScript_LeftLabAfterDexUpgrade
 	end
-
-LittlerootTown_Disable_Pokeball_Mints::
-	setflag FLAG_MODEST_MINT_LILYCOVE
-	setflag FLAG_TIMID_MINT_MAUVILLE
-	setflag FLAG_CALM_MINT_SANDTOWER
-	setflag FLAG_RASH_MINT_METEOR_FALLS
-	return
 
 LittlerootTown_EventScript_LeftLabAfterDexUpgrade::
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 3
@@ -70,12 +62,12 @@ LittlerootTown_EventScript_SetRivalLeftForRoute103::
 
 LittlerootTown_EventScript_MoveRivalFromOldale::
 	setvar VAR_OLDALE_RIVAL_STATE, 2
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
 	return
 
 LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
-	setvar VAR_GARBAGEVAR, 5
-	setvar VAR_GARBAGEVAR, 5
+	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 5
+	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 5
 	return
 
 LittlerootTown_EventScript_MoveMomToMaysDoor::
@@ -83,7 +75,7 @@ LittlerootTown_EventScript_MoveMomToMaysDoor::
 	return
 
 LittlerootTown_EventScript_SetTwinPos::
-	goto_if_eq VAR_GARBAGEVAR, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
+	goto_if_eq VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_SetTwinGuardingRoutePos
 	setobjectxyperm LOCALID_LITTLEROOT_TWIN, 10, 1
 	setobjectmovementtype LOCALID_LITTLEROOT_TWIN, MOVEMENT_TYPE_FACE_UP
 	return
@@ -94,7 +86,7 @@ LittlerootTown_EventScript_SetTwinGuardingRoutePos::
 	return
 
 LittlerootTown_EventScript_SetMomStandingInFrontOfDoorPos::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
 	setobjectmovementtype LOCALID_LITTLEROOT_MOM, MOVEMENT_TYPE_FACE_DOWN
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, LittlerootTown_EventScript_SetMomInFrontOfDoorMale
@@ -110,8 +102,8 @@ LittlerootTown_EventScript_SetMomInFrontOfDoorFemale::
 	return
 
 LittlerootTown_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 1, LittlerootTown_EventScript_StepOffTruckMale
-	map_script_2 VAR_GARBAGEVAR, 2, LittlerootTown_EventScript_StepOffTruckFemale
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 1, LittlerootTown_EventScript_StepOffTruckMale
+	map_script_2 VAR_LITTLEROOT_INTRO_STATE, 2, LittlerootTown_EventScript_StepOffTruckFemale
 	map_script_2 VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 1, LittlerootTown_EventScript_BeginDexUpgradeScene
 	.2byte 0
 
@@ -120,7 +112,7 @@ LittlerootTown_EventScript_StepOffTruckMale::
 	setvar VAR_0x8004, 5
 	setvar VAR_0x8005, 8
 	call LittlerootTown_EventScript_GoInsideWithMom
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_TRUCK
 	warpsilent MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F, 8, 8
 	waitstate
 	releaseall
@@ -131,7 +123,7 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	setvar VAR_0x8004, 14
 	setvar VAR_0x8005, 8
 	call LittlerootTown_EventScript_GoInsideWithMom
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_TRUCK
 	warpsilent MAP_LITTLEROOT_TOWN_MAYS_HOUSE_1F, 2, 8
 	waitstate
 	releaseall
@@ -162,12 +154,12 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	applymovement LOCALID_LITTLEROOT_MOM, LittlerootTown_Movement_MomEnterHouse
 	applymovement LOCALID_PLAYER, LittlerootTown_Movement_PlayerEnterHouse
 	waitmovement 0
-	setflag FLAG_GARBAGEFLAG
-	setvar VAR_GARBAGEVAR, 3
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_MOM_OUTSIDE
+	setvar VAR_LITTLEROOT_INTRO_STATE, 3
 	hideplayer
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
-	clearflag FLAG_HIDE_MOMS_FRIEND
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	return
 
@@ -216,23 +208,10 @@ LittlerootTown_EventScript_BeginDexUpgradeScene::
 	applymovement LOCALID_LITTLEROOT_BIRCH, Common_Movement_ExclamationMark
 	waitmovement 0
 	delay 80
-	goto_if_ge VAR_TIME_BASED_ENCOUNTER, 3, LittlerootTown_EventScript_BeginDexUpgradeSceneSkip
 	msgbox LittlerootTown_Text_BirchSomethingToShowYouAtLab, MSGBOX_DEFAULT
 	closemessage
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	delay 20
-	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
-	waitstate
-	releaseall
-	end
-
-LittlerootTown_EventScript_BeginDexUpgradeSceneSkip::
-	msgbox LittlerootTown_Text_BirchSomethingToShowYouAtLab2, MSGBOX_DEFAULT
-	closemessage
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_RIVAL
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
 	delay 20
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
@@ -275,7 +254,7 @@ LittlerootTown_EventScript_Twin::
 	faceplayer
 	goto_if_set FLAG_ADVENTURE_STARTED, LittlerootTown_EventScript_GoodLuck
 	goto_if_set FLAG_RESCUED_BIRCH, LittlerootTown_EventScript_YouSavedBirch
-	goto_if_ne VAR_GARBAGEVAR, 0, LittlerootTown_EventScript_GoSaveBirch
+	goto_if_ne VAR_LITTLEROOT_TOWN_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
 	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
 	release
 	end
@@ -286,7 +265,7 @@ LittlerootTown_EventScript_GoSaveBirch::
 	closemessage
 	applymovement LOCALID_LITTLEROOT_TWIN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
-	setvar VAR_GARBAGEVAR, 2
+	setvar VAR_LITTLEROOT_TOWN_STATE, 2
 	release
 	end
 
@@ -404,7 +383,7 @@ LittlerootTown_EventScript_GoSaveBirchTrigger::
 	closemessage
 	applymovement LOCALID_LITTLEROOT_TWIN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
-	setvar VAR_GARBAGEVAR, 2
+	setvar VAR_LITTLEROOT_TOWN_STATE, 2
 	releaseall
 	end
 
@@ -909,7 +888,7 @@ LittlerootTown_EventScript_Mom::
 LittlerootTown_EventScript_SetReceivedRunningShoes::
 	removeobject LOCALID_LITTLEROOT_MOM
 	setflag FLAG_SYS_B_DASH
-	setvar VAR_GARBAGEVAR, 4
+	setvar VAR_LITTLEROOT_TOWN_STATE, 4
 	release
 	end
 
@@ -926,139 +905,126 @@ LittlerootTown_EventScript_GiveRunningShoes::
 	return
 
 LittlerootTown_Text_OurNewHomeLetsGoInside:
-	.string "MOM: {PLAYER}, we're here, honey!\p"
-	.string "It must be tiring riding with our things\n"
-	.string "in the moving truck.\p"
-	.string "Well, this is LITTLEROOT TOWN.\p"
-	.string "How do you like it?\n"
-	.string "This is our new home!\p"
-	.string "It has a quaint feel, but it seems to be\n"
-	.string "an easy place to live, don't you think?\p"
-	.string "And, you get your own room, {PLAYER}!\n"
-	.string "Let's go inside.$"
+	.string "MUTTER: {PLAYER}, wir sind da, Schatz!\n"
+	.string "\p"
+	.string "Die Fahrt im Umzugswagen zwischen all\n"
+	.string "unseren Sachen war bestimmt ermüdend.\n"
+	.string "\p"
+	.string "Nun, wir sind in WURZELHEIM.\p"
+	.string "Wie gefällt es dir?\n"
+	.string "Dies ist unser neues Zuhause!\p"
+	.string "Ist das idyllisch! Man kann hier\n"
+	.string "sicher\n"
+	.string "wunderbar leben, meinst du nicht?\p"
+	.string "Und… du bekommst dein eigenes\n"
+	.string "Zimmer, {PLAYER}! Lass uns\l"
+	.string "hineingehen!$"
 
 LittlerootTown_Text_WaitPlayer:
-	.string "MOM: Wait, {PLAYER}!$"
+	.string "MUTTER: Warte, {PLAYER}!$"
 
 LittlerootTown_Text_WearTheseRunningShoes:
-	.string "MOM: {PLAYER}! {PLAYER}! Did you\n"
-	.string "introduce yourself to PROF. BIRCH?\p"
-	.string "Oh! What an adorable POKéMON!\n"
-	.string "You got it from PROF. BIRCH. How nice!\p"
-	.string "You're your father's child, all right.\n"
-	.string "You look good together with POKéMON!\p"
-	.string "Here, honey! If you're going out on an\n"
-	.string "adventure, wear these RUNNING SHOES.\p"
-	.string "They'll put a zip in your step!$"
+	.string "MUTTER: {PLAYER}! Hast du dich schon\n"
+	.string "PROF. BIRK vorgestellt?\p"
+	.string "Oh! Was für ein hübsches POKéMON! Du\n"
+	.string "hast es von PROF. BIRK erhalten? Toll!\n"
+	.string "\p"
+	.string "Du bist das Kind deines Vaters!\n"
+	.string "Wunder-\n"
+	.string "bar. Du siehst gut aus mit deinem\l"
+	.string "POKéMON!\p"
+	.string "Hier, Liebling! Für eine\l"
+	.string "Abenteuerreise\n"
+	.string "sind diese TURBOTRETER wie geschaffen.\p"
+	.string "\p"
+	.string "Sie werden deinen Schritt\n"
+	.string "beschleunigen!$"
 
 LittlerootTown_Text_SwitchShoesWithRunningShoes:
-	.string "{PLAYER} switched shoes with the\n"
-	.string "RUNNING SHOES.$"
+	.string "{PLAYER} zieht die TURBOTRETER an.$"
 
 LittlerootTown_Text_ExplainRunningShoes:
-	.string "MOM: {PLAYER}, those shoes came with\n"
-	.string "instructions.\p"
-	.string "“Press the B Button while wearing these\n"
-	.string "RUNNING SHOES to run extra-fast!\p"
-	.string "“Slip on these RUNNING SHOES and race\n"
-	.string "in the great outdoors!”$"
+	.string "MUTTER: {PLAYER}, für diese Schuhe\n"
+	.string "gibt es eine Bedienungsanleitung.\p"
+	.string "“Halte den B-Knopf gedrückt,\n"
+	.string "wenn du diese TURBOTRETER anhast,\l"
+	.string "um zu rennen!\p"
+	.string "Schlüpf in diese TURBOTRETER und\n"
+	.string "erobere die Welt da draußen!”$"
 
 LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
-	.string "To think that you have your very own\n"
-	.string "POKéMON now…\l"
-	.string "Your father will be overjoyed.\p"
-	.string "…But please be careful.\n"
-	.string "If anything happens, you can come home.\p"
-	.string "Go on, go get them, honey!$"
+	.string "Sich vorzustellen, dass du nun dein\n"
+	.string "eigenes POKéMON besitzt…\l"
+	.string "Dein Vater wird überglücklich sein.\p"
+	.string "… Aber sei bitte vorsichtig.\n"
+	.string "Sollte etwas passieren, komm wieder\l"
+	.string "nach Hause.\p"
+	.string "Lauf, schnapp’ sie dir alle, Schatz!$"
 
 LittlerootTown_Text_CanUsePCToStoreItems:
-	.string "If you use a PC, you can store items\n"
-	.string "and POKéMON.\p"
-	.string "The power of science is staggering!\p"
-	.string "In fact, do you know you can change\n"
-	.string "the order of your PARTY by\p"
-	.string "pressing the SELECT Button?\p"
-	.string "Or the fact that you can press\n"
-	.string "the L or R Button at the STAT\p"
-	.string "SCREEN of a POKéMON to see EV\n"
-	.string "and IV values?\p"
-	.string "And . . . \p"
-	.string "Did you know that the BLUE and\n"
-	.string "RED color of a STAT comes from\p"
-	.string "the NATURE of your POKéMON?\n"
-	.string "RED is a boosted stat, and BLUE\p"
-	.string "is the opposite.\p"
-	.string "AND I HAVEN'T FINISHED YET!\p"
-	.string "If you hold the L and R Button…\p"
-	.string "While encountering a wild POKéMON…\p"
-	.string "You will instantly run away!\p"
-	.string "I'm… I'm out of breath…\p"
-	.string ". . . . . . \p"
-	.string "You don't know what EV or IV are??$"
+	.string "Wenn du einen PC benutzt, kannst du\n"
+	.string "dort Items und POKéMON lagern.\p"
+	.string "Die Kraft der Wissenschaft ist\n"
+	.string "atemberaubend!$"
 
 LittlerootTown_Text_BirchSpendsDaysInLab:
-	.string "PROF. BIRCH spends days in his LAB\n"
-	.string "studying, then he'll suddenly go out in\l"
-	.string "the wild to do more research…\p"
-	.string "When does PROF. BIRCH spend time\n"
-	.string "at home?$"
+	.string "PROF. BIRK verbringt seine Tage in\n"
+	.string "seinem LABOR, dann rennt er plötzlich\l"
+	.string "nach draußen in die Wildnis, um zu\l"
+	.string "forschen…\p"
+	.string "Wann ist PROF. BIRK eigentlich mal\n"
+	.string "zu Hause?$"
 
 LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut:
-	.string "Um, um, um!\p"
-	.string "If you go outside and go in the grass,\n"
-	.string "wild POKéMON will jump out!$"
+	.string "Äh… Ähm… Hihi…\p"
+	.string "Wenn du durch das hohe Gras läufst,\n"
+	.string "wirst du wilde POKéMON entdecken.$"
 
 LittlerootTown_Text_DangerousIfYouDontHavePokemon:
-	.string "It's dangerous if you don't have\n"
-	.string "your own POKéMON.$"
+	.string "Das ist gefährlich, wenn du kein\n"
+	.string "eigenes POKéMON dabeihast.$"
 
 LittlerootTown_Text_CanYouGoSeeWhatsHappening:
-	.string "Um, hi!\p"
-	.string "There are scary POKéMON outside!\n"
-	.string "I can hear their cries!\p"
-	.string "I want to go see what's going on,\n"
-	.string "but I don't have any POKéMON…\p"
-	.string "Can you go see what's happening\n"
-	.string "for me?$"
+	.string "Äh… Hallo!\p"
+	.string "Da ist ein fürchterliches POKéMON!\n"
+	.string "Ich kann seinen Ruf hören!\p"
+	.string "Ich würde mir ja gerne mal ansehen,\n"
+	.string "was da los ist, aber ich habe kein\l"
+	.string "POKéMON…\p"
+	.string "Kannst du nicht für mich nachschauen,\n"
+	.string "was da los ist?$"
 
 LittlerootTown_Text_YouSavedBirch:
-	.string "You saved PROF. BIRCH!\n"
-	.string "I'm so glad!$"
+	.string "Du hast PROF. BIRK gerettet!\n"
+	.string "Ich bin total froh!$"
 
 LittlerootTown_Text_GoodLuckCatchingPokemon:
-	.string "Are you going to catch POKéMON?\n"
-	.string "Good luck!$"
+	.string "Gehst du POKéMON fangen?\n"
+	.string "Viel Glück!$"
 
 LittlerootTown_Text_TownSign:
-	.string "LITTLEROOT TOWN\n"
-	.string "“A town that can't be shaded any hue.”$"
+	.string "WURZELHEIM\n"
+	.string "“Ein Ort, wie es ihn nur einmal gibt.”$"
 
 LittlerootTown_Text_ProfBirchsLab:
-	.string "PROF. BIRCH'S POKéMON LAB$"
+	.string "PROF. BIRKS POKéMON-LABOR$"
 
 LittlerootTown_Text_PlayersHouse:
-	.string "{PLAYER}'s HOUSE$"
+	.string "HAUS von {PLAYER}$"
 
 LittlerootTown_Text_ProfBirchsHouse:
-	.string "PROF. BIRCH'S HOUSE$"
+	.string "PROF. BIRKS HAUS$"
 
 LittlerootTown_Text_BirchSomethingToShowYouAtLab:
-	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
-	.string "That was good work out there!\p"
-	.string "I knew there was something special\n"
-	.string "about you when I first saw you,\l"
-	.string "but I never expected this.\p"
-	.string "Oh, yes. Do you still have the POKéDEX\n"
-	.string "I gave you?\p"
-	.string "I have something to show you.\n"
-	.string "Let's go to my LAB.$"
+	.string "PROF. BIRK: Na, {PLAYER}{KUN}!\n"
+	.string "Das war wirklich gute Arbeit!\p"
+	.string "Ich wusste vom ersten Augenblick an,\n"
+	.string "dass du etwas Besonderes bist. Aber\l"
+	.string "das hätte selbst ich nicht erwartet.\p"
+	.string "Ach ja. Du hast doch noch den\n"
+	.string "POKéDEX, den ich dir gegeben habe?\p"
+	.string "Ich will dir etwas zeigen.\n"
+	.string "Lass uns in mein LABOR gehen.$"
 
-LittlerootTown_Text_BirchSomethingToShowYouAtLab2:
-	.string "PROF. BIRCH: Well, well, {PLAYER}{KUN}!\n"
-	.string "That was good work out there!\p"
-	.string "I knew there was something special\n"
-	.string "about you when I first saw you,\l"
-	.string "but I never expected this.\p"
-	.string "Let's go to my LAB.$"

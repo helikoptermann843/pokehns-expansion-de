@@ -6,16 +6,6 @@ MossdeepCity_Mart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart 0
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_Mart_EventScript_Clerk2::
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
 	pokemart MossdeepCity_Mart_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -23,10 +13,15 @@ MossdeepCity_Mart_EventScript_Clerk2::
 
 	.align 2
 MossdeepCity_Mart_Pokemart:
+	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_NET_BALL
 	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_X_ATTACK
-	.2byte ITEM_X_DEFEND
+	.2byte ITEM_X_DEFENSE
 	pokemartlistend
 
 MossdeepCity_Mart_EventScript_Woman::
@@ -42,22 +37,24 @@ MossdeepCity_Mart_EventScript_Sailor::
 	end
 
 MossdeepCity_Mart_Text_ReviveIsFantastic:
-	.string "REVIVE is fantastic!\p"
-	.string "Give it to a fainted POKéMON,\n"
-	.string "and the POKéMON will arise.\p"
-	.string "But be careful, REVIVE doesn't restore\n"
-	.string "the used-up PP of moves.$"
+	.string "BELEBER ist einfach fantastisch!\p"
+	.string "Gib es einem besiegten POKéMON und\n"
+	.string "es ist wieder fit.\p"
+	.string "Aber Vorsicht! BELEBER füllt nicht die\n"
+	.string "verbrauchten AP neu auf!$"
 
 MossdeepCity_Mart_Text_MaxRepelLastsLongest:
-	.string "MAX REPEL keeps all weak POKéMON away.\p"
-	.string "Out of all the REPEL sprays, it lasts\n"
-	.string "the longest.$"
+	.string "TOP-SCHUTZ hält alle schwachen\n"
+	.string "POKéMON auf Distanz.\p"
+	.string "Von allen SCHUTZ-Sprays hält dieses am\n"
+	.string "längsten an.$"
 
 MossdeepCity_Mart_Text_NetAndDiveBallsRare:
-	.string "The NET and DIVE BALLS are rare POKé\n"
-	.string "BALLS that are only made in MOSSDEEP.\p"
-	.string "A NET BALL is effective against\n"
-	.string "BUG-type and WATER-type POKéMON.\p"
-	.string "A DIVE BALL works best on POKéMON\n"
-	.string "at the bottom of the sea.$"
+	.string "Der NETZ- und der TAUCHBALL sind\n"
+	.string "seltene POKéBÄLLe, die in\l"
+	.string "MOOSBACH CITY hergestellt werden.\p"
+	.string "Ein NETZBALL ist höchst wirkungsvoll\n"
+	.string "bei KÄFER- und WASSER-POKéMON.\p"
+	.string "Der TAUCHBALL ist wirkungsvoll bei\n"
+	.string "POKéMON, die in der Tiefsee leben.$"
 

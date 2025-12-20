@@ -5,8 +5,9 @@ VermilionCity_PortOutside_EventScript_Fisher::
 	msgbox VermilionCity_PortOutside_Text_Fisher, MSGBOX_NPC
 	end
 
-VermilionCity_PortOutside_Text_Fisher::
-	.string "You just came from JOHTO?\n"
-	.string "How's the fishin' over there\l"
-	.string "...\p"
-	.string "JOHTO has RED GYARADOS?!$"
+VermilionCity_PortOutside_Text_Fisher:
+	.string "Du kommst gerade aus JOHTO?\n"
+	.string "Wie läuft das Angeln dort…\l"
+	.string "?\p"
+	.string "In JOHTO gibt es ein rotes Garados?!$"
+

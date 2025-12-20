@@ -262,7 +262,7 @@ SaffronCity_FightingDojoVIP_EventScript_Scizor::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Scizor:
-	.string "SCIZOR: Scii-zor!$"
+	.string "Scherox: Schee-Rox!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Miltank::
 	lock
@@ -276,7 +276,7 @@ SaffronCity_FightingDojoVIP_EventScript_Miltank::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Miltank:
-	.string "MILTANK: MooOOO!$"
+	.string "Miltank: MuuhHHO!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Poliwhirl::
 	lock
@@ -290,7 +290,7 @@ SaffronCity_FightingDojoVIP_EventScript_Poliwhirl::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Poliwhirl:
-	.string "POLIWHIRL: Whirl-whirl!$"
+	.string "Quaputzi: Whirl-whirl!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Dewgong::
 	lock
@@ -304,7 +304,7 @@ SaffronCity_FightingDojoVIP_EventScript_Dewgong::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Dewgong:
-	.string "DEWGONG: Goooooong!$"
+	.string "Jugong: Goooooong!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Steelix::
 	lock
@@ -318,7 +318,7 @@ SaffronCity_FightingDojoVIP_EventScript_Steelix::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Steelix:
-	.string "STEELIX: GraaAAANk!$"
+	.string "Stahlos: GraaAAANk!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Kingdra::
 	lock
@@ -332,7 +332,7 @@ SaffronCity_FightingDojoVIP_EventScript_Kingdra::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Kingdra:
-	.string "KINGDRA: Draaa...$"
+	.string "Seedraking: Draaa...$"
 
 SaffronCity_FightingDojoVIP_EventScript_Onix::
 	lock
@@ -346,7 +346,7 @@ SaffronCity_FightingDojoVIP_EventScript_Onix::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Onix:
-	.string "ONIX: Oooonix!$"
+	.string "Onix: Oooonix!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Starmie::
 	lock
@@ -360,7 +360,7 @@ SaffronCity_FightingDojoVIP_EventScript_Starmie::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Starmie:
-	.string "STARMIE: Hyaaa!$"
+	.string "Starmie: Hyaaa!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Victreebel::
 	lock
@@ -374,7 +374,7 @@ SaffronCity_FightingDojoVIP_EventScript_Victreebel::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Victreebel:
-	.string "VICTREEBEL: Vreeee!$"
+	.string "Sarzenia: Vreeee!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Muk::
 	lock
@@ -388,7 +388,7 @@ SaffronCity_FightingDojoVIP_EventScript_Muk::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Muk:
-	.string "MUK: Muuuk...$"
+	.string "Sleimok: Muuuk...$"
 
 SaffronCity_FightingDojoVIP_EventScript_Kadabra::
 	lock
@@ -402,7 +402,7 @@ SaffronCity_FightingDojoVIP_EventScript_Kadabra::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Kadabra:
-	.string "KADABRA: Kadabra!$"
+	.string "Kadabra: Kadabra!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Magmar::
 	lock
@@ -416,7 +416,7 @@ SaffronCity_FightingDojoVIP_EventScript_Magmar::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Magmar:
-	.string "MAGMAR: Magmaaaar!$"
+	.string "Magmar: Magmaaaar!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Raichu::
 	lock
@@ -430,7 +430,7 @@ SaffronCity_FightingDojoVIP_EventScript_Raichu::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Raichu:
-	.string "RAICHU: Rai-CHU!$"
+	.string "Raichu: Rai-CHU!$"
 
 SaffronCity_FightingDojoVIP_EventScript_Machamp::
 	lock
@@ -444,7 +444,7 @@ SaffronCity_FightingDojoVIP_EventScript_Machamp::
 	release
 	end
 SaffronCity_FightingDojoVIP_Text_Machamp:
-	.string "MACHAMP: Maa-champ!$"
+	.string "Machomei: Maa-champ!$"
 
 SaffronCity_FightingDojo_EventScript_Chased::
 	msgbox SaffronCity_FightingDojoVIP_Text_Chased, MSGBOX_NPC
@@ -458,220 +458,209 @@ SaffronCity_FightingDojoVIP_EvetScript_Statue::
 	end
 
 SaffronCity_FightingDojoVIP_Text_Statue:
-	.string "FIGHTING DOJO VIP LOUNGE$"
+	.string "Kampf DOJO VIP LOUNGE$"
 
-SaffronCity_FightingDojoVIP_Text_Falkner_Rematch:
-	.string "Congratulations on defeating\n"
-	.string "the ELITE 4!\p"
-	.string "I've been training my\n"
-	.string "FLYING-type POKéMON even harder.\p"
-	.string "Think you can take on the power\n"
-	.string "of the skies again?$"
+SaffronCity_FightingDojoVIP_Text_Falkner_Rematch::
+	.string "Glückwunsch zum Sieg über die\n"
+	.string "TOP VIER!\p"
+	.string "Ich habe meine Flug-Pokémon\n"
+	.string "noch härter trainiert.\p"
+	.string "Bezwingst du die Macht des\n"
+	.string "Himmels erneut?$"
 
-SaffronCity_FightingDojoVIP_Text_Falkner_RematchDefeat:
-	.string "Wow… You beat me again.\p"
-	.string "I'm going to train harder to\n"
-	.string "become the greatest bird master!$"
+SaffronCity_FightingDojoVIP_Text_Falkner_RematchDefeat::
+	.string "Wow… Du hast mich wieder besiegt.\p"
+	.string "Ich werde noch härter trainieren,\n"
+	.string "um der beste Vogelmeister zu sein!$"
 
-SaffronCity_FightingDojoVIP_Text_Bugsy_Rematch:
-	.string "Wow, you're the JOHTO CHAMPION\n"
-	.string "now!\p"
-	.string "Your skills are truly impressive!\p"
-	.string "I've been busy with my research.\p"
-	.string "I'm ready to show you my new\n"
-	.string "findings.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Bugsy_Rematch::
+	.string "Wow, du bist jetzt der\n"
+	.string "JOHTO-CHAMPION!\p"
+	.string "Deine Fähigkeiten sind beeindruckend!\n"
+	.string "\p"
+	.string "Ich habe viel geforscht.\p"
+	.string "Ich zeige dir meine neuen\n"
+	.string "Erkenntnisse.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Bugsy_RematchDefeat:
-	.string "Wow, you must be an expert\n"
-	.string "trainer.\p"
-	.string "My research must not be\n"
-	.string "complete…$"
+SaffronCity_FightingDojoVIP_Text_Bugsy_RematchDefeat::
+	.string "Wow, du bist ein wahrer\n"
+	.string "Top-Trainer.\p"
+	.string "Meine Forschung ist wohl noch\n"
+	.string "nicht abgeschlossen…$"
 
-SaffronCity_FightingDojoVIP_Text_Whitney_Rematch:
-	.string "Hi! It's you!\p"
-	.string "Wow, JOHTO CHAMPION now?\p"
-	.string "You really are amazing!\p"
-	.string "I want to see how strong you are.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Whitney_Rematch::
+	.string "Hi! Du bist es!\p"
+	.string "JOHTO-CHAMPION?\p"
+	.string "Du bist echt unglaublich!\p"
+	.string "Zeig mir, wie stark du bist!\p"
+	.string "Lust auf einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Whitney_RematchDefeat:
-	.string "Waaaaah!\p"
-	.string "Waaaaah!\p"
-	.string "…Snivel, hic… …You meanie!$"
+SaffronCity_FightingDojoVIP_Text_Whitney_RematchDefeat::
+	.string "Wäääh!\p"
+	.string "Wäääh!\p"
+	.string "…Schnief… Du bist gemein!$"
 
-SaffronCity_FightingDojoVIP_Text_Morty_Rematch:
-	.string "Ah, the JOHTO CHAMPION! Good of\n"
-	.string "you to come.\p"
-	.string "You've shown your strength and\n"
-	.string "skill, but have you improved\l"
-	.string "since our last battle?\p"
-	.string "I've been training with my\n"
-	.string "GHOST-type POKéMON.\p"
-	.string "Let's see if you can overcome\n"
-	.string "the shadows once again.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Morty_Rematch::
+	.string "Ah, der JOHTO-CHAMPION.\p"
+	.string "Du hast Stärke bewiesen, doch\n"
+	.string "bist du gewachsen seit damals?\p"
+	.string "Ich trainierte meine Geist-\n"
+	.string "Pokémon unermüdlich.\p"
+	.string "Kannst du die Schatten erneut\n"
+	.string "überwinden?\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Morty_RematchDefeat:
-	.string "I'm not good enough yet…\p"
-	.string "You have witnessed much more\n"
-	.string "than I.\p"
-	.string "I envy you for that…$"
+SaffronCity_FightingDojoVIP_Text_Morty_RematchDefeat::
+	.string "Ich bin noch nicht so weit…\p"
+	.string "Du hast mehr gesehen als ich.\p"
+	.string "Darum beneide ich dich…$"
 
-SaffronCity_FightingDojoVIP_Text_Chuck_Rematch:
-	.string "WAHAHAH! JOHTO CHAMPION!\p"
-	.string "You've come back for more!\p"
-	.string "I see your skills have improved!\p"
-	.string "Ready to see who's stronger?$"
+SaffronCity_FightingDojoVIP_Text_Chuck_Rematch::
+	.string "WAHAHAHA! JOHTO-CHAMPION!\p"
+	.string "Du willst mehr, was?\p"
+	.string "Deine Technik ist besser geworden!\p"
+	.string "Na los! Wer ist stärker?$"
 
-SaffronCity_FightingDojoVIP_Text_Chuck_RematchDefeat:
-	.string "Wha? Huh? I lost? Again?$"
+SaffronCity_FightingDojoVIP_Text_Chuck_RematchDefeat::
+	.string "Was?! Hä?! Ich hab verloren?\p"
+	.string "Schon wieder?$"
 
-SaffronCity_FightingDojoVIP_Text_Jasmine_Rematch:
-	.string "…Congratulations, JOHTO\n"
+SaffronCity_FightingDojoVIP_Text_Jasmine_Rematch::
+	.string "…Glückwunsch, JOHTO-\n"
 	.string "CHAMPION.\p"
-	.string "You have become so strong…\p"
-	.string "I wonder if I have improved.\p"
-	.string "Would you like to test that?\p"
-	.string "Want to have a rematch with me?$"
+	.string "Du bist so stark geworden…\p"
+	.string "Ob ich mich wohl verbessert habe?\p"
+	.string "Möchtest du das prüfen?\p"
+	.string "Lust auf einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Jasmine_RematchDefeat:
-	.string "…You are a better trainer than\n"
-	.string "me,\p"
-	.string "in both skill and kindness.$"
+SaffronCity_FightingDojoVIP_Text_Jasmine_RematchDefeat::
+	.string "…Du bist mir überlegen,\p"
+	.string "an Stärke und Güte.$"
 
-SaffronCity_FightingDojoVIP_Text_Pryce_Rematch:
-	.string "Ah, JOHTO CHAMPION!\p"
-	.string "Your skills are indeed\n"
-	.string "remarkable.\p"
-	.string "I am impressed.\p"
-	.string "But even now, there is much to\n"
-	.string "learn from each other.\p"
-	.string "I, PRYCE--the winter trainer--\p"
-	.string "still have a few tricks left.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Pryce_Rematch::
+	.string "Ah, JOHTO-CHAMPION!\p"
+	.string "Deine Fähigkeiten sind beachtlich.\p"
+	.string "Das beeindruckt mich sehr.\p"
+	.string "Doch wir können stets lernen.\p"
+	.string "Ich, Norbert, der Wintertrainer,\p"
+	.string "habe noch Tricks parat.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Pryce_RematchDefeat:
-	.string "Ah, yet again I'm impressed by\n"
-	.string "your prowess.\p"
-	.string "With your strong will, I know\n"
-	.string "you will overcome all life's\l"
-	.string "obstacles.$"
+SaffronCity_FightingDojoVIP_Text_Pryce_RematchDefeat::
+	.string "Erneut beeindruckst du mich.\p"
+	.string "Mit deinem Willen wirst du\n"
+	.string "jedes Hindernis überwinden.$"
 
-SaffronCity_FightingDojoVIP_Text_Clair_Rematch:
-	.string "You did it, huh?\p"
-	.string "You are now the JOHTO CHAMP.\p"
-	.string "You've proven your strength but\n"
-	.string "can you handle me again?\p"
-	.string "As a Dragon Master, I won't hold\n"
-	.string "back.\p"
-	.string "Not this time.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Clair_Rematch::
+	.string "Du hast es geschafft, hm?\p"
+	.string "JOHTO-CHAMPION also.\p"
+	.string "Deine Stärke ist bewiesen,\n"
+	.string "doch schaffst du mich erneut?\p"
+	.string "Als Drachenmeister halte ich\n"
+	.string "mich nicht zurück.\p"
+	.string "Diesmal nicht.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Clair_RematchDefeat:
-	.string "I lost?\p"
-	.string "Again?\p"
-	.string "I don't believe it. There must\n"
-	.string "be some mistake…$"
+SaffronCity_FightingDojoVIP_Text_Clair_RematchDefeat::
+	.string "Ich habe verloren?\p"
+	.string "Schon wieder?\p"
+	.string "Das kann nicht sein…$"
 
-SaffronCity_FightingDojoVIP_Text_Brock_Rematch:
-	.string "BROCK: Hey there, {PLAYER}!\p"
-	.string "I heard you are now the KANTO\n"
-	.string "CHAMPION.\p"
-	.string "That's incredible!\p"
-	.string "You must be even stronger now.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Brock_Rematch::
+	.string "Rocko: Hey, {PLAYER}!\p"
+	.string "Du bist jetzt KANTO-CHAMPION?\p"
+	.string "Unglaublich!\p"
+	.string "Du bist noch stärker geworden.\p"
+	.string "Lust auf einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Brock_RematchDefeat:
-	.string "BROCK: Your POKéMON once again\n"
-	.string "overcame my rock-hard defense…$"
+SaffronCity_FightingDojoVIP_Text_Brock_RematchDefeat::
+	.string "Rocko: Deine Pokémon haben meine\n"
+	.string "steinharte Abwehr erneut besiegt…$"
 
-SaffronCity_FightingDojoVIP_Text_Misty_Rematch:
-	.string "MISTY: Wow, you're the KANTO\n"
-	.string "CHAMPION now!\p"
-	.string "That's amazing! You've come a\n"
-	.string "long way, {PLAYER}.\p"
-	.string "But I'm not backing down.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Misty_Rematch::
+	.string "Misty: Wow, KANTO-CHAMPION!\p"
+	.string "Das ist unglaublich, {PLAYER}.\p"
+	.string "Du hast dich weit entwickelt.\p"
+	.string "Aber ich gebe nicht auf!\p"
+	.string "Lust auf einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Misty_RematchDefeat:
-	.string "MISTY: You really are good…$"
+SaffronCity_FightingDojoVIP_Text_Misty_RematchDefeat::
+	.string "Misty: Du bist wirklich gut…$"
 
-SaffronCity_FightingDojoVIP_Text_Surge_Rematch:
-	.string "SURGE: So, you're now KANTO\n"
+SaffronCity_FightingDojoVIP_Text_Surge_Rematch::
+	.string "SURGE: KANTO-CHAMPION also!\p"
+	.string "Starke Leistung, Kleiner!\p"
+	.string "Aber ich bin noch nicht fertig!\p"
+	.string "Wie wär's mit Runde zwei?$"
+
+SaffronCity_FightingDojoVIP_Text_Surge_RematchDefeat::
+	.string "SURGE: Arrrgh!\p"
+	.string "Du bist immer noch knallhart!$"
+
+SaffronCity_FightingDojoVIP_Text_Erika_Rematch::
+	.string "Erika: Oh, hallo.\p"
+	.string "Was für eine Überraschung,\n"
 	.string "CHAMPION!\p"
-	.string "Impressive work, kid! But don't\n"
-	.string "think I'm done!\p"
-	.string "How about we have a go again?$"
+	.string "Es ist schön, dich zu sehen.\p"
+	.string "Deine Reise war sicher spannend.\p"
+	.string "Auch Champs lieben Prüfungen.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Surge_RematchDefeat:
-	.string "SURGE: Arrrgh! You're still just\n"
-	.string "as strong!$"
+SaffronCity_FightingDojoVIP_Text_Erika_RematchDefeat::
+	.string "Erika: Verlieren hinterlässt\n"
+	.string "einen bitteren Nachklang…\p"
+	.string "Doch starke Trainer treiben\n"
+	.string "mich zu mehr an…$"
 
-SaffronCity_FightingDojoVIP_Text_Erika_Rematch:
-	.string "ERIKA: Oh, hello.\p"
-	.string "What a surprise, CHAMPION!\p"
-	.string "It's so lovely to see you again.\p"
-	.string "Your journey must have been so\n"
-	.string "exciting.\p"
-	.string "Even champions enjoy a challenge.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Sabrina_Rematch::
+	.string "Sabrina: Ah, der CHAMPION.\p"
+	.string "Ich spürte deine Rückkehr.\p"
+	.string "Deine Aura ist enorm gewachsen.\p"
+	.string "Selbst jetzt fühle ich sie.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Erika_RematchDefeat:
-	.string "ERIKA: Losing still leaves a\n"
-	.string "bitter aftertaste…\p"
-	.string "But knowing that there are strong\n"
-	.string "trainers spurs me to do better…$"
+SaffronCity_FightingDojoVIP_Text_Sabrina_RematchDefeat::
+	.string "Sabrina: Deine Liebe zu Pokémon\n"
+	.string "überwältigte erneut meine\l"
+	.string "Psychokinese…$"
 
-SaffronCity_FightingDojoVIP_Text_Sabrina_Rematch:
-	.string "SABRINA: Ah, the CHAMPION.\p"
-	.string "I sensed your return.\p"
-	.string "Your power has grown immensely.\p"
-	.string "Even now, I feel your aura.\p"
-	.string "Want to have a rematch with me?$"
-
-SaffronCity_FightingDojoVIP_Text_Sabrina_RematchDefeat:
-	.string "SABRINA: Your love for your\n"
-	.string "POKéMON again overwhelmed my\l"
-	.string "psychic power…$"
-
-SaffronCity_FightingDojoVIP_Text_Janine_Rematch:
+SaffronCity_FightingDojoVIP_Text_Janine_Rematch::
 	.string "Fufufufu…\p"
-	.string "Wow, you did it!\p"
-	.string "You're the CHAMPION now!\p"
-	.string "I'm so proud of you! But don't\n"
-	.string "think I'll go easy on you.\p"
-	.string "Want to have a rematch with me?$"
+	.string "Wow, du hast es geschafft!\p"
+	.string "Du bist jetzt CHAMPION!\p"
+	.string "Ich bin stolz auf dich, aber\n"
+	.string "ich halte mich nicht zurück.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Janine_RematchDefeat:
-	.string "JANINE: You're still just as\n"
-	.string "tough!\p"
-	.string "You definitely won…$"
+SaffronCity_FightingDojoVIP_Text_Janine_RematchDefeat::
+	.string "Janina: Du bist immer noch\n"
+	.string "knallhart!\p"
+	.string "Der Sieg gehört dir…$"
 
-SaffronCity_FightingDojoVIP_Text_Blaine_Rematch:
-	.string "BLAINE: Whoa!\p"
-	.string "I see you've become the KANTO\n"
-	.string "CHAMPION!\p"
-	.string "That's blazing!\p"
-	.string "Your skills are top-notch.\p"
-	.string "I'm always up for a battle.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Blaine_Rematch::
+	.string "Pyro: Wow!\p"
+	.string "Du bist jetzt KANTO-CHAMPION!\p"
+	.string "Das ist echt heiß!\p"
+	.string "Deine Technik ist erstklassig.\p"
+	.string "Ich bin immer kampfbereit.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Blaine_RematchDefeat:
-	.string "BLAINE: Your skills are truly\n"
-	.string "fiery!\p"
-	.string "You've burned right through my\n"
-	.string "defenses.$"
+SaffronCity_FightingDojoVIP_Text_Blaine_RematchDefeat::
+	.string "Pyro: Deine Stärke ist wahrlich\n"
+	.string "feurig!\p"
+	.string "Du hast meine Abwehr verbrannt.$"
 
-SaffronCity_FightingDojoVIP_Text_Blue_Rematch:
-	.string "BLUE: Well, well. CHAMPION!\p"
-	.string "Looks like you've come a long way.\p"
-	.string "I used to have that title too,\n"
-	.string "you know. But I won't go easy.\p"
-	.string "Let's see if you can keep it up.\p"
-	.string "Want to have a rematch with me?$"
+SaffronCity_FightingDojoVIP_Text_Blue_Rematch::
+	.string "Blau: Na sieh mal einer.\p"
+	.string "Der CHAMPION.\p"
+	.string "Du bist weit gekommen.\p"
+	.string "Den Titel hatte ich auch mal.\p"
+	.string "Doch ich schone dich nicht.\p"
+	.string "Zeig, ob du ihn verdienst.\p"
+	.string "Willst du einen Rückkampf?$"
 
-SaffronCity_FightingDojoVIP_Text_Blue_RematchDefeat:
-	.string "BLUE: What?\p"
-	.string "How the heck did I lose again?$"
+SaffronCity_FightingDojoVIP_Text_Blue_RematchDefeat::
+	.string "Blau: Was?!\p"
+	.string "Wie hab ich schon wieder verloren?$"
 

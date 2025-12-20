@@ -13,19 +13,19 @@ EverGrandeCity_GlaciasRoom_EventScript_PlayerTurnNorth::
 	end
 
 EverGrandeCity_GlaciasRoom_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 2, EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor
+	map_script_2 VAR_ELITE_4_STATE, 2, EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor
 	.2byte 0
 
 EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor::
 	lockall
 	call PokemonLeague_EliteFour_EventScript_WalkInCloseDoor
-	setvar VAR_GARBAGEVAR, 3
+	setvar VAR_ELITE_4_STATE, 3
 	releaseall
 	end
 
 EverGrandeCity_GlaciasRoom_OnLoad:
-	call_if_set FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO, EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom
-	call_if_eq VAR_GARBAGEVAR, 3, EverGrandeCity_GlaciasRoom_EventScript_CloseDoor
+	call_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom
+	call_if_eq VAR_ELITE_4_STATE, 3, EverGrandeCity_GlaciasRoom_EventScript_CloseDoor
 	end
 
 EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom::
@@ -39,17 +39,10 @@ EverGrandeCity_GlaciasRoom_EventScript_CloseDoor::
 EverGrandeCity_GlaciasRoom_EventScript_Glacia::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
-	goto_if_set FLAG_GLACIA_REMATCH, EverGrandeCity_GlaciasRoom_EventScript_GlaciaRematch
+	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_GLACIA, EverGrandeCity_GlaciasRoom_Text_Defeat
-	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
-	end
-
-EverGrandeCity_GlaciasRoom_EventScript_GlaciaRematch::
-	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech2, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_PHOEBE2, EverGrandeCity_GlaciasRoom_Text_Defeat2
 	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
 	end
 
@@ -59,46 +52,34 @@ EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech::
 	end
 
 EverGrandeCity_GlaciasRoom_EventScript_Defeated::
-	setflag FLAG_DEFEATED_JOHTO_ELITE_4_BRUNO
+	setflag FLAG_DEFEATED_ELITE_4_GLACIA
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
 	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
 	end
 
 EverGrandeCity_GlaciasRoom_Text_IntroSpeech:
-	.string "Welcome, my name is GLACIA\n"
-	.string "of the ELITE FOUR.\p"
-	.string "I've traveled from afar to HOENN\n"
-	.string "so that I may hone my ice skills.\p"
-	.string "But all I have seen are challenges by\n"
-	.string "weak TRAINERS and their POKéMON.\p"
-	.string "What about you?\p"
-	.string "It would please me to no end if I could\n"
-	.string "go all out against you!$"
-
-EverGrandeCity_GlaciasRoom_Text_IntroSpeech2:
-	.string "Welcome again, I'm GLACIA. I won't\n"
-	.string "introduce myself again, you know me.\p"
-	.string "I haven't had any challenge since I\n"
-	.string "last battled you and your POKéMON.\p"
-	.string "What about you?\n"
-	.string "Have your skills honed?\p"
-	.string "It would please me to no end if I could\n"
-	.string "go all out against you!\p"
-	.string "But this time… I will win!$"
+	.string "Willkommen. Mein Name ist FROSINA\n"
+	.string "von den TOP VIER.\p"
+	.string "Ich bin von weit her nach HOENN\n"
+	.string "gereist, um meine eisigen Talente zu\n"
+	.string "trainieren. \p"
+	.string "Aber bisher haben mich nur lausige\n"
+	.string "TRAINER mit noch lausigeren POKéMON\l"
+	.string "herausgefordert.\p"
+	.string "Wie sieht es mit dir aus?\p"
+	.string "Es würde mich überaus freuen, wenn du\n"
+	.string "mich zwingst, alles zu geben!$"
 
 EverGrandeCity_GlaciasRoom_Text_Defeat:
-	.string "You and your POKéMON…\n"
-	.string "How hot your spirits burn!\p"
-	.string "The all-consuming heat overwhelms.\p"
-	.string "It's no surprise that my icy skills\n"
-	.string "failed to harm you.$"
-
-EverGrandeCity_GlaciasRoom_Text_Defeat2:
-	.string "Your spirit is still burning! But\p"
-	.string "I got left in the cold again…$"
+	.string "Du und deine POKéMON…\n"
+	.string "Euer Zusammenhalt verbrennt alles!\p"
+	.string "Diese Hitze besiegt jeden.\p"
+	.string "Kein Wunder, dass mein eisiges Talent\n"
+	.string "dahinschmolz und dir nicht schadete.$"
 
 EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
-	.string "Advance to the next room.\p"
-	.string "And there, confirm the truly fearsome\n"
-	.string "side of the POKéMON LEAGUE.$"
+	.string "Geh weiter in den nächsten Raum.\p"
+	.string "Und dort wirst du die schrecklichste\n"
+	.string "Seite der POKéMON LIGA kennen lernen.$"
+

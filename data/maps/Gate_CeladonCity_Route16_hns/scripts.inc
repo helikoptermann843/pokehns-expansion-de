@@ -30,6 +30,6 @@ Gate_CeladonCity_Route16_ExitCyclingRoad::
 	end
 
 Gate_CeladonCity_Route16_Text_TooDangerousToWalk:
-	.string "Sorry, you can't walk on CYCLING\n"
-	.string "ROAD. It's too dangerous.\p"
-	.string "Please come back with a BIKE.$"
+	.string "Sorry, du kannst auf dem Radweg\n"
+	.string "nicht zu Fuß gehen.\p"
+	.string "Das ist zu gefährlich.$"

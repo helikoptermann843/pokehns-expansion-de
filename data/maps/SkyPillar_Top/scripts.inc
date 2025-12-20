@@ -29,7 +29,7 @@ SkyPillar_Top_EventScript_TryShowRayquaza::
 	return
 
 SkyPillar_Top_EventScript_ShowRayquaza::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL
 	return
 
 SkyPillar_Top_OnWarp:
@@ -41,11 +41,6 @@ SkyPillar_Top_EventScript_RayquazaFaceDown::
 	end
 
 SkyPillar_Top_EventScript_Rayquaza::
-	call_if_set FLAG_DIFFICULTY_HARD, SkyPillar_Top_EventScript_RayquazaHard
-	call_if_unset FLAG_DIFFICULTY_HARD, SkyPillar_Top_EventScript_RayquazaNormal
-	end
-
-SkyPillar_Top_EventScript_RayquazaNormal::
 	lockall
 	waitse
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
@@ -63,42 +58,6 @@ SkyPillar_Top_EventScript_RayquazaNormal::
 	setflag FLAG_DEFEATED_RAYQUAZA
 	releaseall
 	end
-
-SkyPillar_Top_EventScript_RayquazaHard::
-	lockall
-	waitse
-	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setwildbattle SPECIES_RAYQUAZA, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	call_if_set FLAG_DIFFICULTY_HARD, SkyPillar_Top_EventScript_RayquazaHard_Stats
-	special BattleSetup_StartLegendaryBattle
-	waitstate
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	calculatemonstats
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SkyPillar_Top_EventScript_DefeatedRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SkyPillar_Top_EventScript_RanFromRayquaza
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SkyPillar_Top_EventScript_RanFromRayquaza
-	setflag FLAG_DEFEATED_RAYQUAZA
-	releaseall
-	end
-
-SkyPillar_Top_EventScript_RayquazaHard_Stats::
-	setvar VAR_0x8000, 250 @HP
-	setvar VAR_0x8001, 240 @ATK
-	setvar VAR_0x8002, 150 @DEF
-	setvar VAR_0x8003, 170 @SPD
-	setvar VAR_0x8005, 240 @SP. ATK
-	setvar VAR_0x8006, 150 @SP. ATK
-	special SetHpStat
-	special SetAtkStat
-	special SetDefStat
-	special SetSpAtkStat
-	special SetSpDefStat
-	special SetSpdStat
-	return
 
 SkyPillar_Top_EventScript_DefeatedRayquaza::
 	setflag FLAG_DEFEATED_RAYQUAZA
@@ -165,7 +124,7 @@ SkyPillar_Top_EventScript_AwakenRayquaza::
 	applymovement LOCALID_CAMERA, SkyPillar_Top_Movement_CameraPanDown
 	waitmovement 0
 	special RemoveCameraObject
-	setvar VAR_GARBAGEVAR, 5
+	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
 	setvar VAR_SKY_PILLAR_STATE, 1
 	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
 	releaseall
@@ -220,5 +179,5 @@ SkyPillar_Top_Movement_CameraPanDown:
 	step_end
 
 SkyPillar_Top_Text_RayquazaFlewOff:
-	.string "The awakened RAYQUAZA flew off…$"
+	.string "RAYQUAZA ist erwacht und weggeflogen…$"
 

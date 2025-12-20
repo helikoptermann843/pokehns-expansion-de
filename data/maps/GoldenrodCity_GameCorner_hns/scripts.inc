@@ -300,7 +300,7 @@ GoldenrodCity_GameCorner_EventScript_CoinsClerk::
 	goto MauvilleCity_GameCorner_EventScript_ChooseCoinsDefault50
 
 GoldenrodCity_GameCorner_Text_ThisIsGoldenrodGameCorner:
-	.string "This is the GAME CORNER.$"
+	.string "SPIELHALLE.$"
 
 GoldenrodCity_GameCorner_EventScript_NoRoomFor50Coins::
 	msgbox MauvilleCity_GameCorner_Text_NoRoomFor50Coins, MSGBOX_DEFAULT
@@ -395,9 +395,9 @@ GoldenrodCity_GameCorner_EventScript_ConfirmTMPrize::
 	end
 
 GoldenrodCity_GameCorner_Text_WereYouLookingForCoins:
-	.string "Were you looking for COINS?\p"
-	.string "It's ¥500 for 50 COINS.\n"
-	.string "Would you like some?$"
+	.string "Suchst du MÜNZEN?\p"
+	.string "¥500 für 50 MÜNZEN.\n"
+	.string "Möchtest du welche?$"
 
 GoldenrodCity_GameCorner_EventScript_SlotMachine1::
 	lockall
@@ -510,103 +510,112 @@ GoldenrodCity_GameCorner_EventScript_SlotMachine11::
 	end
 
 GoldenrodCity_GameCorner_PrizeRoom_Text_YouWantPrize:
-	.string "{STR_VAR_1} is what you want?$"
+	.string "{STR_VAR_1} richtig?$"
 
 GoldenrodCity_GameCorner_Text_PlayerObtainedTheMon:
-	.string "{PLAYER} got {STR_VAR_1}!$"
+	.string "{PLAYER} erhält {STR_VAR_1}!$"
 
 GoldenrodGamecorner_Text_GiveNicknameToThisMon:
-	.string "Nickname {STR_VAR_1}?$"
+	.string "{STR_VAR_1} Spitzname geben?$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorIntro:
-    .string "Welcome!\p"
-    .string "We exchange your game coins for\n"
-    .string "fabulous prizes!$"
+	.string "Willkommen!\p"
+	.string "Wir tauschen deine\n"
+	.string "Spielmünzen gegen tolle Preise!$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorWhichPrize:
-    .string "Which prize would you like?$"
+	.string "Welchen Preis möchtest du?$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorHereYouGo:
-    .string "Here you go!$"
+	.string "Hier, bitte!$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorNeedMoreCoins:
-    .string "Sorry! You need more coins.$"
+	.string "Tut mir Leid, aber\n"
+	.string "du brauchst mehr Münzen.$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorNoMoreRoom:
-    .string "Sorry. You can't carry any more.$"
+	.string "Du kannst nichts mehr tragen.$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorQuit:
-    .string "OK. Please save your coins and come\n"
-    .string "again!$"
+	.string "Sammle ein paar\n"
+	.string "Münzen und komm dann wieder!$"
 
 GoldenrodCity_GameCorner_Text_PrizeVendorNoCoinCase:
-    .string "Oh? You don't have a COIN CASE.$"
+	.string "Oh? Du hast keinen MÜNZKORB.$"
 
 GoldenrodCity_GameCorner_Text_Pharmacist:
-    .string "I always play this slot machine.\n"
-    .string "It pays out more than others,\l"
-    .string "I think.$"
+	.string "Ich spiele nur an diesem Automaten.\p"
+	.string "Ich glaube, er spuckt mehr aus\p"
+	.string "als die anderen.$"
 
 GoldenrodCity_GameCorner_Text_Woman:
-    .string "I can't stop winning!$"
+	.string "Dein Spielplatz!\p"
+	.string "DUKATIA CITY SPIELHALLE$"
 
 GoldenrodCity_GameCorner_Text_PokefanM1:
-    .string "I just love this new slot machine.\p"
-    .string "It's more of a challenge than the\n"
-    .string "ones in CELADON.$"
+	.string "Ich liebe diesen neuen Automaten.\p"
+	.string "Er stellt eine\n"
+	.string "größere Herausforderung dar als jene\l"
+	.string "in PRISMANIA CITY.$"
 
 GoldenrodCity_GameCorner_Text_CooltrainerM:
-    .string "Life is a gamble. I'm going to pull\n"
-    .string "till I drop!$"
+	.string "Das Leben ist ein\n"
+	.string "Spiel. Ich werde Karten spielen, bis\l"
+	.string "ich umfalle!$"
 
 GoldenrodCity_GameCorner_Text_PokefanF:
-    .string "Roulette…\p"
-    .string "I prefer it over the slots because\n"
-    .string "it's easier to figure the odds.\p"
-    .string "But the payout is much lower.$"
+	.string "Karten…\p"
+	.string "Ich ziehe sie den Automaten vor,\p"
+	.string "weil man seine\n"
+	.string "Chancen besser abschätzen kann.\p"
+	.string "Aber der Gewinn ist viel geringer.$"
 
 GoldenrodCity_GameCorner_Text_CooltrainerF:
-    .string "I won't quit until I win!$"
+	.string "Ich höre erst auf, wenn ich gewinne!$"
 
 GoldenrodCity_GameCorner_Text_Gentleman:
-    .string "I taught BLIZZARD to my POKéMON.\p"
-    .string "It was hard to get enough coins for\n"
-    .string "it, but it was worth it.$"
+	.string "Ich habe meinen\n"
+	.string "Pokémon BLIZZARD beigebracht.\p"
+	.string "Es hat zwar gedauert, bis ich genug\p"
+	.string "Münzen hatte, aber\n"
+	.string "es hat sich gelohnt.$"
 
 GoldenrodCity_GameCorner_Text_PokefanM2:
-    .string "I couldn't win at the slots, and I\n"
-    .string "blew it on roulette.\p"
-    .string "I got so furious, I tossed out my\n"
-    .string "COIN CASE in the UNDERGROUND.$"
+	.string "Ich hatte an den Automaten kein\p"
+	.string "Glück. Bei den Karten sieht es\p"
+	.string "auch nicht anders aus…\p"
+	.string "Ich war so zornig, dass ich meinen\p"
+	.string "MÜNZKORB in den\n"
+	.string "UNTERGRUND geworfen habe.$"
 
 GoldenrodCity_GameCorner_Text_MoveTutorInside:
-    .string "Wahahah! The coins keep rolling in!$"
+	.string "Wahahah! Die Münzen klingeln!$"
 
 GoldenrodCity_GameCorner_Text_LeftTheirDrink:
-    .string "Someone left their drink.\p"
-    .string "It smells sweet.$"
+	.string "Jemand hat sein Getränk stehen\p"
+	.string "lassen. Es riecht süß!$"
 
 GoldenrodCity_GameCorner_Text_ExchangeCoinsForPrizes:
-	.string "Welcome.\p"
-	.string "You can exchange your COINS for\n"
-	.string "prizes here.$"
+	.string "Willkommen.\p"
+	.string "Du kannst deine MÜNZEN gegen\n"
+	.string "Preise tauschen.$"
 
 GoldenrodCity_GameCorner_Text_NeedCoinCaseForCoins:
-	.string "Okay, you wanted some COINS for\n"
-	.string "the games?\p"
-	.string "But you don't have a COIN CASE for\n"
-	.string "stowing the COINS.$"
+	.string "Okay, du willst einige Münzen\n"
+	.string "für die Spiele?\p"
+	.string "Aber du hast keinen Münzkorb,\n"
+	.string "um die Münzen aufzubewahren.$"
 
 GoldenrodCity_GameCorner_Text_NoRoomForPokemon:
-	.string "Hm? You don't seem to have any room\n"
-	.string "for this POKéMON.$"
+	.string "Hm? Du hast scheinbar keinen Platz\n"
+	.string "für dieses Pokémon.$"
 
 GoldenrodCity_GameCorner_Text_WhichPrize:
-	.string "Which prize would you like?$"
+	.string "Welchen Preis möchtest du haben?$"
 
 GoldenrodCity_GameCorner_Text_CantPlayWithNoCoinCase:
-	.string "You can't play if you don't have\n"
-	.string "a COIN CASE.$"
+	.string "Du kannst nicht spielen, wenn du\n"
+	.string "keinen Münzkorb hast.$"
 
 Roulette_EventScript_Table1::
 	checkitem ITEM_COIN_CASE
@@ -633,41 +642,44 @@ Roulette_EventScript_Play::
 	waitstate
 	end
 
-Roulette_Text_PlayMinimumWagerIsX::
-	.string "The minimum wager at this table\n"
-	.string "is {STR_VAR_1}. Do you want to play?$"
+Roulette_Text_PlayMinimumWagerIsX:
+	.string "Der Mindesteinsatz an diesem\n"
+	.string "Tisch ist {STR_VAR_1}. Willst du\l"
+	.string "spielen?$"
 
-Roulette_Text_NotEnoughCoins::
-	.string "You don't have enough COINS.$"
+Roulette_Text_NotEnoughCoins:
+	.string "Du hast nicht genug Münzen.$"
 
-Roulette_Text_SpecialRateTable::
-	.string "Special rate table right now!$"
+Roulette_Text_SpecialRateTable:
+	.string "Aktuell Spezialquoten!$"
 
-Roulette_Text_ControlsInstruction::
-	.string "Place your wager with the + Control\n"
-	.string "Pad, then press the A Button.$"
+Roulette_Text_ControlsInstruction:
+	.string "Setze deinen Einsatz mit dem\n"
+	.string "+- und drücke A.$"
 
-Roulette_Text_ItsAHit::
-	.string "It's a hit!$"
+Roulette_Text_ItsAHit:
+	.string "Getroffen!$"
 
-Roulette_Text_Jackpot::
+Roulette_Text_Jackpot:
 	.string "Jackpot!$"
 
-Roulette_Text_NothingDoing::
-	.string "Nothing doing!$"
+Roulette_Text_NothingDoing:
+	.string "Nichts zu machen!$"
 
-Roulette_Text_YouveWonXCoins::
-	.string "You've won {STR_VAR_1} COINS!$"
+Roulette_Text_YouveWonXCoins:
+	.string "Du hast {STR_VAR_1} Münzen\n"
+	.string "gewonnen!$"
 
-Roulette_Text_NoCoinsLeft::
-	.string "No COINS left…$"
+Roulette_Text_NoCoinsLeft:
+	.string "Keine Münzen mehr…$"
 
-Roulette_Text_KeepPlaying::
-	.string "Keep playing?$"
+Roulette_Text_KeepPlaying:
+	.string "Weiter spielen?$"
 
-Roulette_Text_BoardWillBeCleared::
-	.string "The ROULETTE board will be cleared.$"
+Roulette_Text_BoardWillBeCleared:
+	.string "Das Roulette-Feld wird gelöscht.$"
 
-Roulette_Text_CoinCaseIsFull::
-	.string "Your COIN CASE is full!\n"
-	.string "Coins can be exchanged for prizes.$"
+Roulette_Text_CoinCaseIsFull:
+	.string "Dein Münzkorb ist voll!\n"
+	.string "Münzen können gegen Preise\l"
+	.string "eingetauscht werden.$"

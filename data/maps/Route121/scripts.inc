@@ -28,7 +28,7 @@ Route121_EventScript_AquaGruntsMoveOut::
 	removeobject LOCALID_ROUTE121_GRUNT_1
 	removeobject LOCALID_ROUTE121_GRUNT_2
 	removeobject LOCALID_ROUTE121_GRUNT_3
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_ROUTE121_STATE, 1
 	releaseall
 	end
 
@@ -107,7 +107,7 @@ Route121_EventScript_Joy::
 	end
 
 Route121_EventScript_Jessica::
-	trainerbattle_single TRAINER_ARIANA_1, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
+	trainerbattle_single TRAINER_JESSICA_1, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchJessica
 	msgbox Route121_Text_JessicaPostBattle, MSGBOX_DEFAULT
@@ -118,17 +118,17 @@ Route121_EventScript_RegisterJessica::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route121_Text_JessicaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ARIANA_1
+	register_matchcall TRAINER_JESSICA_1
 	release
 	end
 
 Route121_EventScript_RematchJessica::
-	trainerbattle_rematch TRAINER_ARIANA_1, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
+	trainerbattle_rematch TRAINER_JESSICA_1, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
 	msgbox Route121_Text_JessicaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route121_EventScript_Cale::
-	trainerbattle_single TRAINER_ETHEL, Route121_Text_CaleIntro, Route121_Text_CaleDefeat
+	trainerbattle_single TRAINER_CALE, Route121_Text_CaleIntro, Route121_Text_CaleDefeat
 	msgbox Route121_Text_CalePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -148,7 +148,7 @@ Route121_EventScript_Marcel::
 	end
 
 Route121_EventScript_Cristin::
-	trainerbattle_single TRAINER_HILLARY, Route121_Text_CristinIntro, Route121_Text_CristinDefeat, Route121_EventScript_RegisterCristin
+	trainerbattle_single TRAINER_CRISTIN_1, Route121_Text_CristinIntro, Route121_Text_CristinDefeat, Route121_EventScript_RegisterCristin
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchCristin
 	msgbox Route121_Text_CristinPostBattle, MSGBOX_DEFAULT
@@ -159,30 +159,31 @@ Route121_EventScript_RegisterCristin::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route121_Text_CristinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_HILLARY
+	register_matchcall TRAINER_CRISTIN_1
 	release
 	end
 
 Route121_EventScript_RematchCristin::
-	trainerbattle_rematch TRAINER_HILLARY, Route121_Text_CristinRematchIntro, Route121_Text_CristinRematchDefeat
+	trainerbattle_rematch TRAINER_CRISTIN_1, Route121_Text_CristinRematchIntro, Route121_Text_CristinRematchDefeat
 	msgbox Route121_Text_CristinPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route121_Text_OkayMoveOutToMtPyre:
 	.string "Okay!\n"
-	.string "We're to move out to MT. PYRE!$"
+	.string "Wir sind auf dem Weg zum PYROBERG!$"
 
 Route121_Text_AheadLoomsMtPyre:
-	.string "Ahead looms MT. PYRE…\p"
-	.string "It is a natural monument to the spirits \n"
-	.string "of departed POKéMON…$"
+	.string "Vor uns erhebt sich der PYROBERG…\p"
+	.string "Er ist das natürlich gewachsene\n"
+	.string "Monument der Geister, der von uns\l"
+	.string "gegangenen POKéMON.$"
 
 Route121_Text_MtPyrePierSign:
-	.string "MT. PYRE PIER\p"
-	.string "…The sign is old and worn out.\n"
-	.string "The words are barely legible…$"
+	.string "PIER AM PYROBERG\p"
+	.string "…Das Schild ist alt und verwittert.\n"
+	.string "Die Worte sind kaum noch lesbar…$"
 
 Route121_Text_SafariZoneSign:
-	.string "“Filled with rare POKéMON!”\n"
-	.string "SAFARI ZONE$"
+	.string "SAFARI-ZONE\n"
+	.string "“Hier sind seltene POKéMON zu Hause!”$"
 

@@ -208,110 +208,121 @@ Route36_Movement_SudoWoodo:
 	step_end
 
 Route36_Text_UseSquirtbottle:
-	.string "Use SQUIRTBOTTLE?$"
+	.string "Das ist ein merk-\n"
+	.string "würdiger Baum. Möchtest du die\l"
+	.string "SCHIGGYKANNE benutzen?$"
 
 Route36_Text_UsedSquirtbottle:
-	.string "{PLAYER} used the SQUIRTBOTTLE.$"
+	.string "{PLAYER} benutzt SCHIGGYKANNE.$"
 
 Route36_Text_SudowoodoAttacked:
-	.string "The weird tree doesn't like the\n"
-	.string "SQUIRTBOTTLE!\p"
-	.string "The weird tree attacked!$"
+	.string "Der merkwürdige\n"
+	.string "Baum mag die SCHIGGYKANNE nicht!\p"
+	.string "Der merkwürdige Baum greift an!$"
 
 Route36_Text_RockSmashGuy1:
-	.string "Wa-hey!\p"
-	.string "I was going to snap that tree\n"
-	.string "with my straight-arm punch.\p"
-	.string "But I couldn't! I'm a failure!$"
+	.string "Wat is los!\p"
+	.string "Ich wollte diesen Baum mit\n"
+	.string "einem Geraden Schlag fällen.\p"
+	.string "Aber es ging nicht!\n"
+	.string "Ich bin ein Versager!$"
 
 Route36_Text_RockSmashGuy2:
-	.string "Did you clear that wretched tree?\p"
-	.string "I'm impressed!\n"
-	.string "I want you to have this.$"
+	.string "Hast du diesen lästigen Baum\n"
+	.string "beseitigt?\p"
+	.string "Ich bin beeindruckt!\n"
+	.string "Das hier sollst du haben.$"
 
 Route36_Text_RockSmashGuy3:
-	.string "That happens to be ROCK SMASH.\p"
-	.string "You can shatter rocks with just a\n"
-	.string "single well-aimed smack.\p"
-	.string "If any rocks are in your way,\n"
-	.string "just smash 'em up!$"
+	.string "Das ist übrigens\n"
+	.string "ZERTRÜMMRER.\p"
+	.string "Damit kannst du Felsen mit\n"
+	.string "einem gezielten Hieb zertrümmern.\p"
+	.string "Sind dir Steine im Weg,\n"
+	.string "schlag sie einfach kaputt!$"
 
 Route36_Text_OddTree:
-	.string "A weird tree is blocking the way.$"
+	.string "Ein seltsamer Baum versperrt\n"
+	.string "den Weg.$"
 
 Route36_Text_Lass1:
-	.string "Be careful at night on this route!\p"
-	.string "I saw a POKéMON that looked like\n"
-	.string "GROWLITHE, but it had a scary aura\l"
-	.string "to it.$"
+	.string "Ein merkwürdiger Baum blockiert die\p"
+	.string "Straße nach DUKATIA CITY.\p"
+	.string "Wegen dieses Baumes kann ich\p"
+	.string "nicht Einkaufen\n"
+	.string "gehen. Man sollte etwas dagegen tun.$"
 
 Route36_Text_Lass2_ClearedSudowoodo:
-	.string "That odd tree disappeared without\n"
-	.string "a trace.\p"
-	.string "Oh! That tree was really a\n"
-	.string "POKéMON?$"
+	.string "Dieser merkwürdige\n"
+	.string "Baum ist spurlos verschwunden.\p"
+	.string "Ach! Der Baum war\n"
+	.string "in Wirklichkeit ein Pokémon?$"
 
 Route36_Text_PsychicMarkSeen:
-	.string "I'm going to read your thoughts!$"
+	.string "Ich werde jetzt deine Gedanken lesen!$"
 
 Route36_Text_PsychicMarkBeaten:
-	.string "I misread you!$"
+	.string "Ich habe mich wohl bei dir verlesen!$"
 
 Route36_Text_PsychicMarkAfter:
-	.string "I'd be strong if only I could tell\n"
-	.string "what my opponent was thinking.$"
+	.string "Wenn ich doch bloß die Gedanken\n"
+	.string "meiner Gegner lesen könnte.$"
 
 Route36_Text_SchoolboyAlan1Seen:
-	.string "Thanks to my studies, I'm ready\n"
-	.string "for any POKéMON!$"
+	.string "Dank meiner\n"
+	.string "Studien bin ich für jedes Pokémon\l"
+	.string "bereit!$"
 
 Route36_Text_SchoolboyAlan1Beaten:
-	.string "Oops! Computation error?$"
+	.string "Ups! Ein Fehler in der Berechnung?$"
 
 Route36_Text_SchoolboyAlanAfter:
-	.string "Darn. I study five hours a day too.\p"
-	.string "There's more to learning than just\n"
-	.string "reading books.$"
+	.string "Mist. Ich lerne fünf\n"
+	.string "Stunden am Tag.\p"
+	.string "Zum Lernen gehört mehr als\n"
+	.string "nur Bücher zu lesen.$"
 
 Route36_Text_MeetArthur:
-	.string "ARTHUR: Who are you?\n"
-	.string "I'm ARTHUR of the WEEKDAY FAMILY.\p"
-	.string "If you can guess my favorite day,\n"
-	.string "I'll give you a reward.$"
+	.string "Donatus: Wer bist du?\n"
+	.string "Ich bin Donatus von der\n"
+	.string "WOCHENTAGSFAMILIE.\p"
+	.string "Wenn du meinen Lieblingstag\n"
+	.string "errätst, gebe ich dir eine Belohnung.$"
 
 Route36_Text_ArthurNope:
-	.string "Not quite!$"
+	.string "Nicht ganz!$"
 
 Route36_Text_ArthurGivesGift:
-	.string "Here. You can have this.$"
+	.string "Hier bitte. Das kannst du haben.$"
 
 Route36_Text_ArthurGaveGift:
-	.string "ARTHUR: A POKéMON that uses rock-\n"
-	.string "type moves should hold on to that.\p"
-	.string "It pumps up rock-type attacks.$"
+	.string "Donatus: Ich mag Stein\n"
+	.string "Stein ist schön und stark.\p"
+	.string "Huhuhuheheheh.$"
 
 Route36_Text_ArthurThursday:
-	.string "ARTHUR: I'm ARTHUR of Thursday.\n"
-	.string "I'm the fifth son out of seven.$"
+	.string "Donatus: Ich bin Donatus vom\n"
+	.string "Donnerstag.\p"
+	.string "Ich in der fünfte Sohn von sieben.$"
 
 Route36_Text_Sign:
 	.string "ROUTE 36$"
 
 Route36_Text_Sign_RuinsNorth:
-	.string "RUINS OF ALPH\n"
-	.string "NORTH ENTRANCE$"
+	.string "ALPH-RUINEN EINGANG NORDEN$"
 
 Route36_Text_Tips1:
-	.string "TRAINER TIPS\n"
-	.string "POKéMON stats vary--even within\l"
-	.string "the same species.\p"
-	.string "Their stats may be similar at first.\p"
-	.string "However, differences will become\n"
-	.string "pronounced as the POKéMON grow.$"
+	.string "TRAINER-TIPPS\n"
+	.string "Pokémon-Werte unterscheiden sich,\l"
+	.string "selbst bei gleicher Art.\p"
+	.string "Anfangs wirken sie ähnlich.\p"
+	.string "Doch mit dem Wachstum werden\n"
+	.string "die Unterschiede deutlich.$"
 
 Route36_Text_Tips2:
-	.string "TRAINER TIPS\n"
-	.string "Use DIG to return to the entrance of\n"
-	.string "any place.\p"
-	.string "It is convenient for exploring\n"
-	.string "caves and other landmarks.$"
+	.string "TRAINER-TIPPS\n"
+	.string "Nutze Schaufler, um zum\n"
+	.string "Eingang eines Ortes\l"
+	.string "zurückzukehren.\p"
+	.string "Sehr praktisch zum Erkunden von\n"
+	.string "Höhlen und besonderen Orten.$"

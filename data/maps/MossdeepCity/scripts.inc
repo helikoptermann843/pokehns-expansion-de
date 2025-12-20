@@ -1,6 +1,3 @@
-.set LOCALID_WOMAN, 8
-.set LOCALID_JIRACHI, 18
-
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
 	.byte 0
@@ -12,37 +9,6 @@ MossdeepCity_OnTransition:
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
-
-MossdeepCity_EventScript_Evo::
-	msgbox MossdeepCity_EventScript_Evo_Text, MSGBOX_NPC
-	end
-
-MossdeepCity_EventScript_Evo_Text:
-	.string "The POKéMON EEVEEE evolves\n"
-	.string "in many different ways.\p"
-	.string "Using a THUNDER STONE, FIRE STONE,\n"
-	.string "WATER STONE… Just like, for\l"
-	.string "example, ELECTABUZZ and MAGMAR.\p"
-	.string "They also evolve with STONES.$"
-
-MossdeepCity_EventScript_Evo2::
-	msgbox MossdeepCity_EventScript_Evo2_Text, MSGBOX_NPC
-	end
-
-MossdeepCity_EventScript_Evo2_Text:
-	.string "My wife loves the POKéMON EEVEE.\p"
-	.string "She knows all the ways they can\n"
-	.string "evolve. Like, when HOLDING a WATER\l"
-	.string "STONE, or a LEAF STONE.\p"
-	.string "Yes, HOLDING, not using!\n"
-	.string "Did you know about it? I didn't.\p"
-	.string "Or being HAPPY during day or night.\p"
-	.string "Or being cute whilst using a\n"
-	.string "FAIRY TYPE move!\p"
-	.string "…\p"
-	.string "Do you know where EEVEE are?\n"
-	.string "Maybe I should capture one for her.\p"
-	.string "She's gonna love it!$"
 
 MossdeepCity_EventScript_PokefanF::
 	lock
@@ -83,115 +49,12 @@ MossdeepCity_EventScript_Girl::
 	end
 
 MossdeepCity_EventScript_Woman::
-	goto_if_set FLAG_JIRACHI, MossdeepCity_EventScript_Woman2
 	msgbox MossdeepCity_Text_SpecialSpaceCenterRock, MSGBOX_NPC
-	end
-
-MossdeepCity_EventScript_Woman2::
-	msgbox MossdeepCity_Text_SpecialSpaceCenterRock2, MSGBOX_NPC
 	end
 
 MossdeepCity_EventScript_WhiteRock::
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
-	closemessage
-	goto_if_set FLAG_JIRACHI, MossdeepCity_EventScript_WhiteRockEnd
-	goto_if_unset FLAG_EXTRA_LEGENDARIES, MossdeepCity_EventScript_WhiteRockEnd
-	goto_if_set FLAG_SYS_GAME_CLEAR, MossdeepCity_EventScript_Jirachi
 	end
-
-MossdeepCity_EventScript_WhiteRockEnd::
-	end
-
-MossdeepCity_EventScript_Jirachi::
-	lockall
-	playse SE_PIN
-	applymovement OBJ_EVENT_ID_PLAYER, MossdeepCity_EventScript_JirachiMoves
-	applymovement LOCALID_WOMAN, MossdeepCity_EventScript_JirachiMoves2
-	waitmovement 0
-	msgbox MossdeepCity_Text_ItsAWhiteRock2, MSGBOX_DEFAULT
-	waitmessage
-	waitse
-	playmoncry SPECIES_JIRACHI, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setwildbattle SPECIES_JIRACHI, 50
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	applymovement LOCALID_JIRACHI, MossdeepCity_EventScript_JirachiMoves3
-	waitmovement 0
-	msgbox MossdeepCity_Text_ItsAWhiteRock3, MSGBOX_DEFAULT
-	closemessage
-	special BattleSetup_StartLegendaryBattle
-	waitstate
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, MossdeepCity_EventScript_JirachiWon
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, MossdeepCity_EventScript_JirachiWon
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, MossdeepCity_EventScript_JirachiRan
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MossdeepCity_EventScript_JirachiRan
-	release
-	end
-
-MossdeepCity_EventScript_JirachiWon::
-	setflag FLAG_JIRACHI
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	callnative UpdateFollowingPokemon
-	goto Common_EventScript_RemoveStaticPokemon
-	releaseall
-	end
-
-MossdeepCity_EventScript_JirachiRan::
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	applymovement LOCALID_JIRACHI, MossdeepCity_EventScript_JirachiMoves4
-	waitmovement 0
-	releaseall
-	end
-
-MossdeepCity_EventScript_JirachiMoves:
-	emote_exclamation_mark
-	delay_16
-	delay_16
-	delay_16
-	jump_in_place_up
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	step_end
-
-MossdeepCity_EventScript_JirachiMoves2:
-	emote_exclamation_mark
-	delay_16
-	delay_16
-	delay_16
-	jump_in_place_right
-	delay_16
-	delay_16
-	delay_16
-	delay_16
-	step_end
-
-MossdeepCity_EventScript_JirachiMoves3:
-	delay_16
-	delay_16
-	delay_16
-	set_visible
-	walk_down
-	step_end
-
-MossdeepCity_EventScript_JirachiMoves4:
-	set_invisible
-	walk_up
-	step_end
-
-MossdeepCity_Text_ItsAWhiteRock2:
-	.string "Something…\p"
-	.string "…\p"
-	.string "Something is moving…\n"
-	.string "…$"
-
-MossdeepCity_Text_ItsAWhiteRock3:
-	.string "Something jumped you from\n"
-	.string "behind the white rock!$"
 
 MossdeepCity_EventScript_GymSign::
 	msgbox MossdeepCity_Text_GymSign, MSGBOX_SIGN
@@ -206,7 +69,7 @@ MossdeepCity_EventScript_SpaceCenterSign::
 	end
 
 MossdeepCity_EventScript_VisitedMossdeep::
-	setflag FLAG_VISITED_CELADON_CITY
+	setflag FLAG_VISITED_MOSSDEEP_CITY
 	setvar VAR_TEMP_1, 1
 	end
 
@@ -231,8 +94,8 @@ MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter::
 	removeobject LOCALID_MOSSDEEP_GRUNT_3
 	removeobject LOCALID_MOSSDEEP_GRUNT_4
 	delay 30
-	setvar VAR_GARBAGEVAR, 2
-	setflag FLAG_GARBAGEFLAG
+	setvar VAR_MOSSDEEP_CITY_STATE, 2
+	setflag FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA
 	releaseall
 	end
 
@@ -441,128 +304,142 @@ MossdeepCity_Movement_ScottExitEast:
 	step_end
 
 MossdeepCity_Text_WantKingsRockStevenGaveMe:
-	.string "I got this from STEVEN, but I don't\n"
-	.string "know what it's good for.\p"
-	.string "I think it's called KING'S ROCK.\n"
-	.string "Do you want it?$"
+	.string "Ich habe das von TROY bekommen, weiß\n"
+	.string "aber nicht, was ich damit machen soll.\n"
+	.string "\p"
+	.string "Ich glaube, es heißt KING-STEIN.\n"
+	.string "Möchtest du das haben?$"
 
 MossdeepCity_Text_YouCanKeepIt:
-	.string "Why would you want it?\n"
-	.string "You're weird.\p"
-	.string "You can keep it, but keep it a secret\n"
-	.string "from STEVEN.$"
+	.string "Warum willst du das haben?\n"
+	.string "Du bist komisch.\p"
+	.string "Du kannst es behalten, aber erzähle\n"
+	.string "es nicht TROY.$"
 
 MossdeepCity_Text_StevensHouseOverThere:
-	.string "STEVEN's house is right over there!$"
+	.string "TROYs Haus befindet sich gleich\n"
+	.string "dort drüben.$"
 
 MossdeepCity_Text_WhatToDoWithWeirdRock:
-	.string "Yeah, you think so, too! What are you\n"
-	.string "supposed to do with some weird rock?$"
+	.string "Ach, du denkst das auch! Was soll man\n"
+	.string "auch mit komischen Steinen anfangen?$"
 
 MossdeepCity_Text_WailmerWatching:
-	.string "Around MOSSDEEP, you can see wild\n"
-	.string "WAILMER.\p"
-	.string "It's called, uh…\n"
-	.string "What was it now…\p"
-	.string "WAI, WAI, WAI…\p"
-	.string "WAILMER watching!$"
+	.string "In der Nähe von MOOSBACH CITY\n"
+	.string "kann man wilde WAILMER sehen.\p"
+	.string "Das nennt man, äh…\n"
+	.string "Nennt man… äh… ähm…\p"
+	.string "WAI…, WAI…, WAI…\p"
+	.string "WAILMER Watching!$"
 
 MossdeepCity_Text_SpaceCenterReceivedLetter:
-	.string "The island's SPACE CENTER has been\n"
-	.string "launching huge rockets.\p"
-	.string "There's been some kind of an uproar\n"
-	.string "over a letter they received recently.$"
+	.string "Am RAUMFAHRTZENTRUM auf der Insel\n"
+	.string "werden große Raketen gestartet.\p"
+	.string "Dort ist vor kurzem ein Brief ange-\n"
+	.string "kommen, der für Aufregung sorgte.$"
 
 MossdeepCity_Text_SpaceCenterLaunchingRockets:
-	.string "The island's SPACE CENTER has been\n"
-	.string "launching huge rockets.$"
+	.string "Am RAUMFAHRTZENTRUM auf der Insel\n"
+	.string "werden große Raketen gestartet.$"
 
 MossdeepCity_Text_MossdeepTargetedByMagma:
-	.string "I heard from a SAILOR buddy that\n"
-	.string "TEAM AQUA set up shop in LILYCOVE.\p"
-	.string "I also heard that someone came along\n"
-	.string "and wiped the floor with them!\p"
-	.string "But MOSSDEEP here's been targeted\n"
-	.string "by that TEAM MAGMA.\p"
-	.string "If you want to know what they're up to,\n"
-	.string "go visit the SPACE CENTER.$"
+	.string "Ich habe von einem Freund, einem\l"
+	.string "MATROSEN, gehört, dass TEAM AQUA sich\n"
+	.string "\pin SEEGRASULB CITY aufgehalten\p"
+	.string "haben soll.\p"
+	.string "Aber dann ist jemand gekommen und hat\n"
+	.string "sie aufgemischt.\p"
+	.string "Und in MOOSBACH CITY ist TEAM\n"
+	.string "MAGMA.\p"
+	.string "Wenn du wissen willst, was sie\n"
+	.string "vorhaben,\l"
+	.string "dann geh zum RAUMFAHRTZENTRUM.$"
 
 MossdeepCity_Text_FeelReliefOnLand:
-	.string "I'm a SAILOR, so the sea's obviously\n"
-	.string "more important to me.\p"
-	.string "But you know? When I get back on land\n"
-	.string "after a long voyage, I do feel relief!$"
+	.string "Ich bin ein MATROSE, daher ist das\n"
+	.string "Meer sehr wichtig für mich.\p"
+	.string "Aber weißt du, was? Wenn ich nach\n"
+	.string "einer\n"
+	.string "langen Seefahrt wieder festen Boden\p"
+	.string "unter den Füßen habe, bin ich jedes\n"
+	.string "Mal erleichtert.$"
 
 MossdeepCity_Text_NiceIfWorldCoveredByFlowers:
-	.string "Wouldn't it be nice?\p"
-	.string "If the whole world was covered in\n"
-	.string "plants and flowers like this island?$"
+	.string "Wäre das nicht schön?\p"
+	.string "Wenn die ganze Welt so mit Blumen und\n"
+	.string "Pflanzen bewachsen wäre wie diese\l"
+	.string "Insel?$"
 
 MossdeepCity_Text_LifeNeedsSeaToLive:
-	.string "All life needs the sea to live, even\n"
-	.string "though it makes its home on the land.\p"
-	.string "Life, having run its course, becomes\n"
-	.string "soil and returns to the land.\p"
-	.string "And the sea is always connected to\n"
-	.string "the land.\p"
-	.string "Yes, like the very shoreline here.$"
+	.string "Alle Lebewesen brauchen das Meer, um\n"
+	.string "leben zu können, auch wenn sie an Land\l"
+	.string "leben.\p"
+	.string "Am Ende ihrer Reise wird aus den\n"
+	.string "Lebewesen Erde und sie kehren zurück\l"
+	.string "zum Land.\p"
+	.string "Und das Meer steht immer in Verbindung\n"
+	.string "zum Land.\p"
+	.string "Genau wie dieses Ufer hier.$"
 
 MossdeepCity_Text_SurfExhilarating:
-	.string "A voyage on a ship is fine.\p"
-	.string "But crossing the sea with POKéMON\n"
-	.string "using SURF…\p"
-	.string "Now that's an exhilarating trip!\n"
-	.string "Wouldn't you agree, youngster?$"
+	.string "Eine Reise auf einem Schiff ist toll.\n"
+	.string "\p"
+	.string "Aber das Meer auf einem POKéMON zu\n"
+	.string "überqueren, das SURFER einsetzt…\p"
+	.string "Das ist wirklich eine aufregende\n"
+	.string "Sache. Meinst du nicht auch, Kindchen?$"
 
 MossdeepCity_Text_SpecialSpaceCenterRock:
-	.string "This rock has a special meaning to\n"
-	.string "the people at the SPACE CENTER.\p"
-	.string "They put it here as their wish for\n"
-	.string "their rockets to fly safely.\p"
-	.string "When you make a wish, what do you use?\n"
-	.string "Do you wish upon a star?\p"
-	.string "I use a wish tag to make it happen.\n"
-	.string "That's what I do.$"
-
-MossdeepCity_Text_SpecialSpaceCenterRock2:
-	.string "What was that? That wasn't my wish!$"
+	.string "Dieser Felsen hat eine ganz besondere\n"
+	.string "Bedeutung für das RAUMFAHRTZENTRUM.\p"
+	.string "Sie haben ihn hier hingesetzt als\n"
+	.string "Glücksbringer für den sicheren Flug\n"
+	.string "der\l"
+	.string "Raketen.\p"
+	.string "Wenn du dir etwas wünschst, was machst\n"
+	.string "du dann? Sternschnuppen beobachten?\p"
+	.string "Ich benutze ein Wunschkärtchen.\n"
+	.string "Genau das mache ich.$"
 
 MossdeepCity_Text_ItsAWhiteRock:
-	.string "It's a white rock.\p"
-	.string "It emanates a mysterious energy…$"
+	.string "Ein weißer Felsen.$"
 
 MossdeepCity_Text_GymSign:
-	.string "MOSSDEEP CITY POKéMON GYM\n"
-	.string "LEADERS: LIZA & TATE\p"
-	.string "“The mystic combination!”$"
+	.string "POKéMON ARENA von MOOSBACH CITY \n"
+	.string "LEITER: SVENJA & BEN\p"
+	.string "“Die mystische Kombination!”$"
 
 MossdeepCity_Text_CitySign:
-	.string "MOSSDEEP CITY\n"
-	.string "“Our slogan: Cherish POKéMON!”$"
+	.string "MOOSBACH CITY\n"
+	.string "“Unser Motto: Liebe POKéMON!”$"
 
 MossdeepCity_Text_SpaceCenterSign:
-	.string "MOSSDEEP SPACE CENTER\n"
-	.string "“The closest place to space.”$"
+	.string "MOOSBACH CITY RAUMFAHRTZENTRUM\n"
+	.string "“Der letzte Ort vor dem All.”$"
 
 MossdeepCity_Text_ScottSomethingWrongWithTown:
-	.string "SCOTT: {PLAYER}{KUN}, feeling good?\n"
-	.string "I'm doing great!\p"
-	.string "I'd heard MOSSDEEP's GYM LEADER is\n"
-	.string "pretty strong, so I decided to come\l"
-	.string "take a look-see for myself.\p"
-	.string "But there's something wrong about\n"
-	.string "this town.\p"
-	.string "People are going on about a warning\n"
-	.string "letter and the SPACE CENTER…\p"
-	.string "I don't think it concerns me in any\n"
-	.string "way, though.$"
+	.string "SCOTT: Geht es dir gut, {PLAYER}{KUN}?\n"
+	.string "Mir geht es fantastisch!\p"
+	.string "Ich habe mir sagen lassen, dass die\n"
+	.string "ARENALEITER von MOOSBACH sehr stark\l"
+	.string "sein sollen.\p"
+	.string "Davon musste ich mich einfach selbst\n"
+	.string "überzeugen.\p"
+	.string "Aber in dieser Stadt geht irgendetwas\n"
+	.string "Merkwürdiges vor.\p"
+	.string "Die Leute reden über einen Brief mit\n"
+	.string "einer Warnung und dem\l"
+	.string "RAUMFAHRTZENTRUM…\p"
+	.string "Aber ich glaube nicht, dass mich das\n"
+	.string "etwas angeht.$"
 
 MossdeepCity_Text_SootopolisNewGymLeader:
-	.string "Ahh… It feels great letting the waves\n"
-	.string "wash over my feet…\p"
-	.string "Speaking of the waves, you know that\n"
-	.string "island city SOOTOPOLIS?\p"
-	.string "I think the GYM there had a new\n"
-	.string "LEADER come in.\p"
-	.string "People tell me the new LEADER once\n"
-	.string "mentored WALLACE.$"
+	.string "Ahh… Ein großartiges Gefühl, wenn\n"
+	.string "die Wellen über meine Füße spülen…\p"
+	.string "Apropos Wellen. Kennst du die Stadt\n"
+	.string "XENEROVILLE?\p"
+	.string "Ich glaube, die ARENA dort hat einen\n"
+	.string "neuen LEITER.\p"
+	.string "Das soll der frühere Mentor von\n"
+	.string "WASSILI sein.$"
+

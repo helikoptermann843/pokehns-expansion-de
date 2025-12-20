@@ -19,11 +19,11 @@ AquaHideout_B1F_OnTransition:
 	end
 
 AquaHideout_B1F_EventScript_ShowElectrode1::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_1
 	return
 
 AquaHideout_B1F_EventScript_ShowElectrode2::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_AQUA_HIDEOUT_B1F_ELECTRODE_2
 	return
 
 AquaHideout_B1F_EventScript_Electrode1::
@@ -75,7 +75,7 @@ AquaHideout_B1F_EventScript_DefeatedElectrode2::
 	end
 
 AquaHideout_B1F_EventScript_Grunt2::
-	trainerbattle_single TRAINER_SCOTT, AquaHideout_B1F_Text_Grunt2Intro, AquaHideout_B1F_Text_Grunt2Defeat, AquaHideout_B1F_EventScript_Grunt2Defeated
+	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_2, AquaHideout_B1F_Text_Grunt2Intro, AquaHideout_B1F_Text_Grunt2Defeat, AquaHideout_B1F_EventScript_Grunt2Defeated
 	msgbox AquaHideout_B1F_Text_Grunt2PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -87,7 +87,7 @@ AquaHideout_B1F_EventScript_Grunt2Defeated::
 	end
 
 AquaHideout_B1F_EventScript_Grunt3::
-	trainerbattle_single TRAINER_SEAN, AquaHideout_B1F_Text_Grunt3Intro, AquaHideout_B1F_Text_Grunt3Defeat, AquaHideout_B1F_EventScript_Grunt3Defeated
+	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_3, AquaHideout_B1F_Text_Grunt3Intro, AquaHideout_B1F_Text_Grunt3Defeat, AquaHideout_B1F_EventScript_Grunt3Defeated
 	msgbox AquaHideout_B1F_Text_Grunt3PostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -97,64 +97,66 @@ AquaHideout_B1F_EventScript_Grunt3Defeated::
 	end
 
 AquaHideout_B1F_EventScript_Grunt5::
-	trainerbattle_single TRAINER_SID, AquaHideout_B1F_Text_Grunt5Intro, AquaHideout_B1F_Text_Grunt5Defeat
+	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_5, AquaHideout_B1F_Text_Grunt5Intro, AquaHideout_B1F_Text_Grunt5Defeat
 	msgbox AquaHideout_B1F_Text_Grunt5PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 AquaHideout_B1F_EventScript_Grunt7::
-	trainerbattle_single TRAINER_STEPHEN, AquaHideout_B1F_Text_Grunt7Intro, AquaHideout_B1F_Text_Grunt7Defeat
+	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_7, AquaHideout_B1F_Text_Grunt7Intro, AquaHideout_B1F_Text_Grunt7Defeat
 	msgbox AquaHideout_B1F_Text_Grunt7PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 AquaHideout_B1F_Text_Grunt2Intro:
-	.string "If you want to know the secret about\n"
-	.string "our HIDEOUT, you have me to beat!$"
+	.string "Wenn du das Geheimnis unseres\n"
+	.string "VERSTECKs erfahren willst, musst du\l"
+	.string "mich besiegen!$"
 
 AquaHideout_B1F_Text_Grunt2Defeat:
-	.string "I can't win at all…$"
+	.string "Ich kann anscheinend nicht gewinnen…$"
 
 AquaHideout_B1F_Text_Grunt2PostBattle:
-	.string "Our HIDEOUT's secret?\p"
-	.string "Well, let's just say…\n"
-	.string "There's a submarine at the far end!\p"
-	.string "But, by now…\n"
-	.string "Kekekeke…$"
+	.string "Das Geheimnis unseres VERSTECKs?\p"
+	.string "Nun, sagen wir mal soooo…\n"
+	.string "Am Ende befindet sich ein U-Boot!\p"
+	.string "Aber, im Moment…\n"
+	.string "Hehehehe…$"
 
 AquaHideout_B1F_Text_Grunt3Intro:
-	.string "Fuel supply loaded A-OK!\n"
-	.string "In-cruise snacks loaded A-OK!\p"
-	.string "Nothing left to do but KO a pesky\n"
-	.string "meddler!$"
+	.string "Tankbefüllung… OKAY!\n"
+	.string "Proviant… OKAY!\p"
+	.string "Nichts anderes mehr zu tun, als eine\n"
+	.string "Nervensäge aus dem Weg zu räumen.$"
 
 AquaHideout_B1F_Text_Grunt3Defeat:
-	.string "I took a serious licking!$"
+	.string "Das war ein Schuss vor den Bug.$"
 
 AquaHideout_B1F_Text_Grunt3PostBattle:
-	.string "Humph!\n"
-	.string "This was supposed to happen!\p"
-	.string "My mission was to just hold you up!$"
+	.string "Pah! Meine Niederlage war geplant.\p"
+	.string "Ich sollte dich eh nur aufhalten!$"
 
 AquaHideout_B1F_Text_Grunt5Intro:
-	.string "Yawn… Keeping watch over the\n"
-	.string "HIDEOUT bores me. I'll take you on.$"
+	.string "Gääähn… Hier im VERSTECK Wache zu\n"
+	.string "stehen, ist ermüdend. Ich muss\l"
+	.string "kämpfen.$"
 
 AquaHideout_B1F_Text_Grunt5Defeat:
-	.string "Yawn…\n"
-	.string "Oh, I lost…$"
+	.string "Gähn… Oh, da habe ich wohl verloren…$"
 
 AquaHideout_B1F_Text_Grunt5PostBattle:
-	.string "If you scurry too much, other TEAM\n"
-	.string "AQUA members might get you.$"
+	.string "Wenn du weiter hier herumschleichst,\n"
+	.string "schnappt dich TEAM AQUA.$"
 
 AquaHideout_B1F_Text_Grunt7Intro:
-	.string "Hey!\n"
-	.string "You there!\p"
-	.string "Which do you think is cooler?\n"
-	.string "TEAM AQUA's uniform or TEAM MAGMA's?$"
+	.string "Hey! Du da!\p"
+	.string "Was ist cooler?\n"
+	.string "Die Uniform von TEAM AQUA oder\l"
+	.string "die von TEAM MAGMA?$"
 
 AquaHideout_B1F_Text_Grunt7Defeat:
-	.string "I lost in a cool way…$"
+	.string "Ich habe ganz cool verloren…$"
 
 AquaHideout_B1F_Text_Grunt7PostBattle:
-	.string "If you have a cool uniform, you look\n"
-	.string "good even in a loss, don't you think?$"
+	.string "Hat man eine coole Uniform, sieht man\n"
+	.string "auch noch klasse aus, wenn man\n"
+	.string "verliert,\l"
+	.string "findest du nicht?$"

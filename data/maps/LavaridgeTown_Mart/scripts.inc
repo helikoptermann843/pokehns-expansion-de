@@ -6,16 +6,6 @@ LavaridgeTown_Mart_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart 0
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_Mart_EventScript_Clerk2::
-	lock
-	faceplayer
-	message gText_HowMayIServeYou
-	waitmessage
 	pokemart LavaridgeTown_Mart_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -23,6 +13,14 @@ LavaridgeTown_Mart_EventScript_Clerk2::
 
 	.align 2
 LavaridgeTown_Mart_Pokemart:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_X_SPEED
 	pokemartlistend
 
@@ -35,13 +33,15 @@ LavaridgeTown_Mart_EventScript_OldWoman::
 	end
 
 LavaridgeTown_Mart_Text_XSpeedFirstStrike:
-	.string "Use X SPEED to add to a POKéMON's\n"
-	.string "SPEED in battle.\p"
-	.string "That will help it get in the first\n"
-	.string "strike--a decided advantage!$"
+	.string "Mit X-TEMPO kannst du die INITIATIVE\n"
+	.string "im Kampf erhöhen.\p"
+	.string "So kann man eventuell den ersten\n"
+	.string "Angriff ausführen - ein entscheidender\l"
+	.string "Vorteil!$"
 
 LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney:
-	.string "On MT. CHIMNEY's peak, there's a local\n"
-	.string "specialty that you can buy only there.\p"
-	.string "Give it to a POKéMON--it will be elated.$"
+	.string "Auf dem Gipfel des SCHLOTBERGs wird\n"
+	.string "eine lokale Spezialität angeboten.\p"
+	.string "Gib sie einem POKéMON und es wird\n"
+	.string "begeistert sein.$"
 

@@ -19,19 +19,19 @@ EverGrandeCity_EventScript_PokemonLeagueSign::
 	end
 
 EverGrandeCity_EventScript_SetVisitedEverGrande::
-	setflag FLAG_VISITED_INDIGO_PLATEAU
+	setflag FLAG_VISITED_EVER_GRANDE_CITY
 	setvar VAR_TEMP_1, 1
 	end
 
 EverGrandeCity_Text_EnteringVictoryRoad:
-	.string "ENTERING VICTORY ROAD$"
+	.string "SIE BETRETEN DIE SIEGESSTRASSE$"
 
 EverGrandeCity_Text_EnteringPokemonLeague:
-	.string "ENTERING POKéMON LEAGUE\n"
-	.string "CENTER GATE$"
+	.string "SIE ERREICHEN DEN EINGANG ZUR\n"
+	.string "POKéMON LIGA$"
 
 EverGrandeCity_Text_CitySign:
-	.string "EVER GRANDE CITY\p"
-	.string "“The paradise of flowers, the sea,\n"
-	.string "and POKéMON.”$"
+	.string "PRACHTPOLIS CITY\p"
+	.string "“Das Paradies der Blumen, des Meeres\n"
+	.string "und der POKéMON.”$"
 

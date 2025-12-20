@@ -55,7 +55,6 @@ DesertRuins_EventScript_CaveEntranceSide::
 	end
 
 DesertRuins_EventScript_Regirock::
-	bufferspeciesname 0, SPECIES_REGIROCK
 	lock
 	faceplayer
 	waitse
@@ -64,11 +63,9 @@ DesertRuins_EventScript_Regirock::
 	waitmoncry
 	setwildbattle SPECIES_REGIROCK, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	call_if_set FLAG_DIFFICULTY_HARD, DesertRuins_EventScript_Regirock_Stats
 	special StartRegiBattle
 	waitstate
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	calculatemonstats
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, DesertRuins_EventScript_DefeatedRegirock
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, DesertRuins_EventScript_RanFromRegirock
@@ -76,13 +73,6 @@ DesertRuins_EventScript_Regirock::
 	setflag FLAG_DEFEATED_REGIROCK
 	release
 	end
-
-DesertRuins_EventScript_Regirock_Stats::
-	setvar VAR_0x8000, 500 @HP
-	setvar VAR_0x8002, 999 @DEF
-	special SetHpStat
-	special SetDefStat
-	return
 
 DesertRuins_EventScript_DefeatedRegirock::
 	setflag FLAG_DEFEATED_REGIROCK

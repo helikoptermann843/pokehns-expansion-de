@@ -126,7 +126,7 @@ BattlePyramid_Retire::
 
 @ Also used by Trainer Hill
 BattleFacility_TrainerBattle_PlaceholderText:
-	.string "This is a sample message.$"
+	.string "Dies ist ein Beispiel.$"
 
 gText_BattlePyramidConfirmRest::
 	.string "Your BATTLE PYRAMID quest will be\n"
@@ -333,47 +333,56 @@ BattlePyramid_Text_ZeroItemsRemaining2::
 	.string "lying around here.$"
 
 BattlePyramid_Text_EightItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are eight items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_SevenItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are seven items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_SixItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are six items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_FiveItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are five items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_FourItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are four items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_ThreeItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are three items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_TwoItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are two items left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_OneItemRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there's but one item left\n"
 	.string "waiting to be found on this floor.$"
 
 BattlePyramid_Text_ZeroItemsRemaining3::
-	.string "How's your stock of items holding up?\p"
+	.string "How's your stock of items holding up?\n"
+	.string "\p"
 	.string "I reckon there are no more items\n"
 	.string "waiting to be found on this floor.\l"
 	.string "You take care now!$"
@@ -659,7 +668,8 @@ BattlePyramid_Text_TwoTrainersRemaining4::
 
 BattlePyramid_Text_OneTrainersRemaining4::
 	.string "Maybe you could complete your sweep\n"
-	.string "with the one TRAINER left on this floor.$"
+	.string "with the one TRAINER left on this\l"
+	.string "floor.$"
 
 BattlePyramid_Text_ZeroTrainersRemaining4::
 	.string "There isn't a single person left who\n"

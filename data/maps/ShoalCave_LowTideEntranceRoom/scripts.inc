@@ -4,24 +4,15 @@ ShoalCave_LowTideEntranceRoom_MapScripts::
 
 ShoalCave_LowTideEntranceRoom_OnTransition:
 	special UpdateShoalTideFlag
-	goto_if_set FLAG_SYS_LAKE_OF_RAGE_TIDE, ShoalCave_LowTideEntranceRoom_EventScript_SetHighTide
+	goto_if_set FLAG_SYS_SHOAL_TIDE, ShoalCave_LowTideEntranceRoom_EventScript_SetHighTide
 	goto ShoalCave_LowTideEntranceRoom_EventScript_SetLowTide
 
 ShoalCave_LowTideEntranceRoom_EventScript_SetHighTide::
 	setmaplayoutindex LAYOUT_SHOAL_CAVE_HIGH_TIDE_ENTRANCE_ROOM
-	goto_if_set FLAG_DEFEATED_SUICUNE, MagmaHideout_End
-	goto_if_set FLAG_UNLOCK_DOGS, ShoalCave_LowTideEntranceRoom_Suicune_CryFaint
-	end
-
-ShoalCave_LowTideEntranceRoom_Suicune_CryFaint::
-	playmoncry SPECIES_SUICUNE, CRY_MODE_FAINT
-	release
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_SetLowTide::
 	setmaplayoutindex LAYOUT_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM
-	goto_if_set FLAG_DEFEATED_SUICUNE, MagmaHideout_End
-	goto_if_set FLAG_UNLOCK_DOGS, ShoalCave_LowTideEntranceRoom_Suicune_CryFaint
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ShellBellExpert::
@@ -88,13 +79,13 @@ ShoalCave_LowTideEntranceRoom_EventScript_DeclineShellBell::
 	end
 
 ShoalCave_LowTideEntranceRoom_EventScript_ResetShoalItems::
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_RECEIVED_SHOAL_SALT_1
+	clearflag FLAG_RECEIVED_SHOAL_SALT_2
+	clearflag FLAG_RECEIVED_SHOAL_SALT_3
+	clearflag FLAG_RECEIVED_SHOAL_SALT_4
+	clearflag FLAG_RECEIVED_SHOAL_SHELL_1
+	clearflag FLAG_RECEIVED_SHOAL_SHELL_2
+	clearflag FLAG_RECEIVED_SHOAL_SHELL_3
+	clearflag FLAG_RECEIVED_SHOAL_SHELL_4
 	clearflag FLAG_SYS_SHOAL_ITEM
 	return

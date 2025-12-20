@@ -134,31 +134,31 @@ Route42_Movement_Eusine2:
 	walk_fast_right
 	step_end
 
-Route42_Text_EusineAdmireSuicune:
-	.string "EUSINE: SUICUNE...\n"
-	.string "How brave it is!\p"
-	.string "How refreshing it is!\n"
-	.string "How beautiful it is!\p"
-	.string "And how quickly it moves!$"
+Route42_Text_EusineAdmireSuicune::
+	.string "Eusin: Suicune...\n"
+	.string "Wie mutig es ist!\p"
+	.string "Wie erfrischend es ist!\n"
+	.string "Wie schön es ist!\p"
+	.string "Und wie schnell es sich bewegt!$"
 
-Route42_Text_EusineJealous:
+Route42_Text_EusineJealous::
 	.string "{PLAYER}!\p"
-	.string "You seem to be around where\n"
-	.string "SUICUNE would appear.\p"
-	.string "Well, that's OK.\l"
-	.string "My desire to search for\n"
-	.string "SUICUNE is far beyond yours...\p"
-	.string "My grandpa was... quite into\n"
-	.string "myths.\p"
-	.string "I've heard so many stories\n"
-	.string "about SUICUNE from him.$"
+	.string "Du scheinst da zu sein, wo\n"
+	.string "Suicune erscheinen könnte.\p"
+	.string "Nun, das ist in Ordnung.\l"
+	.string "Mein Drang, Suicune zu suchen,\n"
+	.string "geht weit über deinen hinaus...\p"
+	.string "Mein Großvater war sehr\n"
+	.string "von Mythen begeistert.\p"
+	.string "Von ihm habe ich so viele\n"
+	.string "Geschichten über Suicune gehört.$"
 
-Route42_Text_EusineWontGiveUp:
-	.string "SUICUNE...\n"
-	.string "I won't stop following you\l"
-	.string "until I've found out what\l"
-	.string "you're after...\p"
-	.string "You hear me!$"
+Route42_Text_EusineWontGiveUp::
+	.string "Suicune... Ich werde dich weiter\l"
+	.string "verfolgen\n"
+	.string "bis ich herausgefunden habe,\p"
+	.string "was du suchst...\p"
+	.string "Hörst du mich!$"
 
 
 Route42_EventScript_Tully::
@@ -201,51 +201,52 @@ Route42_EventScript_Item_UltraBall::
 	end
 
 Route42_Text_FisherTullySeen:
-	.string "Let me demonstrate the power\n"
-	.string "of the POKéMON I caught!$"
+	.string "Jetzt demonstriere\n"
+	.string "ich dir die Kraft des Pokémon, das ich\l"
+	.string "gefangen habe!$"
 
 Route42_Text_FisherTullyBeaten:
-	.string "What? That's not right.\n"
-	.string "I can't believe this!$"
+	.string "Was? Das kann nicht sein.$"
 
-Route42_Text_FisherTullyAfter:
-	.string "I want to become the trainer\n"
-	.string "CHAMP using the POKéMON I\l"
-	.string "caught myself.\p"
-	.string "That's the best part of fishing!$"
+Route42_Text_FisherTullyAfter::
+	.string "Ich will der Champ werden,\n"
+	.string "mit den Pokémon, die ich selbst\n"
+	.string "gefangen habe.\p"
+	.string "Das ist das Beste am Angeln!$"
 
 Route42_Text_HikerBenjaminSeen:
-	.string "Ah, it's good to be outside!\n"
-	.string "I feel so free!$"
+	.string "Ach, ist das\n"
+	.string "schön, im Freien zu sein! Ich fühle\l"
+	.string "mich so frei!$"
 
 Route42_Text_HikerBenjaminBeaten:
-	.string "Gahahah! That was a good\n"
-	.string "battle!$"
+	.string "Hahaha!$"
 
-Route42_Text_HikerBenjaminAfter:
-	.string "Losing feels insignificant\n"
-	.string "if you look up at the big sky!$"
+Route42_Text_HikerBenjaminAfter::
+	.string "Verlieren fühlt sich unbedeutend an,\n"
+	.string "wenn man in den großen Himmel schaut!$"
 
 Route42_Text_PokemaniacShaneSeen:
-	.string "HEY!\p"
-	.string "This is my secret place!\n"
-	.string "Get lost, you outsider!$"
+	.string "HEH!\p"
+	.string "Das ist mein\n"
+	.string "Geheimversteck! Verschwinde, du\l"
+	.string "Außenseiter!$"
 
 Route42_Text_PokemaniacShaneBeaten:
-	.string "I should have used my\n"
-	.string "MOON STONE…$"
+	.string "Ich hätte meinen\n"
+	.string "MONDSTEIN benutzen sollen…$"
 
-Route42_Text_PokemaniacShaneAfter:
-	.string "You're working on a POKéDEX?\p"
-	.string "Wow, you must know some\n"
-	.string "pretty rare POKéMON!\p"
-	.string "May I please see it?\n"
-	.string "Please?$"
+Route42_Text_PokemaniacShaneAfter::
+	.string "Du arbeitest an einem POKéDEX?\p"
+	.string "Wow, du musst einige richtig\n"
+	.string "seltene Pokémon kennen!\p"
+	.string "Darf ich es mir mal ansehen?\n"
+	.string "Bitte?$"
 
 Route42_Text_Sign1:
 	.string "ROUTE 42\p"
-	.string "ECRUTEAK CITY - MAHOGANY TOWN$"
+	.string "TEAK CITY - MAHAGONIA CITY$"
 
 Route42_Text_MtMortarSign1:
-	.string "MT.MORTAR\p"
-	.string "WATERFALL CAVE INSIDE$"
+	.string "KESSELBERG\p"
+	.string "WASSERFALLHÖHLE drinnen$"

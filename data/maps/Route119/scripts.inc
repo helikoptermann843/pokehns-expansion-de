@@ -21,74 +21,10 @@ Route119_OnTransition:
 	end
 
 Route119_EventScript_MoveInstituteWorkersDownstairs::
-	setflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
+	clearflag FLAG_HIDE_WEATHER_INSTITUTE_1F_WORKERS
 	setvar VAR_WEATHER_INSTITUTE_STATE, 2
 	return
-
-Route119_EventScript_SapphireKecleon::
-	lock
-	faceplayer
-	setvar VAR_0x8009, 7
-	checkitem ITEM_DEVON_SCOPE
-	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_SapphireKecleon2
-	msgbox Kecleon_Text_SomethingUnseeable, MSGBOX_DEFAULT
-	release
-	end
-
-Route119_EventScript_SapphireKecleon2::
-	msgbox Kecleon_Text_WantToUseDevonScope, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route119_EventScript_SapphireKecleon3
-	release
-	end
-
-Route119_EventScript_SapphireKecleon3::
-	msgbox Kecleon_Text_UseDevonScopeMonAttacked, MSGBOX_DEFAULT
-	closemessage
-	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
-	waitmovement 0
-	applymovement VAR_LAST_TALKED, Movement_KecleonAppears
-	waitmovement 0
-	waitse
-	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setwildbattle SPECIES_KECLEON, 29
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route119_EventScript_SapphireKecleon4
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route119_EventScript_SapphireKecleon4
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, Route119_EventScript_SapphireKecleon5
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route119_EventScript_SapphireKecleon5
-	release
-	end
-
-Route119_EventScript_SapphireKecleon4::
-	msgbox Route119_EventScript_SapphireKecleon_Text1, MSGBOX_DEFAULT
-	closemessage
-	giveitem ITEM_SAPPHIRE
-	closemessage
-	setflag FLAG_SAPPHIRE_KECLEON
-	goto Common_EventScript_RemoveStaticPokemon
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	releaseall
-	end
-
-Route119_EventScript_SapphireKecleon5::
-	msgbox Route119_EventScript_SapphireKecleon_Text2, MSGBOX_DEFAULT
-	closemessage
-	releaseall
-	end
-
-Route119_EventScript_SapphireKecleon_Text1:
-	.string "The KECLEON dropped a\n"
-	.string "SHINY object!$"
-
-Route119_EventScript_SapphireKecleon_Text2:
-	.string "The invisible KECLEON\n"
-	.string "is still here…$"
 
 Route119_EventScript_RivalTrigger1::
 	setvar VAR_TEMP_1, 1
@@ -206,7 +142,7 @@ Route119_EventScript_RivalExitScottArrive::
 	call_if_eq VAR_TEMP_1, 1, Route119_EventScript_RivalExit1
 	call_if_eq VAR_TEMP_1, 2, Route119_EventScript_RivalExit2
 	removeobject LOCALID_ROUTE119_RIVAL_ON_BIKE
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_ROUTE119_STATE, 1
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	delay 60
@@ -412,7 +348,7 @@ Route119_EventScript_Kent::
 	end
 
 Route119_EventScript_Jackson::
-	trainerbattle_single TRAINER_RIVAL_CHIKORITA_4, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
+	trainerbattle_single TRAINER_JACKSON_1, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_RematchJackson
 	msgbox Route119_Text_JacksonPostBattle, MSGBOX_DEFAULT
@@ -423,17 +359,17 @@ Route119_EventScript_RegisterJackson::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route119_Text_JacksonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RIVAL_CHIKORITA_4
+	register_matchcall TRAINER_JACKSON_1
 	release
 	end
 
 Route119_EventScript_RematchJackson::
-	trainerbattle_rematch TRAINER_RIVAL_CHIKORITA_4, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
+	trainerbattle_rematch TRAINER_JACKSON_1, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
 	msgbox Route119_Text_JacksonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Catherine::
-	trainerbattle_single TRAINER_GRUNT_3, Route119_Text_CatherineIntro, Route119_Text_CatherineDefeat, Route119_EventScript_RegisterCatherine
+	trainerbattle_single TRAINER_CATHERINE_1, Route119_Text_CatherineIntro, Route119_Text_CatherineDefeat, Route119_EventScript_RegisterCatherine
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_RematchCatherine
 	msgbox Route119_Text_CatherinePostBattle, MSGBOX_DEFAULT
@@ -444,12 +380,12 @@ Route119_EventScript_RegisterCatherine::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route119_Text_CatherineRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_GRUNT_3
+	register_matchcall TRAINER_CATHERINE_1
 	release
 	end
 
 Route119_EventScript_RematchCatherine::
-	trainerbattle_rematch TRAINER_GRUNT_3, Route119_Text_CatherineRematchIntro, Route119_Text_CatherineRematchDefeat
+	trainerbattle_rematch TRAINER_CATHERINE_1, Route119_Text_CatherineRematchIntro, Route119_Text_CatherineRematchDefeat
 	msgbox Route119_Text_CatherinePostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -474,22 +410,22 @@ Route119_EventScript_Takashi::
 	end
 
 Route119_EventScript_Hideo::
-	trainerbattle_single TRAINER_JASMINE_1_2, Route119_Text_HideoIntro, Route119_Text_HideoDefeat
+	trainerbattle_single TRAINER_HIDEO, Route119_Text_HideoIntro, Route119_Text_HideoDefeat
 	msgbox Route119_Text_HideoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Chris::
-	trainerbattle_single TRAINER_GRUNT_17, Route119_Text_ChrisIntro, Route119_Text_ChrisDefeat
+	trainerbattle_single TRAINER_CHRIS, Route119_Text_ChrisIntro, Route119_Text_ChrisDefeat
 	msgbox Route119_Text_ChrisPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Fabian::
-	trainerbattle_single TRAINER_NOB, Route119_Text_FabianIntro, Route119_Text_FabianDefeat
+	trainerbattle_single TRAINER_FABIAN, Route119_Text_FabianIntro, Route119_Text_FabianDefeat
 	msgbox Route119_Text_FabianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Dayton::
-	trainerbattle_single TRAINER_JOHN, Route119_Text_DaytonIntro, Route119_Text_DaytonDefeat
+	trainerbattle_single TRAINER_DAYTON, Route119_Text_DaytonIntro, Route119_Text_DaytonDefeat
 	msgbox Route119_Text_DaytonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -540,135 +476,146 @@ Route119_EventScript_ScottWonAtFortreeGymCall::
 	end
 
 Route119_Text_MayIntro:
-	.string "MAY: {PLAYER}{KUN}!\n"
-	.string "Where were you? I was looking for you!\p"
-	.string "How much stronger have you gotten?\n"
-	.string "Let me check for you!\p"
-	.string "Ready with your POKéMON?\n"
-	.string "Of course you are! Go!$"
+	.string "MAIKE: {PLAYER}{KUN}! Wo warst du?\n"
+	.string "Ich habe dich schon gesucht!\p"
+	.string "Wie stark bist du geworden?\n"
+	.string "Lass mich das für dich herausfinden!\p"
+	.string "Bereit? Du und deine POKéMON?\n"
+	.string "Natürlich seid ihr das! Los!$"
 
 Route119_Text_MayDefeat:
-	.string "Achah!\n"
-	.string "{PLAYER}{KUN}, you're strong!\p"
-	.string "I was worried that you might be\n"
-	.string "struggling with your training.$"
+	.string "Achah! {PLAYER}{KUN}, du bist stark!\p"
+	.string "Ich hatte schon befürchtet, du\n"
+	.string "hättest im Training nachgelassen.$"
 
 Route119_Text_MayPresentForYou:
-	.string "MAY: But I had absolutely nothing to\n"
-	.string "worry about! Keep it up!\p"
-	.string "And, here! I have a present for you.$"
+	.string "MAIKE: Aber ich hätte mir absolut\l"
+	.string "keine\n"
+	.string "Sorgen zu machen brauchen! Weiter so!\p"
+	.string "\p"
+	.string "Und hier!\n"
+	.string "Dies ist ein Geschenk für dich!$"
 
 Route119_Text_MayExplainFly:
-	.string "MAY: Use FLY, and your POKéMON will\n"
-	.string "instantly carry you to any town you've\l"
-	.string "already visited.\p"
-	.string "But, to use FLY, you have to get\n"
-	.string "the GYM BADGE from FORTREE CITY.\l"
-	.string "That's important, so don't forget.\p"
-	.string "You should FLY home and visit\n"
-	.string "LITTLEROOT for a change.\p"
-	.string "I bet your mom's worried about you,\n"
-	.string "{PLAYER}{KUN}.\p"
-	.string "Well, let's meet again somewhere!$"
+	.string "MAIKE: Setze FLIEGEN ein und deine\n"
+	.string "POKéMON bringen dich an jeden Ort, an\l"
+	.string "dem du schon einmal warst.\p"
+	.string "Aber um FLIEGEN einsetzen zu können,\n"
+	.string "brauchst du erst den ORDEN der ARENA\l"
+	.string "von BAUMHAUSEN CITY.\l"
+	.string "Vergiss das nicht!\p"
+	.string "Du solltest mal nach WURZELHEIM\n"
+	.string "FLIEGEN.\p"
+	.string "Ich wette, deine Mutter macht sich\n"
+	.string "schon Sorgen um dich, {PLAYER}{KUN}.\p"
+	.string "Nun, wir treffen uns sicher bald\n"
+	.string "wieder!$"
 
 Route119_Text_BrendanIntro:
-	.string "BRENDAN: {PLAYER}! So this is where\n"
-	.string "you've been looking for POKéMON?\p"
-	.string "Let me see how good you got.\n"
-	.string "I'll test you!\p"
-	.string "Now!\n"
-	.string "It's a battle, so battle!$"
+	.string "BRIX: {PLAYER}! Hier schaust du dich\n"
+	.string "also nach POKéMON um?\p"
+	.string "Zeig mir, wie gut du geworden bist.\n"
+	.string "Ich werde dich jetzt testen!\p"
+	.string "Nun!\n"
+	.string "Das ist ein Kampf, also kämpfen wir!$"
 
 Route119_Text_BrendanDefeat:
-	.string "Hmm…\n"
-	.string "You've gotten pretty darn decent.$"
+	.string "Hmm… Du bist verdammt gut geworden.$"
 
 Route119_Text_BrendanIllGiveYouThis:
-	.string "BRENDAN: I'd say you're good enough\n"
-	.string "to search for POKéMON anywhere.\p"
-	.string "Here, I'll give you this.\n"
-	.string "Try it out.$"
+	.string "BRIX: Ich sage, du bist so gut, dass\n"
+	.string "du überall nach POKéMON suchen kannst.\n"
+	.string "\p"
+	.string "Hier, das ist für dich.\n"
+	.string "Probier es aus.$"
 
 Route119_Text_BrendanExplainFly:
-	.string "BRENDAN: Use FLY, and your POKéMON\n"
-	.string "instantly carries you to any town\l"
-	.string "you've already visited.\p"
-	.string "But you need the FORTREE GYM BADGE \n"
-	.string "to do that.\p"
-	.string "Anyway, I have to move along.$"
+	.string "BRIX: Setze es ein, und deine\n"
+	.string "POKéMON FLIEGEN dich sofort an jeden\l"
+	.string "Ort, an dem du schon einmal warst.\p"
+	.string "Aber du brauchst den ORDEN der ARENA\n"
+	.string "von BAUMHAUSEN CITY dafür.\p"
+	.string "Nun ja, ich muss jetzt weiter. Bis\n"
+	.string "bald.$"
 
 Route119_Text_ScottWayToGoBeSeeingYou:
-	.string "SCOTT: Hahahah!\n"
-	.string "Way to go, {PLAYER}{KUN}!\p"
-	.string "I just passed by a TRAINER riding\n"
-	.string "a BIKE.\p"
-	.string "You just beat that TRAINER, didn't you?\n"
-	.string "It was pretty obvious that you did.\p"
-	.string "The kid looked really upset with\n"
-	.string "a face all red from anger.\p"
-	.string "I sure seem to run into you often.\n"
-	.string "Are you off to FORTREE GYM next?\p"
-	.string "I expect that you'll do well at the GYM.\n"
-	.string "Well, I'll be seeing you!$"
+	.string "SCOTT: Hahahaha!\n"
+	.string "Mach weiter so, {PLAYER}{KUN}!\p"
+	.string "Ich bin gerade einem TRAINER begegnet,\n"
+	.string "der auf einem FAHRRAD fuhr.\p"
+	.string "Du hast den TRAINER besiegt, stimmt’s?\n"
+	.string "Das war ihm anzumerken.\p"
+	.string "Das Kind war richtig wütend und sein\n"
+	.string "Gesicht war rot vor Zorn.\p"
+	.string "Wir laufen uns wirklich oft über den\n"
+	.string "Weg! Gehst du jetzt zur ARENA in\l"
+	.string "BAUMHAUSEN CITY?\p"
+	.string "Ich erwarte, dass du dich dort\n"
+	.string "besonders anstrengst. Mach’s gut.$"
 
 
 Route119_Text_ScottYouWonAtFortreeGym:
-	.string "… … … … … …\n"
-	.string "… … … … … Beep!\p"
-	.string "SCOTT: Hiya, {PLAYER}{KUN}, it's me!\p"
-	.string "Just as I thought, you won at\n"
-	.string "the FORTREE GYM.\p"
-	.string "Your strength…\n"
-	.string "Perhaps you really are the TRAINER\l"
-	.string "that I've been searching for.\p"
-	.string "Remember, you have a fan in me.\n"
-	.string "I'll be cheering from the sidelines.\l"
-	.string "Keep up the great work!\p"
-	.string "… … … … … …\n"
-	.string "… … … … … Click!$"
+	.string "… … … … …\n"
+	.string "…\l"
+	.string "… … … … …\l"
+	.string "Piep!\p"
+	.string "SCOTT: Hi {PLAYER}{KUN}, ich bin’s!\p"
+	.string "Ich wusste, dass du in der ARENA\n"
+	.string "von BAUMHAUSEN gewinnen würdest.\p"
+	.string "Deine Stärke…\n"
+	.string "Vielleicht bist du wirklich der\l"
+	.string "TRAINER, den ich die ganze Zeit\p"
+	.string "suche. Ich bin dein Fan, vergiss\n"
+	.string "das nicht. Ich werde dir zujubeln.\l"
+	.string "Mach weiter so!\p"
+	.string "… … … … …\n"
+	.string "…\l"
+	.string "… … … … …\l"
+	.string "Klick!$"
 
 Route119_Text_StayAwayFromWeatherInstitute:
-	.string "We're standing lookout here.\p"
-	.string "Hey, you! Stay away from the WEATHER\n"
-	.string "INSTITUTE. It's not safe.$"
+	.string "Wir stehen hier Wache.\p"
+	.string "Hey, du! Halt dich bloß von dem KLIMA-\n"
+	.string "INSTITUT fern. Da ist es nicht sicher!$"
 
 Route119_Text_DontGoNearWeatherInstitute:
-	.string "Lookout duty is surprisingly boring.\p"
-	.string "Hey, you! Please don't go near the\n"
-	.string "WEATHER INSTITUTE.$"
+	.string "Wache schieben ist langweilig.\p"
+	.string "Hey, du! Komm nicht in die Nähe des\n"
+	.string "KLIMA-INSTITUTs.$"
 
 Route119_Text_ThoughtFlyByCatchingBirdMons:
-	.string "I thought you FLY by catching a whole\n"
-	.string "flock of BIRD POKéMON, and then\l"
-	.string "hanging on to them somehow.\p"
-	.string "But it turns out there's an HM move\n"
-	.string "called FLY!\p"
-	.string "I wish I'd known about that a long\n"
-	.string "time ago…$"
+	.string "Ich dachte, FLIEGEN könnte man, indem\n"
+	.string "man viele VOGEL-POKéMON fängt, sie\p"
+	.string "zusammenbindet und sich dann\n"
+	.string "dranhängt.\p"
+	.string "Aber es gibt tatsächlich eine VM, die\n"
+	.string "FLIEGEN heißt!\p"
+	.string "Wenn ich das doch nur eher gewusst\n"
+	.string "hätte…$"
 
 Route119_Text_TallGrassSnaresBikeTires:
-	.string "Tch…\n"
-	.string "It's a no-go…\p"
-	.string "The tall grass snares BIKE tires.\n"
-	.string "There's no way you can cycle here.$"
+	.string "Tse… So geht es nicht weiter…\p"
+	.string "Das hohe Gras verfängt sich in den \n"
+	.string "Speichen des RADs…$"
 
 Route119_Text_CanYourMonMakeSecretBase:
-	.string "Can your POKéMON use its SECRET POWER\n"
-	.string "on a big pile of grass and make a\l"
-	.string "SECRET BASE?$"
+	.string "Kann dein POKéMON GEHEIMPOWER an\n"
+	.string "einem Berg von Gras einsetzen und eine\l"
+	.string "GEHEIMBASIS einrichten?$"
 
 Route119_Text_RouteSignFortree:
 	.string "ROUTE 119\n"
-	.string "{RIGHT_ARROW} FORTREE CITY$"
+	.string "{RIGHT_ARROW} BAUMHAUSEN CITY$"
 
 Route119_Text_WeatherInstitute:
-	.string "WEATHER INSTITUTE$"
+	.string "KLIMA-INSTITUT$"
 
 Route119_Text_TrainerTipsDecoration:
-	.string "TRAINER TIPS\p"
-	.string "Up to sixteen decorations and\n"
-	.string "furniture items can be placed in\l"
-	.string "a SECRET BASE.\p"
-	.string "Pick your favorite items and create\n"
-	.string "your very own SECRET BASE exactly the\l"
-	.string "way you want.$"
+	.string "TIPPS für TRAINER\p"
+	.string "In der GEHEIMBASIS können bis zu 16\n"
+	.string "Dekorationen und Möbel untergebracht\l"
+	.string "werden.\p"
+	.string "Nimm deine Lieblingsitems und richte\n"
+	.string "dir\n"
+	.string "deine GEHEIMBASIS ganz nach deinem\l"
+	.string "Geschmack ein.$"

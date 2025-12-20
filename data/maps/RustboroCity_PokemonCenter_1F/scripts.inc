@@ -8,25 +8,6 @@ RustboroCity_PokemonCenter_1F_OnTransition:
 	call Common_EventScript_UpdateBrineyLocation
 	end
 
-RustboroCity_PokemonCenter_1F_ProbopassEvo::
-	msgbox RustboroCity_PokemonCenter_1F_ProbopassEvo_Text, MSGBOX_NPC
-	end
-
-RustboroCity_PokemonCenter_1F_ProbopassEvo_Text:
-	.string "NOSEPASS evolves and changes\n"
-	.string "its typing to ROCK and STEEL.\p"
-	.string "But in order to evolve, it needs\n"
-	.string "to be exposed to a strong\l"
-	.string "magnetic field.\p"
-	.string "It's difficult finding a place\n"
-	.string "like this in HOENN, so scientists\l"
-	.string "discovered that making NOSEPASS\l"
-	.string "hold a THUNDER STONE makes him\l"
-	.string "evolve easier by multiplying\l"
-	.string "its own magnetic field by two!\p"
-	.string "I wonder what THUNDER STONES are\n"
-	.string "made of.$"
-
 RustboroCity_PokemonCenter_1F_EventScript_Nurse::
 	setvar VAR_0x800B, LOCALID_RUSTBORO_NURSE
 	call Common_EventScript_PkmnCenterNurse
@@ -48,19 +29,22 @@ RustboroCity_PokemonCenter_1F_EventScript_Girl::
 	end
 
 RustboroCity_PokemonCenter_1F_Text_PokemonHavePersonalities:
-	.string "My POKéMON has a NAIVE nature, and my\n"
-	.string "friend's has a JOLLY nature.\p"
-	.string "It's fascinating how POKéMON have\n"
-	.string "personalities!$"
+	.string "Mein POKéMON hat ein NAIVes\n"
+	.string "Wesen und das meines Freundes ein\l"
+	.string "FRÖHLICHes.\p"
+	.string "Es ist faszinierend, dass POKéMON\n"
+	.string "unterschiedliche Persönlichkeiten\l"
+	.string "haben.$"
 
 RustboroCity_PokemonCenter_1F_Text_MaleAndFemalePokemon:
-	.string "Just like people, there are male and\n"
-	.string "female POKéMON.\p"
-	.string "But no one seems to have any idea how\n"
-	.string "they're different.$"
+	.string "Es gibt männliche und weibliche\n"
+	.string "POKéMON.\p"
+	.string "Aber niemand kann sagen, worin der\n"
+	.string "eigentliche Unterschied liegt.$"
 
 RustboroCity_PokemonCenter_1F_Text_HMCutNextDoor:
-	.string "The man next door gave me an HM!\p"
-	.string "I used it to teach my POKéMON how to\n"
-	.string "CUT down skinny trees.$"
+	.string "Der Mann nebenan hat mir eine VM\n"
+	.string "gegeben!\p"
+	.string "Ich habe meinem POKéMON beigebracht,\n"
+	.string "damit kleinere Bäume zu ZERSCHNEIDen.$"
 

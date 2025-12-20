@@ -93,14 +93,14 @@ GoldenrodCity_FlowerShop_EventScript_MintOwner::
 	end
 
 GoldenrodCity_FlowerShop_Text_Mints1:
-	.string "Our NATURE MINTS are back!\n"
-	.string "Have a look!$"
+	.string "Wesen MINZE wieder im Angebot!$"
 
 GoldenrodCity_FlowerShop_Text_Mints2:
-	.string "Hi, dear trainer. If you are looking\n"
-	.string "to buy NATURE MINTS, you should have\l"
-	.string "come earlier. I just sold the last one.\n"
-	.string "Come back later.$"
+	.string "Hallo, lieber Trainer. Wenn du\l"
+	.string "WESEN-MINZEN kaufen willst, hättest\n"
+	.string "du früher kommen sollen. Ich habe\p"
+	.string "die letzte gerade verkauft.\n"
+	.string "Komm später wieder.$"
 
 	.align 2
 GoldenrodCity_FlowerShop_MintShop:
@@ -135,65 +135,65 @@ GoldenrodCity_FlowerShop_EventScript_NoSellMints::
 	end
 
 GoldenrodCity_FlowerShop_Text_ImGrowingFlowers:
-	.string "I'm trying to be like my big sisters.\n"
-	.string "I'm growing flowers, too!\p"
-	.string "Here you go!\n"
-	.string "It's for you!$"
+	.string "Ich will wie meine großen\n"
+	.string "Schwestern sein.\p"
+	.string "Ich züchte auch Blumen!\p"
+	.string "Hier, für dich!$"
 
 GoldenrodCity_FlowerShop_Text_MachineMixesBerries:
-	.string "A POKéMON can eat a BERRY to heal,\n"
-	.string "or you can make a POKéMON hold it.\p"
-	.string "In a faraway region I visited,\n"
-	.string "they had a machine that mixes\l"
-	.string "up different BERRIES and makes candies\l"
-	.string "for POKéMON.\p"
-	.string "I want some candy, too.$"
+	.string "Ein Pokémon kann eine Beere essen\n"
+	.string "und sich heilen, oder man lässt\n"
+	.string "ein Pokémon sie halten.\p"
+	.string "In einer weit entfernten Region, die\l"
+	.string "ich besuchte, gab es eine\n"
+	.string "Maschine, die Beeren mischt und\p"
+	.string "Bonbons für Pokémon herstellt.\p"
+	.string "Ich will auch Bonbons.$"
 
 GoldenrodCity_FlowerShop_Text_Floria:
-	.string "When I told my sis about the jiggly\n"
-	.string "tree, she said it's dangerous.\p"
-	.string "If I beat WHITNEY, I wonder if\n"
-	.string "she'll lend me her water bottle…$"
+	.string "Als ich meiner Schwester vom\n"
+	.string "wackeligen Baum erzählte, sagte\n"
+	.string "sie, das sei gefährlich.\p"
+	.string "Wenn ich Bianka besiege, leiht\n"
+	.string "sie mir vielleicht ihre\l"
+	.string "Gießkanne…$"
 
 GoldenrodCity_FlowerShop_Text_Owner1:
-.string "Apparently, there is an odd tree\n"
-.string "on Route 36.\p"
-.string "They say it dances when you water\n"
-.string "it...\p"
-.string "Oh, of course not!\p"
-.string "This is a flower shop, so we do\n"
-.string "have watering cans...\p"
-.string "But I cannot let you have one!\n"
-.string "It's too dangerous!\p"
-.string "Well, maybe if you manage to\n"
-.string "defeat gym leader WHITNEY, it\l"
-.string "might be okay.$"
+	.string "Anscheinend gibt es einen seltsamen\n"
+	.string "Baum auf Route 36.\p"
+	.string "Er soll tanzen, wenn man ihn\n"
+	.string "gießt…\p"
+	.string "Natürlich nicht!\p"
+	.string "Dies ist ein Blumenladen, wir\n"
+	.string "haben Gießkannen…\p"
+	.string "Aber du darfst keine haben!\n"
+	.string "Zu gefährlich!\p"
+	.string "Vielleicht, wenn du Arena Leiter\n"
+	.string "Bianka besiegst, ist es okay.$"
 
 GoldenrodCity_FlowerShop_Text_Owner2:
-.string "Apparently, there is an odd tree\n"
-.string "on Route 36.\p"
-.string "They say it dances when you water\n"
-.string "it...\p"
-.string "Oh, that's a PLAINBADGE from\n"
-.string "The GOLDENROD GYM!\p"
-.string "Did you defeat WHITNEY?!\p"
-.string "Well, then there's nothing to worry\n"
-.string "about, is there?\p"
-.string "I'll let you use this SQUIRTBOTTLE\n"
-.string "for a while then.\l"
-.string "...\p"
-.string "Oh, never mind. Keep it!$"
+	.string "Anscheinend gibt es einen seltsamen\n"
+	.string "Baum auf Route 36.\p"
+	.string "Er soll tanzen, wenn man ihn gießt…\p"
+	.string "Oh, das ist ein Normalorden von\n"
+	.string "der GOLDENROD Arena!\p"
+	.string "Hast du Bianka besiegt?!\p"
+	.string "Dann ist alles in Ordnung.\p"
+	.string "Ich gebe dir kurz diese\n"
+	.string "SCHIGGYKANNE.\l"
+	.string "…\p"
+	.string "Ach, egal. Behalte sie!$"
 
 GoldenrodCity_FlowerShop_Text_Owner3:
-.string "The odd tree is on ROUTE 36.\n"
-.string "Please be careful!$"
+	.string "Der seltsame Baum steht auf Route 36.\n"
+	.string "Bitte sei vorsichtig!$"
 
 GoldenrodCity_FlowerShop_Text_Owner4:
-    .string "Lalala lalalala. Have plenty of\n"
-    .string "water, my lovely!$"
+	.string "Lalala lalalala. Trinke viel\n"
+	.string "Wasser, meine Liebe!$"
 
 GoldenrodCity_FlowerShop_Text_FloriaYouBeatWhitney:
-    .string "Wow, you beat WHITNEY? Cool!$"
+	.string "Wow, du hast Bianka besiegt? Super!$"
 
 GoldenrodCity_FlowerShop_Text_FloriaItWasAMon:
-    .string "So it really was a POKéMON!$"
+	.string "Also war es wirklich ein Pokémon!$"

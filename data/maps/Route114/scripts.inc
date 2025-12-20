@@ -75,8 +75,8 @@ Route114_EventScript_FossilManiacsHouseSign::
 	msgbox Route114_Text_FossilManiacsHouseSign, MSGBOX_SIGN
 	end
 
-Route114_EventScript_BillsHouseSign::
-	msgbox Route114_Text_BillsHouse, MSGBOX_SIGN
+Route114_EventScript_LanettesHouseSign::
+	msgbox Route114_Text_LanettesHouse, MSGBOX_SIGN
 	end
 
 Route114_EventScript_Lenny::
@@ -121,7 +121,7 @@ Route114_EventScript_RematchSteve::
 	end
 
 Route114_EventScript_Bernie::
-	trainerbattle_single TRAINER_DARYL, Route114_Text_BernieIntro, Route114_Text_BernieDefeat, Route114_EventScript_RegisterBernie
+	trainerbattle_single TRAINER_BERNIE_1, Route114_Text_BernieIntro, Route114_Text_BernieDefeat, Route114_EventScript_RegisterBernie
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route114_EventScript_RematchBernie
 	msgbox Route114_Text_BerniePostBattle, MSGBOX_DEFAULT
@@ -132,12 +132,12 @@ Route114_EventScript_RegisterBernie::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route114_Text_BernieRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DARYL
+	register_matchcall TRAINER_BERNIE_1
 	release
 	end
 
 Route114_EventScript_RematchBernie::
-	trainerbattle_rematch TRAINER_DARYL, Route114_Text_BernieRematchIntro, Route114_Text_BernieRematchDefeat
+	trainerbattle_rematch TRAINER_BERNIE_1, Route114_Text_BernieRematchIntro, Route114_Text_BernieRematchDefeat
 	msgbox Route114_Text_BerniePostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -162,12 +162,12 @@ Route114_EventScript_Ivy::
 	end
 
 Route114_EventScript_Angelina::
-	trainerbattle_single TRAINER_CARA, Route114_Text_AngelinaIntro, Route114_Text_AngelinaDefeat
+	trainerbattle_single TRAINER_ANGELINA, Route114_Text_AngelinaIntro, Route114_Text_AngelinaDefeat
 	msgbox Route114_Text_AngelinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Charlotte::
-	trainerbattle_single TRAINER_GRUNT_13, Route114_Text_CharlotteIntro, Route114_Text_CharlotteDefeat
+	trainerbattle_single TRAINER_CHARLOTTE, Route114_Text_CharlotteIntro, Route114_Text_CharlotteDefeat
 	msgbox Route114_Text_CharlottePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -177,26 +177,27 @@ Route114_EventScript_Kai::
 	end
 
 Route114_Text_AllMyMonDoesIsRoarTakeThis:
-	.string "All my POKéMON does is ROAR…\n"
-	.string "No one dares to come near me…\p"
-	.string "Sigh… If you would, please take\n"
-	.string "this TM away…$"
+	.string "Alles, was mein POKéMON von sich gibt,\n"
+	.string "ist BRÜLLER…\l"
+	.string "Niemand wagt sich nah heran…\p"
+	.string "Seufz… Wenn du magst, dann nimm mir\n"
+	.string "diese Bürde… äh, diese TM ab…$"
 
 Route114_Text_ExplainRoar:
-	.string "TM05 contains ROAR.\n"
-	.string "A ROAR sends POKéMON scurrying.$"
+	.string "TM05 enthält BRÜLLER.\n"
+	.string "Ein BRÜLLER schlägt POKéMON in\l"
+	.string "die Flucht.$"
 
 Route114_Text_Poochyena:
 	.string "Bow! Bowwow!$"
 
 Route114_Text_MeteorFallsSign:
-	.string "METEOR FALLS\n"
-	.string "RUSTBORO CITY THROUGH HERE$"
+	.string "METEORFÄLLE\n"
+	.string "HIER ENTLANG NACH METAROST CITY$"
 
 Route114_Text_FossilManiacsHouseSign:
-	.string "FOSSIL MANIAC'S HOUSE\n"
-	.string "“Fossils gratefully accepted!”$"
+	.string "FOSSILMANIAC “Fossilien gesucht!”$"
 
-Route114_Text_BillsHouse:
-	.string "BILL'S HOUSE$"
+Route114_Text_LanettesHouse:
+	.string "LANETTES HAUS$"
 

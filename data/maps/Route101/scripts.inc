@@ -8,12 +8,12 @@ Route101_OnTransition:
 	end
 
 Route101_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 0, Route101_EventScript_HideMapNamePopup
+	map_script_2 VAR_ROUTE101_STATE, 0, Route101_EventScript_HideMapNamePopup
 	.2byte 0
 
 Route101_EventScript_HideMapNamePopup::
 	setflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_ROUTE101_STATE, 1
 	end
 
 Route101_EventScript_StartBirchRescue::
@@ -37,7 +37,7 @@ Route101_EventScript_StartBirchRescue::
 	waitmovement 0
 	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
 	closemessage
-	setvar VAR_GARBAGEVAR, 2
+	setvar VAR_ROUTE101_STATE, 2
 	releaseall
 	end
 
@@ -218,6 +218,7 @@ Route101_EventScript_RouteSign::
 Route101_EventScript_BirchsBag::
 	lock
 	faceplayer
+	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_ROUTE101_ZIGZAGOON
@@ -226,16 +227,15 @@ Route101_EventScript_BirchsBag::
 	waitmovement 0
 	special ChooseStarter
 	waitstate
-	setflag FLAG_SYS_POKEMON_GET
 	applymovement LOCALID_ROUTE101_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
 	special HealPlayerParty
-	setflag FLAG_GARBAGEFLAG
-	clearflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
-	setvar VAR_GARBAGEVAR, 2
-	setvar VAR_GARBAGEVAR, 3
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
+	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
+	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
+	setvar VAR_BIRCH_LAB_STATE, 2
+	setvar VAR_ROUTE101_STATE, 3
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
 	checkplayergender
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
@@ -250,7 +250,7 @@ Route101_EventScript_HideMayInBedroom::
 	return
 
 Route101_EventScript_HideBrendanInBedroom::
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
 	return
 
 Route101_Movement_BirchApproachPlayer:
@@ -258,42 +258,44 @@ Route101_Movement_BirchApproachPlayer:
 	step_end
 
 Route101_Text_HelpMe:
-	.string "H-help me!$"
+	.string "HI… HIIIILFE!!!$"
 
 Route101_Text_PleaseHelp:
-	.string "Hello! You over there!\n"
-	.string "Please! Help!\p"
-	.string "In my BAG!\n"
-	.string "There's a POKé BALL!$"
+	.string "HILFE!!! Du dort drüben!\n"
+	.string "Bitte! HILFE!!!\p"
+	.string "In meinem BEUTEL…\n"
+	.string "Da findest du einen POKéBALL!$"
 
 Route101_Text_DontLeaveMe:
-	.string "Wh-Where are you going?!\n"
-	.string "Don't leave me like this!$"
+	.string "Wo-Wo wi-willst du hin?\n"
+	.string "Lass mich nicht im Stich!!!$"
 
 Route101_Text_YouSavedMe:
-	.string "PROF. BIRCH: Whew…\p"
-	.string "I was in the tall grass studying wild\n"
-	.string "POKéMON when I was jumped.\p"
-	.string "You saved me.\n"
-	.string "Thanks a lot!\p"
+	.string "PROF. BIRK: Puuuh…\p"
+	.string "Ich habe im hohen Gras POKéMON\n"
+	.string "studiert, als ich angesprungen wurde.\n"
+	.string "\p"
+	.string "Du hast mich gerettet.\n"
+	.string "Vielen, vielen Dank!\p"
 	.string "Oh?\p"
-	.string "Hi, you're {PLAYER}{KUN}!\p"
-	.string "This is not the place to chat, so come\n"
-	.string "by my POKéMON LAB later, okay?$"
+	.string "Hi, du bist doch {PLAYER}{KUN}!\p"
+	.string "Aber dies ist nicht der Ort für ein\n"
+	.string "Schwätzchen, komm doch mit \l"
+	.string "in mein POKéMON-LABOR, okay?$"
 
 Route101_Text_TakeTiredPokemonToPokeCenter:
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
+	.string "Sind deine POKéMON müde, bring sie in\n"
+	.string "ein POKéMON-CENTER.\p"
+	.string "In ROSALTSTADT, gleich hier um die\n"
+	.string "Ecke, gibt es ein POKéMON-CENTER.$"
 
 Route101_Text_WildPokemonInTallGrass:
-	.string "Wild POKéMON will jump out at you in\n"
-	.string "tall grass.\p"
-	.string "If you want to catch POKéMON, you have\n"
-	.string "to go into the tall grass and search.$"
+	.string "Wilde POKéMON springen dich in hohem\n"
+	.string "Gras gerne an.\p"
+	.string "Wenn du POKéMON fangen willst, musst\n"
+	.string "du ins hohe Gras gehen und sie suchen.$"
 
 Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
+	.string "{UP_ARROW} ROSALTSTADT$"
 

@@ -18,25 +18,25 @@ LilycoveCity_DepartmentStore_2F_EventScript_ClerkLeft::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart 0
+	pokemart LilycoveCity_DepartmentStore_2F_Pokemart1
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-@	.align 2
-@LilycoveCity_DepartmentStore_2F_Pokemart1:
-@	.2byte ITEM_POKE_BALL
-@	.2byte ITEM_GREAT_BALL
-@	.2byte ITEM_ULTRA_BALL
-@	.2byte ITEM_ESCAPE_ROPE
-@	.2byte ITEM_FULL_HEAL
-@	.2byte ITEM_ANTIDOTE
-@	.2byte ITEM_PARALYZE_HEAL
-@	.2byte ITEM_BURN_HEAL
-@	.2byte ITEM_ICE_HEAL
-@	.2byte ITEM_AWAKENING
-@	.2byte ITEM_FLUFFY_TAIL
-@	pokemartlistend
+	.align 2
+LilycoveCity_DepartmentStore_2F_Pokemart1:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_ICE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_FLUFFY_TAIL
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_2F_EventScript_ClerkRight::
 	lock
@@ -50,31 +50,28 @@ LilycoveCity_DepartmentStore_2F_EventScript_ClerkRight::
 
 	.align 2
 LilycoveCity_DepartmentStore_2F_Pokemart2:
+	.2byte ITEM_POTION
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
 	.2byte ITEM_MAX_POTION
+	.2byte ITEM_REVIVE
+	.2byte ITEM_REPEL
+	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_WAVE_MAIL
 	.2byte ITEM_MECH_MAIL
-	.2byte ITEM_ORANGE_MAIL
-    .2byte ITEM_HARBOR_MAIL
-    .2byte ITEM_GLITTER_MAIL
-    .2byte ITEM_WOOD_MAIL
-    .2byte ITEM_BEAD_MAIL
-    .2byte ITEM_SHADOW_MAIL
-    .2byte ITEM_TROPIC_MAIL
-    .2byte ITEM_DREAM_MAIL
-    .2byte ITEM_FAB_MAIL
-    .2byte ITEM_RETRO_MAIL
 	pokemartlistend
 
 LilycoveCity_DepartmentStore_2F_Text_LearnToUseItemsProperly:
-	.string "Learn to use items properly.\n"
-	.string "That's basic, really.$"
+	.string "Lerne, mit Items vernünftig umzugehen.\n"
+	.string "Das ist essentiell. Ehrlich.$"
 
 LilycoveCity_DepartmentStore_2F_Text_GoodGiftForHusband:
-	.string "My husband is waiting at home.\n"
-	.string "What would make a good gift for him?$"
+	.string "Mein Mann wartet zu Hause auf mich.\n"
+	.string "Was wäre wohl ein passendes Geschenk\l"
+	.string "für ihn?$"
 
 LilycoveCity_DepartmentStore_2F_Text_StockUpOnItems:
-	.string "I'm leaving on a long journey soon.\n"
-	.string "I need to stock up on items.$"
+	.string "Ich werde bald auf eine lange Reise\n"
+	.string "gehen. Ich muss daher Items kaufen.$"
 

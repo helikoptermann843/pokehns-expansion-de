@@ -9,18 +9,6 @@ EverGrandeCity_PokemonLeague_1F_OnTransition:
 	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
 	end
 
-EverGrandeCity_PokemonLeague_1F_AncientPower::
-	msgbox EverGrandeCity_PokemonLeague_1F_AncientPower_Text, MSGBOX_NPC
-	end
-
-EverGrandeCity_PokemonLeague_1F_AncientPower_Text:
-	.string "There are three POKéMON that\n"
-	.string "evolve using a certain MOVE.\p"
-	.string "They are YANMA, PILOSWINE and TANGELA.\p"
-	.string "Now… the move… I don't remember\n"
-	.string "exactly… Something about an\l"
-	.string "ANCIENT MOVE…$"
-
 EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
 	setobjectxyperm LOCALID_LEAGUE_GUARD_1, 9, 2
 	setobjectxyperm LOCALID_LEAGUE_GUARD_2, 10, 2
@@ -39,23 +27,21 @@ EverGrandeCity_PokemonLeague_1F_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemart 0
+	pokemart EverGrandeCity_PokemonLeague_1F_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-@	.align 2
-@EverGrandeCity_PokemonLeague_1F_Pokemart:
-@	.2byte ITEM_ULTRA_BALL
-@	.2byte ITEM_HYPER_POTION
-@	.2byte ITEM_MAX_POTION
-@	.2byte ITEM_FULL_RESTORE
-@	.2byte ITEM_FULL_HEAL
-@	.2byte ITEM_REVIVE
-@	.2byte ITEM_MAX_REPEL
-@	.2byte ITEM_NONE
-@	release
-@	end
+	.align 2
+EverGrandeCity_PokemonLeague_1F_Pokemart:
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
+	pokemartlistend
 
 @ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
 @ Its assumed the player has the remaining badges
@@ -134,18 +120,20 @@ EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay:
 	step_end
 
 EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges:
-	.string "Beyond this point, only those TRAINERS\n"
-	.string "who have collected all the GYM BADGES\l"
-	.string "are permitted to enter.\p"
-	.string "TRAINER, let us confirm that you have\n"
-	.string "all the GYM BADGES.$"
+	.string "Ab hier haben nur die TRAINER, die\n"
+	.string "alle\n"
+	.string "ORDEN der ARENen erhalten haben,\l"
+	.string "Zutritt.\p"
+	.string "TRAINER, lass uns sicherstellen, dass\n"
+	.string "du auch alle ORDEN hast.$"
 
 EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
-	.string "You haven't obtained all the BADGES.\p"
-	.string "If you're bound for the POKéMON\n"
-	.string "LEAGUE, you must return with them.$"
+	.string "Du hast noch nicht alle ORDEN\n"
+	.string "erhalten. \p"
+	.string "Wenn du zur POKéMON LIGA willst,\n"
+	.string "musst du alle ORDEN vorweisen können.$"
 
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
-	.string "TRAINER! Believe in yourself and your\n"
-	.string "POKéMON, and go forth!$"
+	.string "TRAINER! Glaube an dich und deine\n"
+	.string "POKéMON und gehe weiter!$"
 

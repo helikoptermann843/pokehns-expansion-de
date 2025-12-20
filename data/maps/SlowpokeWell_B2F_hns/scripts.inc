@@ -83,4 +83,13 @@ SlowpokeWell_Movement_RainDance4:
 	step_end
 
 SlowpokeWell_Text_Slowking:
-	.string "SLOWKING: ........................$"
+	.string "Der FLEGMON-BRUN-\n"
+	.string "NEN ist auch bekannt als\n"
+	.string "REGENMACHERQUELLE.\p"
+	.string "Die Leute hier\n"
+	.string "glauben, dass das Gähnen eines\n"
+	.string "FLEGMONs Regen erzeugt.\p"
+	.string "Laut den Aufzeichnungen soll das\p"
+	.string "Gähnen eines FLEG-\n"
+	.string "MONS vor 400 Jahren eine Dürre beendet\l"
+	.string "haben.$"

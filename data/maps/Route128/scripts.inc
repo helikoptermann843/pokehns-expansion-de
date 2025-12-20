@@ -8,7 +8,7 @@ Route128_OnTransition:
 	end
 
 Route128_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 1, Route128_EventScript_KyogreAwakenedScene
+	map_script_2 VAR_ROUTE128_STATE, 1, Route128_EventScript_KyogreAwakenedScene
 	.2byte 0
 
 Route128_EventScript_KyogreAwakenedScene::
@@ -74,7 +74,7 @@ Route128_EventScript_KyogreAwakenedScene::
 	removeobject LOCALID_ROUTE128_STEVEN
 	waitfieldeffect FLDEFF_NPCFLY_OUT
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_GARBAGEVAR, 2
+	setvar VAR_ROUTE128_STATE, 2
 	releaseall
 	end
 
@@ -175,7 +175,7 @@ Route128_Movement_MaxieApproachPlayer:
 	step_end
 
 Route128_EventScript_Isaiah::
-	trainerbattle_single TRAINER_WILL_2, Route128_Text_IsaiahIntro, Route128_Text_IsaiahDefeat, Route128_EventScript_RegisterIsaiah
+	trainerbattle_single TRAINER_ISAIAH_1, Route128_Text_IsaiahIntro, Route128_Text_IsaiahDefeat, Route128_EventScript_RegisterIsaiah
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route128_EventScript_RematchIsaiah
 	msgbox Route128_Text_IsaiahPostBattle, MSGBOX_DEFAULT
@@ -186,12 +186,12 @@ Route128_EventScript_RegisterIsaiah::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route128_Text_IsaiahRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WILL_2
+	register_matchcall TRAINER_ISAIAH_1
 	release
 	end
 
 Route128_EventScript_RematchIsaiah::
-	trainerbattle_rematch TRAINER_WILL_2, Route128_Text_IsaiahRematchIntro, Route128_Text_IsaiahRematchDefeat
+	trainerbattle_rematch TRAINER_ISAIAH_1, Route128_Text_IsaiahRematchIntro, Route128_Text_IsaiahRematchDefeat
 	msgbox Route128_Text_IsaiahPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -217,7 +217,7 @@ Route128_EventScript_RematchKatelyn::
 	end
 
 Route128_EventScript_Alexa::
-	trainerbattle_single TRAINER_BAILEY, Route128_Text_AlexaIntro, Route128_Text_AlexaDefeat
+	trainerbattle_single TRAINER_ALEXA, Route128_Text_AlexaIntro, Route128_Text_AlexaDefeat
 	msgbox Route128_Text_AlexaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -232,71 +232,76 @@ Route128_EventScript_Wayne::
 	end
 
 Route128_EventScript_Harrison::
-	trainerbattle_single TRAINER_PRYCE_1_2, Route128_Text_HarrisonIntro, Route128_Text_HarrisonDefeat
+	trainerbattle_single TRAINER_HARRISON, Route128_Text_HarrisonIntro, Route128_Text_HarrisonDefeat
 	msgbox Route128_Text_HarrisonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route128_EventScript_Carlee::
-	trainerbattle_single TRAINER_GRUNT, Route128_Text_CarleeIntro, Route128_Text_CarleeDefeat
+	trainerbattle_single TRAINER_CARLEE, Route128_Text_CarleeIntro, Route128_Text_CarleeDefeat
 	msgbox Route128_Text_CarleePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route128_Text_ArchieWhatHappened:
-	.string "ARCHIE: What happened…\n"
-	.string "What is this wretched scene…\p"
-	.string "Did I…make a horrible mistake?$"
+	.string "ADRIAN: Was ist passiert… Was für\n"
+	.string "ein Furcht erregendes Szenario…\p"
+	.string "Habe ich… einen schrecklichen Fehler\n"
+	.string "begangen?$"
 
 Route128_Text_ArchieIOnlyWanted:
-	.string "I…\n"
-	.string "I only wanted…$"
+	.string "Ich… Ich wollte doch nur…$"
 
 Route128_Text_MaxieDoYouUnderstandNow:
-	.string "MAXIE: Do you understand now,\n"
-	.string "ARCHIE?\p"
-	.string "Do you finally see how disastrous\n"
-	.string "your dream turned out to be?\p"
-	.string "We have to hurry! We have to do\n"
-	.string "something before the situation goes\l"
-	.string "completely out of control!$"
+	.string "MARC: Begreifst du es nun,\n"
+	.string "ADRIAN?\p"
+	.string "Begreifst du nun die schrecklichen\n"
+	.string "Folgen deines katastrophalen Traums?\p"
+	.string "Wir müssen uns beeilen! Wir müssen\n"
+	.string "etwas unternehmen, bevor die Situation\l"
+	.string "völlig außer Kontrolle gerät!$"
 
 Route128_Text_MaxieResposibilityFallsToArchieAndMe:
-	.string "MAXIE: {PLAYER}, don't say anything.\p"
-	.string "I know that I have no right to be\n"
-	.string "critical of ARCHIE…\p"
-	.string "But the way things are now, I doubt\n"
-	.string "that we humans will be capable of\l"
-	.string "doing anything about it.\p"
-	.string "But neither can we stand by and\n"
-	.string "just watch helplessly.\p"
-	.string "The responsibility for putting an end\n"
-	.string "to this falls to ARCHIE and me…$"
+	.string "MARC: {PLAYER}, sag jetzt nichts.\p"
+	.string "Ich weiß, ich bin nicht der Richtige,\n"
+	.string "um ADRIAN zu kritisieren…\p"
+	.string "Aber wie die Dinge jetzt liegen,\n"
+	.string "werden\n"
+	.string "wir Menschen wohl nicht in der Lage\l"
+	.string "sein, etwas zu tun.\p"
+	.string "Aber wir dürfen auch nicht einfach\n"
+	.string "daneben stehen und zuschauen.\p"
+	.string "ADRIAN und ich haben die\n"
+	.string "Verantwortung, dies alles zu\l"
+	.string "verändern…$"
 
 Route128_Text_MaxieThisDefiesBelief:
-	.string "MAXIE: This defies belief…\p"
-	.string "Those super-ancient POKéMON…\p"
-	.string "Their power is unbelievable.\n"
-	.string "They've upset the balance of nature…$"
+	.string "MARC: Das ist ja unglaublich…\p"
+	.string "Ein super-antikes POKéMON…\p"
+	.string "Seine Kraft ist unglaublich. Es hat\n"
+	.string "das Gleichgewicht der Natur verändert.$"
 
 Route128_Text_StevenWhatIsHappening:
-	.string "STEVEN: {PLAYER}{KUN}!\n"
-	.string "What is happening?$"
+	.string "TROY: {PLAYER}{KUN}!\n"
+	.string "Was geht hier vor?$"
 
 Route128_Text_StevenWholeWorldWillDrown:
-	.string "This is terrible…\p"
-	.string "After the scorching heat wave ended,\n"
-	.string "this deluge began.\p"
-	.string "If this doesn't stop, all of HOENN…\n"
-	.string "No, the whole world will drown.\p"
-	.string "This huge rain cloud is spreading\n"
-	.string "from above SOOTOPOLIS…\p"
-	.string "What in the world is taking place there?\p"
-	.string "There's no point arguing here…\n"
-	.string "SOOTOPOLIS might provide answers…$"
+	.string "Das ist schrecklich…\p"
+	.string "Nach der sengenden Hitze kam die\n"
+	.string "Überschwemmung.\p"
+	.string "Wenn das nicht aufhört, wird ganz\n"
+	.string "HOENN… Nein, die ganze Welt wird\l"
+	.string "untergehen.\p"
+	.string "Von XENEROVILLE aus breitet sich eine\n"
+	.string "gigantische Regenwolke aus…\p"
+	.string "Was in aller Welt passiert da nur?\p"
+	.string "Aber wir sollten hier nicht die Zeit\n"
+	.string "mit Reden vertun…\p"
+	.string "In XENEROVILLE bekommen wir\n"
+	.string "hoffentlich Antworten…$"
 
 Route128_Text_StevenImGoingToSootopolis:
 	.string "{PLAYER}{KUN}…\n"
-	.string "I don't know what you intend to do,\l"
-	.string "but don't do anything reckless.\p"
-	.string "Okay.\n"
-	.string "I'm going to SOOTOPOLIS.$"
+	.string "Ich weiß nicht, was du vorhast, aber\n"
+	.string "tue\l"
+	.string "nichts Unüberlegtes.\p"
+	.string "Okay. Ich gehe nach XENEROVILLE.$"
 

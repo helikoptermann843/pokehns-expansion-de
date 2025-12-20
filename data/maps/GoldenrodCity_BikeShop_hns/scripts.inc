@@ -42,37 +42,36 @@ GoldenrodCity_BikeShop_EventScript_Bike::
 	end
 
 GoldenrodCity_BikeShop_Text_Clerk2:
-	.string "Riding the bike is as simple as\n"
-	.string "pressing a button if you\l"
-	.string "REGISTER it from the BAG.$"
+	.string "…Seufz… Ich bin hierher gezogen,\p"
+	.string "aber ich kann meine FAHRRÄDER nicht\p"
+	.string "verkaufen. Warum nur?\p"
+	.string "Würdest du ein\n"
+	.string "FAHRRAD fahren und so Werbung machen?$"
 
 GoldenrodCity_BikeShop_Text_ClerkIntro:
-    .string "…sigh… I moved here, but I can't\n"
-    .string "sell my BICYCLES. Why is that?\p"
-    .string "Could you ride a BICYCLE and\n"
-    .string "advertise for me?$"
+	.string "…Seufz… Ich bin hierher gezogen,\p"
+	.string "aber ich kann meine FAHRRÄDER nicht\p"
+	.string "verkaufen. Warum nur?\p"
+	.string "Würdest du ein\n"
+	.string "FAHRRAD fahren und so Werbung machen?$"
 
 GoldenrodCity_BikeShop_Text_ClerkAgreed:
-    .string "Really? Great!\p"
-    .string "Give me your name and phone number,\n"
-    .string "and I'll loan you a BICYCLE.$"
+	.string "Ja? Großartig!\p"
+	.string "Gib mir bitte Namen und Nummer.\p"
+	.string "Dann leihe ich dir ein FAHRRAD.$"
 
 GoldenrodCity_BikeShop_Text_BorrowedBicycle:
-    .string "{PLAYER} borrowed a BICYCLE.$"
+	.string "{PLAYER} borrowed a Fahrrad.$"
 
 GoldenrodCity_BikeShop_Text_Mainshop:
-	.string "The main shop is at CERULEAN back\n"
-	.string "in KANTO.\p"
-	.string "Say hello to the shop manager if\n"
-	.string "if you happen to go there!$"
+	.string "Die Welt ist ein Radweg! FAHRRADLADEN$"
 
 GoldenrodCity_BikeShop_Text_Refused:
-    .string "…sigh… Oh, for the kindness of\n"
-    .string "people…$"
+	.string "…Seufz… Oh, für die Güte der Menschen…$"
 
 GoldenrodCity_BikeShop_Text_JustReleasedCompact:
-    .string "Just released!\p"
-    .string "First-rate compact BICYCLES!$"
+	.string "Brandneu!\p"
+	.string "Erste Klasse Kompakt-FAHRRÄDER!$"
 
 GoldenrodCity_BikeShop_Text_Bicycle:
-    .string "It's a shiny new BICYCLE!$"
+	.string "Ein nagelneues FAHRRAD!$"

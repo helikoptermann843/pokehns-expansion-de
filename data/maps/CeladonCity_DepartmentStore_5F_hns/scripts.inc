@@ -31,26 +31,29 @@ CeladonDeptStore5_EventScript_Falkner::
 	end
 
 CeladonDeptStore5_Text_Falkner:
-	.string "{PLAYER}. I didn't expect to see\n"
-	.string "you here.\p"
-	.string "I'm picking up gear for my\n"
-	.string "bird POKéMON.\p"
-	.string "If you want to face me again, I'll\n"
-	.string "be at the DOJO in SAFFRON CITY.$"
+	.string "{PLAYER}, damit habe ich nicht\n"
+	.string "gerechnet, dich hier zu sehen.\p"
+	.string "Ich besorge Items für meine\n"
+	.string "Flug-Pokémon.\p"
+	.string "Wenn du mich noch einmal herausfordern\n"
+	.string "willst, bin ich im DOJO in Saffronia\l"
+	.string "City.$"
 
 CeladonDeptStore5F_Text_Gentleman:
-	.string "I want to buy some items that\n"
-	.string "raise POKéMON stats, but I don't\l"
-	.string "have enough money…$"
+	.string "Ich möchte Items kaufen, die\n"
+	.string "die Statuswerte von Pokémon erhöhen,\l"
+	.string "aber ich habe nicht genug Geld…$"
 
 CeladonDeptStore5F_Text_Sailor:
-	.string "I want PP UP, so I can raise the\n"
-	.string "PP of moves. But you can't buy it…$"
+	.string "Ich will AP-Plus, damit ich die PP\n"
+	.string "von Attacken erhöhen kann. Aber man\l"
+	.string "kann es nicht kaufen…$"
 
 CeladonDeptStore5F_Text_Teacher:
-	.string "Using items on them makes POKéMON\n"
-	.string "happy.\p"
-	.string "They hate certain items, though…$"
+	.string "Items zu benutzen macht Pokémon\n"
+	.string "glücklich.\p"
+	.string "Bestimmte Items mögen sie allerdings\n"
+	.string "nicht…$"
 
 CeladonDeptStore5F_Text_Directory:
-	.string "5F: DRUG STORE$"
+	.string "4F: DROGERIE$"

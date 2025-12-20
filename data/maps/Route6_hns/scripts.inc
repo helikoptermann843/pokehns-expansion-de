@@ -26,37 +26,31 @@ Route6_EventScript_Sign::
 	end
 
 Route6_Text_PokefanM:
-	.string "The road is closed until the\n"
-	.string "problem at the POWER PLANT is\l"
-	.string "solved.$"
+	.string "Die Straße zum KRAFTWERK bleibt\p"
+	.string "gesperrt, bis das\n"
+	.string "Problem gelöst wurde.$"
 
 Route6_Text_UndergroundPathSign:
-	.string "UNDERGROUND PATH\p"
-	.string "CERULEAN CITY - VERMILION CITY$"
+	.string "TUNNELPFAD\p"
+	.string "AZURIA CITY - ORANIA CITY$"
 
 PokefanM_Text_RexSeen:
-	.string "My STANTLER is the cutest in the\n"
-	.string "world.$"
+	.string "Mein PHANPY ist\n"
+	.string "das niedlichste der ganzen Welt.$"
 
 PokefanM_Text_RexBeaten:
-	.string "My STANTLER!$"
+	.string "Mein PHANPY!$"
 
 PokefanM_Text_RexAfter:
-	.string "Look how adorable my STANTLER\n"
-	.string "acts!\p"
-	.string "Isn't it cute enough to make\n"
-	.string "your heart melt?$"
+	.string "Mein PHANPY!$"
 
 PokefanM_Text_AllanSeen:
-	.string "My GRANBULL is the cutest in the\n"
-	.string "world.$"
+	.string "Mein TEDDIURSA ist\n"
+	.string "das niedlichste der ganzen Welt.$"
 
 PokefanM_Text_AllanBeaten:
-	.string "My GRANBULL!$"
+	.string "Mein TEDDIURSA!$"
 
 PokefanM_Text_AllanAfter:
-	.string "Look how adorable my GRANBULL\n"
-	.string "acts!\p"
-	.string "Isn't it cute enough to make\n"
-	.string "your heart melt?$"
+	.string "Mein TEDDIURSA!$"
 

@@ -35,28 +35,22 @@ GoldenrodDeptStore4_EventScript_Sign::
 	end
 
 GoldenrodDeptStore_Text_4FCooltrainerM:
-    .string "Hey. I love strong POKéMON.\p"
-    .string "I feed them PROTEIN to crank up\n"
-    .string "their ATTACK.$"
+	.string "Hey! Ich mag starke Pokémon.\p"
+	.string "Ich füttere sie\n"
+	.string "mit PROTEIN, um ihren ANGR zu\l"
+	.string "verstärken.$"
 
 GoldenrodDeptStore_Text_4FBugCatcher:
-    .string "IRON adds to your POKéMON's\n"
-    .string "DEFENSE.$"
+	.string "EISEN verstärkt\n"
+	.string "die VERT deiner Pokémon.$"
 
 GoldenrodDeptStore_Text_4FGameboyKid:
-    .string "There were rumours that some\n"
-    .string "POKéMON evolve only by\l"
-    .string "being traded via a Game Link\l"
-    .string "cable.\p"
-    .string "Pfft...\p"
-    .string "Such misinformation.\p"
-    .string "I know some of the rumoured\n"
-    .string "POKéMON:\l"
-    .string "MACHOKE, KADABRA, HAUNTER and,\l"
-    .string "um, GRAVELER,\l"
-    .string "but they all evolve through\l"
-    .string "level up.$"
+	.string "Manche Pokémon\n"
+	.string "entwickeln sich nur durch Tausch.\p"
+	.string "Ich kenne vier: MASCHOCK, KADABRA,\p"
+	.string "ALPOLLO und GEOROK.\p"
+	.string "Ich hörte, es gibt noch weitere.$"
 
 GoldenrodDeptStore_Text_4FDirectory:
-    .string "Let Us Pump Up Your POKéMON!\p"
-    .string "4F MEDICINE BOX$"
+	.string "Wir kümmern uns um Ihre Pokémon!\p"
+	.string "3S ARZNEI$"

@@ -52,21 +52,20 @@ RuinsOfAlph_PuzzleAndRewardChambers_EventScript_GSBALL::
 	finditem ITEM_GS_BALL
 	end
 
-RuinsOfAlph_B1F_Text_Presence:
-	.string "There is a strange presence here.$"
+RuinsOfAlph_B1F_Text_Presence::
+	.string "Hier ist eine seltsame Präsenz.$"
 
-RuinsOfAlph_B1F_Text_Hiker:
-	.string "This is a big room, but there's\n"
-	.string "nothing here.$"
+RuinsOfAlph_B1F_Text_Hiker::
+	.string "Dies ist ein großer Raum, aber\n"
+	.string "es hier ist nichts.$"
 
-RuinsOfAlph_B1F_Text_Teacher:
-	.string "This place has a mystical\n"
-	.string "quality to it.\p"
-	.string "It feels sort of ethereal\n"
-	.string "even.$"
+RuinsOfAlph_B1F_Text_Teacher::
+	.string "Dieser Ort hat eine mystische\n"
+	.string "Atmosphäre.\p"
+	.string "Es fühlt sich geradezu\n"
+	.string "ätherisch an.$"
 
-RuinsOfAlph_B1F_Text_Gramps:
-	.string "Ancient buildings are often\n"
-	.string "tombs of kings.\p"
-	.string "Like the pyramids, for\n"
-	.string "instance.$"
+RuinsOfAlph_B1F_Text_Gramps::
+	.string "Alte Gebäude sind oft\n"
+	.string "Grabstätten von Königen.\p"
+	.string "Wie zum Beispiel die Pyramiden.$"

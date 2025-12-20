@@ -46,69 +46,78 @@ Route15_EventScript_PPup::
 	end
 
 Route15_Text_TeacherColetteSeen:
-	.string "Have you forgotten anything?$"
+	.string "Hast du etwas vergessen?$"
 
 Route15_Text_TeacherColetteBeaten:
-	.string "Kyaaah!$"
+	.string "Uah!$"
 
 Route15_Text_TeacherColetteAfterBattle:
-	.string "Before I became a teacher, I used\n"
-	.string "to forget a lot of things.$"
+	.string "Ehe ich Lehrer wurde, vergaß ich\p"
+	.string "immer eine Menge Dinge.$"
 
 Route15_Text_TeacherHillarySeen:
-	.string "On sunny days, I think that the\n"
-	.string "kids would rather be playing in the\n"
-	.string "schoolyard than studying in class.$"
+	.string "Bei schönem Wetter würden die Kinder\p"
+	.string "lieber im Schulhof spielen, als in\p"
+	.string "den Klassenzimmern zu lernen.$"
 
 Route15_Text_TeacherHillaryBeaten:
-	.string "I didn't want to lose…$"
+	.string "Ich wollte nicht verlieren…$"
 
 Route15_Text_TeacherHillaryAfterBattle:
-	.string "Studying is important, but\n"
-	.string "exercise is just as vital.$"
+	.string "Lernen ist sehr\n"
+	.string "wichtig, aber Bewegung ist genauso\l"
+	.string "essentiell.$"
 
 Route15_Text_SchoolboyKippSeen:
-	.string "Hang on. I have to phone my mom.$"
+	.string "Warte! Ich muss meine Mutter anrufen.$"
 
 Route15_Text_SchoolboyKippBeaten:
-	.string "Sorry, Mom! I was beaten!$"
+	.string "Tut mir Leid,\n"
+	.string "Mutter! Ich wurde besiegt!$"
 
 Route15_Text_SchoolboyKippAfterBattle:
-	.string "My mom worries so much about me, I\n"
-	.string "have to phone her all the time.$"
+	.string "Meine Mutter macht sich immer große\p"
+	.string "Sorgen um mich.\n"
+	.string "Ständig muss ich sie anrufen.$"
 
 Route15_Text_SchoolboyTommySeen:
-	.string "Let's battle. I won't lose!$"
+	.string "Lass uns kämpfen.\n"
+	.string "Ich werde nicht verlieren!$"
 
 Route15_Text_SchoolboyTommyBeaten:
-	.string "I forgot to do my homework!$"
+	.string "Ich hätte meine\n"
+	.string "Hausaufgaben machen sollen!$"
 
 Route15_Text_SchoolboyTommyAfterBattle:
-	.string "Sayonara! I just learned that in\n"
-	.string "my Japanese class.$"
+	.string "Sayonara! Das habe\n"
+	.string "ich in meinem Japanischkurs gelernt.$"
 
 Route15_Text_SchoolboyJohnnySeen:
-	.string "We're on a field trip to LAVENDER\n"
-	.string "RADIO TOWER for social studies.$"
+	.string "Wir machen einen\n"
+	.string "Ausflug zum RADIOTURM in LAVANDIA,\p"
+	.string "um dort etwas in\n"
+	.string "Sozialkunde zu lernen.$"
 
 Route15_Text_SchoolboyJohnnyBeaten:
-	.string "You're wickedly tough!$"
+	.string "Du bist unheimlich stark!$"
 
 Route15_Text_SchoolboyJohnnyAfterBattle:
-	.string "I'm tired of walking. I need to\n"
-	.string "take a break.$"
+	.string "Ich bin müde vom\n"
+	.string "Laufen. Ich muss eine Pause machen.$"
 
 Route15_Text_SchoolboyBillySeen:
-	.string "My favorite class is gym!$"
+	.string "Sport ist mein Lieblingsfach!$"
 
 Route15_Text_SchoolboyBillyBeaten:
-	.string "Oh, no! How could I lose?$"
+	.string "Oh, nein! Wie konnte ich nur\p"
+	.string "verlieren?$"
 
 Route15_Text_SchoolboyBillyAfterBattle:
-	.string "If POKéMON were a subject at\n"
-	.string "school, I'd be the best!$"
+	.string "Wenn Pokémon ein\n"
+	.string "Unterrichtsfach wäre, dann wäre ich\l"
+	.string "bestimmt der Beste!$"
 
 Route15_Text_Sign:
 	.string "ROUTE 15\p"
-	.string "FUCHSIA CITY - LAVENDER TOWN$"
+	.string "FUCHSANIA CITY - LAVANDIA$"
 

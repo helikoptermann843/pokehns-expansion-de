@@ -6,31 +6,12 @@ FallarborTown_CozmosHouse_EventScript_ProfCozmo::
 	faceplayer
 	goto_if_set FLAG_RECEIVED_TM_RETURN, FallarborTown_CozmosHouse_EventScript_GaveMeteorite
 	checkitem ITEM_METEORITE
-	goto_if_eq VAR_RESULT, TRUE, FallarborTown_CozmosHouse_EventScript_PlayerHasMeteoriteCheck
+	goto_if_eq VAR_RESULT, TRUE, FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite
 	msgbox FallarborTown_CozmosHouse_Text_MeteoriteWillNeverBeMineNow, MSGBOX_DEFAULT
 	release
 	end
 
-FallarborTown_CozmosHouse_EventScript_PlayerHasMeteoriteCheck::
-	goto_if_set FLAG_FINITE_TMS, FallarborTown_CozmosHouse_EventScript_PlayerHasMeteoriteTM27
-	goto_if_unset FLAG_FINITE_TMS, FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite
-	end
-
 FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite::
-	call_if_unset FLAG_TEMP_2, FallarborTown_CozmosHouse_EventScript_NoticeMeteorite
-	call_if_set FLAG_TEMP_2, FallarborTown_CozmosHouse_EventScript_AskForMeteorite
-	goto_if_eq VAR_RESULT, NO, FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite
-	msgbox FallarborTown_CozmosHouse_Text_PleaseUseThisTM, MSGBOX_DEFAULT
-	giveitem ITEM_NUGGET
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setvar VAR_0x8004, ITEM_METEORITE
-	call Common_EventScript_PlayerHandedOverTheItem
-	setflag FLAG_RECEIVED_TM_RETURN
-	msgbox FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch, MSGBOX_DEFAULT
-	release
-	end
-
-FallarborTown_CozmosHouse_EventScript_PlayerHasMeteoriteTM27::
 	call_if_unset FLAG_TEMP_2, FallarborTown_CozmosHouse_EventScript_NoticeMeteorite
 	call_if_set FLAG_TEMP_2, FallarborTown_CozmosHouse_EventScript_AskForMeteorite
 	goto_if_eq VAR_RESULT, NO, FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite
@@ -84,54 +65,56 @@ FallarborTown_CozmosHouse_EventScript_CozmoIsHappy::
 	end
 
 FallarborTown_CozmosHouse_Text_MeteoriteWillNeverBeMineNow:
-	.string "PROF. COZMO: Oh…\n"
-	.string "I never should have let myself be\l"
-	.string "conned into telling TEAM MAGMA where\l"
-	.string "you can find METEORITES…\p"
-	.string "That METEORITE from METEOR FALLS…\n"
-	.string "It's never going to be mine now…$"
+	.string "PROF. KOSMO: Oh…\n"
+	.string "Ich hätte mich nie dazu verleiten\l"
+	.string "lassen dürfen, TEAM MAGMA zu verraten,\l"
+	.string "wo METEORITen zu finden sind…\p"
+	.string "Der METEORIT von den METEORFÄLLEn…\n"
+	.string "Nun wird er niemals mir gehören…$"
 
 FallarborTown_CozmosHouse_Text_IsThatMeteoriteMayIHaveIt:
-	.string "Oh!\n"
-	.string "Hah?\p"
-	.string "That item…\p"
-	.string "Could it be?\p"
-	.string "Is it the METEORITE that TEAM MAGMA\n"
-	.string "took from METEOR FALLS?\p"
-	.string "Please, may I have it?\p"
-	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this NUGGET?$"
+	.string "Oh! Oooh?\p"
+	.string "Dieses Item…\p"
+	.string "Kann es sein?\p"
+	.string "Ist das der METEORIT, den TEAM MAGMA\n"
+	.string "aus den METEORFÄLLEn entwendet hat?\p"
+	.string "Bitte, darf ich den haben?\p"
+	.string "Du bekommst auch etwas dafür.\n"
+	.string "Was hältst du von dieser TM?$"
 
 FallarborTown_CozmosHouse_Text_PleaseUseThisTM:
-	.string "PROF. COZMO: This item, it represents\n"
-	.string "my feeling of gratitude.\l"
-	.string "Please use it!$"
+	.string "PROF. KOSMO: Mit dieser TM möchte ich\n"
+	.string "dir meine Dankbarkeit ausdrücken.\l"
+	.string "Bitte, nimm sie an!$"
 
 FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch:
-	.string "PROF. COZMO: Oh, I can't believe it.\n"
-	.string "This is really, really great!\p"
-	.string "This is really going to help my research!$"
+	.string "PROF. KOSMO: Oh, ich kann es einfach\n"
+	.string "nicht glauben! Das ist nett! So\n"
+	.string "nett!!! \p"
+	.string "Das wird mir bei meinen Forschungen\n"
+	.string "enorm weiterhelfen!$"
 
 FallarborTown_CozmosHouse_Text_CrushedWithDisappointment:
-	.string "PROF. COZMO: Oh, but…\n"
-	.string "I'm crushed with disappointment…$"
+	.string "PROF. KOSMO: Oh, aber…\n"
+	.string "Das enttäuscht mich jetzt maßlos…$"
 
 FallarborTown_CozmosHouse_Text_MayIHaveMeteorite:
-	.string "PROF. COZMO: Please, may I have that\n"
-	.string "METEORITE?\p"
-	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this TM?$"
+	.string "PROF. KOSMO: Bitte, darf ich den\n"
+	.string "METEORITen haben?\p"
+	.string "Ich möchte ihn nicht umsonst haben!\n"
+	.string "Wie\l"
+	.string "wäre es mit dieser TM im Tausch dafür?$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls:
-	.string "PROF. COZMO went off to METEOR FALLS\n"
-	.string "on ROUTE 114 with some people from\l"
-	.string "TEAM MAGMA.$"
+	.string "PROF. KOSMO ist unterwegs zu\n"
+	.string "METEORFÄLLE an der ROUTE 114. Einige\l"
+	.string "Leute von TEAM MAGMA begleiten ihn.$"
 
 FallarborTown_CozmosHouse_Text_FeelSorryForCozmo:
-	.string "Poor PROF. COZMO…\n"
-	.string "He's so depressed… I feel sorry for him.$"
+	.string "Armer PROF. KOSMO…\n"
+	.string "Er ist so deprimiert… Er tut mir Leid.$"
 
 FallarborTown_CozmosHouse_Text_CozmoIsSoHappy:
-	.string "Look at PROF. COZMO…\n"
-	.string "He's so happy! I think it's cute.$"
+	.string "Schau dir nur PROF. KOSMO an…\n"
+	.string "Er ist so glücklich! Richtig niedlich.$"
 

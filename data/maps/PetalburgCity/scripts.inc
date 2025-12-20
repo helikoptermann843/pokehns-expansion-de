@@ -4,55 +4,12 @@ PetalburgCity_MapScripts::
 	.byte 0
 
 PetalburgCity_OnTransition:
-	setflag FLAG_VISITED_SAFARI_ZONE_GATE
-	@ call_if_eq VAR_GARBAGEVAR, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
-	@ call_if_eq VAR_GARBAGEVAR, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
-	@ call_if_eq VAR_GARBAGEVAR, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
-	@ call_if_eq VAR_GARBAGEVAR, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
+	setflag FLAG_VISITED_PETALBURG_CITY
+	call_if_eq VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_MoveGymBoyToWestEntrance
+	call_if_eq VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_DisableMapNameAndMusic
+	call_if_eq VAR_PETALBURG_GYM_STATE, 8, PetalburgCity_EventScript_SetGymDoorsUnlocked
 	end
-
-PetalburgCity_GalladeEvo::
-	faceplayer
-	msgbox PetalburgCity_GalladeEvo_Text, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, PetalburgCity_GalladeEvo2
-	goto_if_eq VAR_RESULT, NO, PetalburgCity_GalladeEvo3
-	end
-
-PetalburgCity_GalladeEvo2:
-	msgbox PetalburgCity_GalladeEvo_Text2, MSGBOX_DEFAULT
-	closemessage
-	end
-
-PetalburgCity_GalladeEvo3:
-	msgbox PetalburgCity_GalladeEvo_Text3, MSGBOX_DEFAULT
-	closemessage
-	end
-
-PetalburgCity_GalladeEvo_Text:
-	.string "PROF. BIRCH might be the most famous\n"
-	.string "PROFESSOR of HOENN, but I am also a\l"
-	.string "reliable PROFESSOR.\p"
-	.string "To prove it, I can give you a piece of\n"
-	.string "information that he might not know\l"
-	.string "about. Do you want to listen to it?$"
-
-PetalburgCity_GalladeEvo_Text2:
-	.string "Choosing between a MALE or FEMALE RALTS\n"
-	.string "is quite important.\p"
-	.string "Depending on what you capture, the last\n"
-	.string "evolution of RALTS will be different.\p"
-	.string "If RALTS is MALE, he will naturally\n"
-	.string "evolve into GALLADE but only if it\l"
-	.string "happens during the morning, which is\l"
-	.string "from 6AM to 9AM.\p"
-	.string "RALTS will evolve into GARDEVOIR if he\n"
-	.string "doesn't evolve during morning, or if\l"
-	.string "said RALTS is FEMALE.\p"
-	.string "I believe this information might be\n"
-	.string "useful for a new trainer like you.$"
-
-PetalburgCity_GalladeEvo_Text3:
-	.string "Oh… Okay…$"
 
 PetalburgCity_EventScript_MoveGymBoyToWestEntrance::
 	setobjectxyperm LOCALID_GYM_BOY, 5, 11
@@ -64,12 +21,12 @@ PetalburgCity_EventScript_DisableMapNameAndMusic::
 	return
 
 PetalburgCity_EventScript_SetGymDoorsUnlocked::
-	setvar VAR_GARBAGEVAR, 7
+	setvar VAR_PETALBURG_GYM_STATE, 7
 	return
 
 PetalburgCity_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 2, PetalburgCity_EventScript_WallyTutorial
-	map_script_2 VAR_GARBAGEVAR, 4, PetalburgCity_EventScript_WalkToWallyHouse
+	map_script_2 VAR_PETALBURG_CITY_STATE, 2, PetalburgCity_EventScript_WallyTutorial
+	map_script_2 VAR_PETALBURG_CITY_STATE, 4, PetalburgCity_EventScript_WalkToWallyHouse
 	.2byte 0
 
 PetalburgCity_EventScript_WallyTutorial::
@@ -88,11 +45,11 @@ PetalburgCity_EventScript_WallyTutorial::
 	msgbox Route102_Text_LetsGoBack, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	setvar VAR_GARBAGEVAR, 3
+	setvar VAR_PETALBURG_CITY_STATE, 3
 	fadedefaultbgm
 	clearflag FLAG_DONT_TRANSITION_MUSIC
 	special LoadPlayerParty
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_PETALBURG_GYM_STATE, 1
 	warp MAP_PETALBURG_CITY_GYM, 4, 108
 	waitstate
 	releaseall
@@ -111,7 +68,7 @@ PetalburgCity_EventScript_WalkToWallyHouse::
 	applymovement LOCALID_PETALBURG_WALLYS_DAD, PetalburgCity_Movement_WalkInsideHouseWallysDad
 	applymovement LOCALID_PLAYER, PetalburgCity_Movement_WalkInsideHousePlayer
 	waitmovement 0
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_PETALBURG_CITY_WALLYS_DAD
 	hideobjectat LOCALID_PLAYER, MAP_PETALBURG_CITY
 	closedoor VAR_0x8004, VAR_0x8005
 	waitdooranim
@@ -742,63 +699,73 @@ PetalburgCity_EventScript_GymBoy::
 	end
 
 PetalburgCity_Text_WhereIsWally:
-	.string "Where has our WALLY gone?\p"
-	.string "We have to leave for VERDANTURF TOWN\n"
-	.string "very soon…$"
+	.string "Wohin ist unser HEIKO nur gegangen?\p"
+	.string "Wir müssen doch bald nach WIESENFLUR\n"
+	.string "aufbrechen…$"
 
 PetalburgCity_Text_AreYouRookieTrainer:
-	.string "Hiya! Are you maybe…\n"
-	.string "A rookie TRAINER?\p"
-	.string "Do you know what POKéMON TRAINERS\n"
-	.string "do when they reach a new town?\p"
-	.string "They first check what kind of GYM\n"
-	.string "is in the town.$"
+	.string "He da! Bist du vielleicht…\n"
+	.string "ein Anfänger unter den TRAINERn?\p"
+	.string "Weißt du, was POKéMON-TRAINER machen,\n"
+	.string "wenn sie in einen neuen Ort kommen?\p"
+	.string "Sie sehen sich als Erstes die ARENA\n"
+	.string "im Ort an.$"
 
 PetalburgCity_Text_ThisIsPetalburgGym:
-	.string "See? This is PETALBURG CITY's GYM.$"
+	.string "Schau. Das ist die ARENA von\n"
+	.string "BLÜTENBURG CITY.$"
 
 PetalburgCity_Text_ThisIsGymSign:
-	.string "This is the GYM's sign. Look for it\n"
-	.string "whenever you're looking for a GYM.$"
+	.string "Das ist das Logo der ARENA. Daran\n"
+	.string "kannst du immer eine ARENA erkennen.$"
 
 PetalburgCity_Text_WaterReflection:
-	.string "My face is reflected in the water.\p"
-	.string "It's a shining grin full of hope…\p"
-	.string "Or it could be a look of somber silence\n"
-	.string "struggling with fear…\p"
-	.string "What do you see reflected in your face?$"
+	.string "Mein Gesicht spiegelt sich im Wasser…\n"
+	.string "\p"
+	.string "Ein schimmerndes Lächeln der Hoffnung.\n"
+	.string "\p"
+	.string "Oder ist es der Ausdruck düsterer\n"
+	.string "Stille, an dem die Angst nagt…\p"
+	.string "Was siehst du in deinem Spiegelbild?$"
 
 PetalburgCity_Text_FullPartyExplanation:
-	.string "Let's say you have six POKéMON.\n"
-	.string "If you catch another one…\p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
+	.string "Nehmen wir an, du hättest 6 POKéMON.\n"
+	.string "Wenn du jetzt ein weiteres fängst…\p"
+	.string "wird es automatisch in das POKéMON-\n"
+	.string "LAGERUNGS-SYSTEM gesendet.$"
 
 PetalburgCity_Text_GymSign:
-	.string "PETALBURG CITY POKéMON GYM\n"
-	.string "LEADER: NORMAN\l"
-	.string "“A man in pursuit of power!”$"
+	.string "POKéMON ARENA von BLÜTENBURG CITY\n"
+	.string "LEITER: NORMAN\l"
+	.string "“Ein Mann, der nach Stärke strebt!”$"
 
 PetalburgCity_Text_CitySign:
-	.string "PETALBURG CITY\n"
-	.string "“Where people mingle with nature.”$"
+	.string "BLÜTENBURG CITY\n"
+	.string "“Wo Menschen Hand in Hand\l"
+	.string "mit der Natur gehen.”$"
 
 PetalburgCity_Text_WallyHouseSign:
-	.string "WALLY'S HOUSE$"
+	.string "HEIKOS HAUS$"
 
 PetalburgCity_Text_AreYouATrainer:
-	.string "Excuse me!\p"
-	.string "Let me guess, from the way you're\n"
-	.string "dressed, are you a POKéMON TRAINER?$"
+	.string "Entschuldige bitte!\p"
+	.string "Lass mich raten! Deine Kleidung verrät\n"
+	.string "mir, dass du ein TRAINER bist.\l"
+	.string "Habe ich Recht?$"
 
 PetalburgCity_Text_WellMaybeNot:
-	.string "… … … … … …\p"
-	.string "Well, maybe not.\n"
-	.string "Your clothes aren't all that dirty.\p"
-	.string "You're either a rookie TRAINER,\n"
-	.string "or maybe you're just an ordinary kid.$"
+	.string "… … … … …\n"
+	.string "…\p"
+	.string "Nun, vielleicht auch nicht.\n"
+	.string "Deine Kleidung ist noch relativ\n"
+	.string "sauber. \p"
+	.string "Entweder bist du gerade erst TRAINER\n"
+	.string "geworden oder du bist einfach ein ganz\l"
+	.string "normales Kind.$"
 
 PetalburgCity_Text_ImLookingForTalentedTrainers:
-	.string "I'm roaming the land in search of\n"
-	.string "talented TRAINERS.\p"
-	.string "I'm sorry to have taken your time.$"
+	.string "Ich reise durch das Land, immer auf\n"
+	.string "der\n"
+	.string "Suche nach talentierten TRAINERn.\p"
+	.string "Tut mir Leid, wenn ich dich\n"
+	.string "aufgehalten habe.$"

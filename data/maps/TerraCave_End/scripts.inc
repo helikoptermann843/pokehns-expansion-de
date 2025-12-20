@@ -18,7 +18,7 @@ TerraCave_End_OnTransition:
 	end
 
 TerraCave_End_EventScript_ShowGroudon::
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_TERRA_CAVE_GROUDON
 	setvar VAR_TEMP_1, 1
 	return
 
@@ -27,11 +27,6 @@ TerraCave_End_EventScript_Groudon::
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	waitmovement 0
 	applymovement LOCALID_TERRA_CAVE_GROUDON, TerraCave_End_Movement_GroudonApproach
-	setvar VAR_0x8004, 1  @ vertical pan
-	setvar VAR_0x8005, 1  @ horizontal pan
-	setvar VAR_0x8006, 52  @ num shakes
-	setvar VAR_0x8007, 5  @ shake delay
-	special ShakeCamera
 	waitmovement 0
 	waitse
 	playmoncry SPECIES_GROUDON, CRY_MODE_ENCOUNTER
@@ -65,8 +60,8 @@ TerraCave_End_EventScript_RanFromGroudon::
 	end
 
 TerraCave_End_Movement_GroudonApproach:
-	@init_affine_anim
-	walk_down_affine
+	init_affine_anim
+	walk_down_start_affine
 	delay_16
 	delay_16
 	walk_down_affine

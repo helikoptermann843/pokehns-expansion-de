@@ -98,7 +98,7 @@ Route118_EventScript_StevenTrigger::
 	call_if_eq VAR_0x8008, 0, Route118_EventScript_StevenExit0
 	call_if_eq VAR_0x8008, 1, Route118_EventScript_StevenExit1
 	call_if_eq VAR_0x8008, 2, Route118_EventScript_StevenExit2
-	setvar VAR_GARBAGEVAR, 1
+	setvar VAR_ROUTE118_STATE, 1
 	removeobject LOCALID_ROUTE118_STEVEN
 	releaseall
 	end
@@ -177,7 +177,7 @@ Route118_Movement_StevenExit2:
 	step_end
 
 Route118_EventScript_Rose::
-	trainerbattle_single TRAINER_GRUNT_33, Route118_Text_RoseIntro, Route118_Text_RoseDefeat, Route118_EventScript_RegisterRose
+	trainerbattle_single TRAINER_ROSE_1, Route118_Text_RoseIntro, Route118_Text_RoseDefeat, Route118_EventScript_RegisterRose
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchRose
 	msgbox Route118_Text_RosePostBattle, MSGBOX_DEFAULT
@@ -188,17 +188,17 @@ Route118_EventScript_RegisterRose::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_RoseRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_GRUNT_33
+	register_matchcall TRAINER_ROSE_1
 	release
 	end
 
 Route118_EventScript_RematchRose::
-	trainerbattle_rematch TRAINER_GRUNT_33, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat
+	trainerbattle_rematch TRAINER_ROSE_1, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat
 	msgbox Route118_Text_RosePostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_CYBIL, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
+	trainerbattle_single TRAINER_BARNY, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
 	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -208,7 +208,7 @@ Route118_EventScript_Wade::
 	end
 
 Route118_EventScript_Dalton::
-	trainerbattle_single TRAINER_JENN, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
+	trainerbattle_single TRAINER_DALTON_1, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchDalton
 	msgbox Route118_Text_DaltonPostBattle, MSGBOX_DEFAULT
@@ -219,12 +219,12 @@ Route118_EventScript_RegisterDalton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_DaltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JENN
+	register_matchcall TRAINER_DALTON_1
 	release
 	end
 
 Route118_EventScript_RematchDalton::
-	trainerbattle_rematch TRAINER_JENN, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
+	trainerbattle_rematch TRAINER_DALTON_1, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
 	msgbox Route118_Text_DaltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -234,65 +234,68 @@ Route118_EventScript_Perry::
 	end
 
 Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_GRUNT_15, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
+	trainerbattle_single TRAINER_CHESTER, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Deandre::
-	trainerbattle_single TRAINER_JOHNNY, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
+	trainerbattle_single TRAINER_DEANDRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
 	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_Text_StevenQuestions:
-	.string "STEVEN: Hi, {PLAYER}{KUN}!\p"
-	.string "It's me, STEVEN!\n"
-	.string "We met in the cave near DEWFORD.\p"
-	.string "Have you met many kinds of POKéMON\n"
-	.string "since I last saw you?\p"
-	.string "There are many, many kinds of POKéMON\n"
-	.string "in this wide world of ours.\p"
-	.string "If you wanted to raise only your\n"
-	.string "favorites, that's fine.\p"
-	.string "Perhaps you find it more fun to raise\n"
-	.string "all sorts of POKéMON.\p"
-	.string "As a TRAINER of POKéMON,\n"
-	.string "what do you think?\p"
-	.string "Of course, it's not any of my business.\p"
-	.string "It would be nice if we were to meet\n"
-	.string "again somewhere.$"
+	.string "TROY: Hi {PLAYER}{KUN}!\p"
+	.string "Ich bin’s, TROY!\n"
+	.string "Wir haben uns in der Höhle in der Nähe\l"
+	.string "von FAUSTAUHAVEN getroffen.\p"
+	.string "Hast du seitdem viele POKéMON\n"
+	.string "gesehen?\p"
+	.string "In dieser großen Welt gibt es viele\n"
+	.string "verschiedene Arten von POKéMON.\p"
+	.string "Wenn du nur deine Lieblings-\n"
+	.string "POKéMON aufziehst, ist das völlig\l"
+	.string "in Ordnung.\p"
+	.string "Aber vielleicht findest du es ja\n"
+	.string "auch spannender, unterschiedliche\l"
+	.string "POKéMON aufzuziehen.\p"
+	.string "Was denkst du als TRAINER darüber?\p"
+	.string "Okay, das geht mich eigentlich\n"
+	.string "gar nichts an.\p"
+	.string "Nun, ich hoffe, wir sehen uns bald\n"
+	.string "wieder.$"
 
 Route118_Text_YouAgreeGoodRodIsGood:
 	.string "Hmm!\n"
-	.string "A GOOD ROD is really good!\p"
-	.string "Wouldn't you agree?$"
+	.string "Eine PROFIANGEL ist wirklich gut!\p"
+	.string "Meinst du nicht auch?$"
 
 Route118_Text_IdenticalMindsTakeThis:
 	.string "Hmm!\n"
-	.string "We're of identical minds!\p"
-	.string "Hmm!\n"
-	.string "Take this GOOD ROD!$"
+	.string "Da sind wir ja der gleichen Meinung!\p"
+	.string "Hmm! Ich schenke dir diese PROFIANGEL!$"
 
 Route118_Text_TryYourLuckFishing:
-	.string "Wherever there's water, try your luck\n"
-	.string "at fishing.$"
+	.string "Wo immer du Wasser findest, versuche\n"
+	.string "dein Glück mit Angeln.$"
 
 Route118_Text_DontYouLikeToFish:
-	.string "Don't you like to fish?$"
+	.string "Magst du keinen Fisch?$"
 
 Route118_Text_TryCatchingMonWithGoodRod:
-	.string "Try catching all sorts of POKéMON\n"
-	.string "with your GOOD ROD.$"
+	.string "Versuche, alle möglichen Arten von\n"
+	.string "POKéMON mit der PROFIANGEL zu fangen.$"
 
 Route118_Text_CanCrossRiversWithSurf:
-	.string "Even if there isn't a boat, you can\n"
-	.string "cross rivers and the sea if you have\l"
-	.string "a POKéMON that knows SURF.\p"
-	.string "POKéMON can be counted on to do so\n"
-	.string "much!$"
+	.string "Auch wenn gerade kein Schiff in der\n"
+	.string "Nähe ist, kannst du mit einem POKéMON,\l"
+	.string "das SURFER kennt, das Meer überqueren.\n"
+	.string "\p"
+	.string "Auf POKéMON kann man sich immer\n"
+	.string "verlassen!$"
 
 Route118_Text_RouteSignMauville:
 	.string "ROUTE 118\n"
-	.string "{LEFT_ARROW} MAUVILLE CITY$"
+	.string "{LEFT_ARROW} MALVENFROH CITY$"
 
 Route118_Text_RouteSign119:
 	.string "ROUTE 118\n"

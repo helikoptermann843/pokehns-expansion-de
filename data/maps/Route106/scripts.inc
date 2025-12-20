@@ -16,7 +16,7 @@ Route106_EventScript_Kyla::
 	end
 
 Route106_EventScript_Elliot::
-	trainerbattle_single TRAINER_MASA, Route106_Text_ElliotIntro, Route106_Text_ElliotDefeated, Route106_EventScript_ElliotRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_ELLIOT_1, Route106_Text_ElliotIntro, Route106_Text_ElliotDefeated, Route106_EventScript_ElliotRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route106_EventScript_ElliotRematch
 	msgbox Route106_Text_ElliotPostBattle, MSGBOX_DEFAULT
@@ -27,12 +27,12 @@ Route106_EventScript_ElliotRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route106_Text_ElliotRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MASA
+	register_matchcall TRAINER_ELLIOT_1
 	release
 	end
 
 Route106_EventScript_ElliotRematch::
-	trainerbattle_rematch TRAINER_MASA, Route106_Text_ElliotRematchIntro, Route106_Text_ElliotRematchDefeated
+	trainerbattle_rematch TRAINER_ELLIOT_1, Route106_Text_ElliotRematchIntro, Route106_Text_ElliotRematchDefeated
 	msgbox Route106_Text_ElliotRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -42,7 +42,7 @@ Route106_EventScript_Ned::
 	end
 
 Route106_Text_TrainerTips:
-	.string "TRAINER TIPS\p"
-	.string "Advice on catching POKéMON with a ROD:\n"
-	.string "Press the A Button if you get a bite.$"
+	.string "TIPPS für TRAINER\p"
+	.string "Hinweis zum Fangen von POKéMON mit der\n"
+	.string "ANGEL: Drücke A, wenn eines anbeißt.$"
 

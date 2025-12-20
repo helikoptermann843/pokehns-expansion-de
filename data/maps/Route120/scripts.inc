@@ -294,12 +294,12 @@ Route120_EventScript_Lorenzo::
 	end
 
 Route120_EventScript_Jenna::
-	trainerbattle_single TRAINER_EUSINE, Route120_Text_JennaIntro, Route120_Text_JennaDefeat
+	trainerbattle_single TRAINER_JENNA, Route120_Text_JennaIntro, Route120_Text_JennaDefeat
 	msgbox Route120_Text_JennaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Jeffrey::
-	trainerbattle_single TRAINER_RIVAL_TOTODILE_5, Route120_Text_JeffreyIntro, Route120_Text_JeffreyDefeat, Route120_EventScript_RegisterJeffrey
+	trainerbattle_single TRAINER_JEFFREY_1, Route120_Text_JeffreyIntro, Route120_Text_JeffreyDefeat, Route120_EventScript_RegisterJeffrey
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route120_EventScript_RematchJeffrey
 	msgbox Route120_Text_JeffreyPostBattle, MSGBOX_DEFAULT
@@ -310,22 +310,22 @@ Route120_EventScript_RegisterJeffrey::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route120_Text_JeffreyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RIVAL_TOTODILE_5
+	register_matchcall TRAINER_JEFFREY_1
 	release
 	end
 
 Route120_EventScript_RematchJeffrey::
-	trainerbattle_rematch TRAINER_RIVAL_TOTODILE_5, Route120_Text_JeffreyRematchIntro, Route120_Text_JeffreyRematchDefeat
+	trainerbattle_rematch TRAINER_JEFFREY_1, Route120_Text_JeffreyRematchIntro, Route120_Text_JeffreyRematchDefeat
 	msgbox Route120_Text_JeffreyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Jennifer::
-	trainerbattle_single TRAINER_GIOVANNI, Route120_Text_JenniferIntro, Route120_Text_JenniferDefeat
+	trainerbattle_single TRAINER_JENNIFER, Route120_Text_JenniferIntro, Route120_Text_JenniferDefeat
 	msgbox Route120_Text_JenniferPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Chip::
-	trainerbattle_single TRAINER_GRUNT_16, Route120_Text_ChipIntro, Route120_Text_ChipDefeat
+	trainerbattle_single TRAINER_CHIP, Route120_Text_ChipIntro, Route120_Text_ChipDefeat
 	msgbox Route120_Text_ChipPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -355,74 +355,79 @@ Route120_EventScript_Leonel::
 	end
 
 Route120_EventScript_Callie::
-	trainerbattle_single TRAINER_ETO, Route120_Text_CallieIntro, Route120_Text_CallieDefeat
+	trainerbattle_single TRAINER_CALLIE, Route120_Text_CallieIntro, Route120_Text_CallieDefeat
 	msgbox Route120_Text_CalliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_Text_StevenGreeting:
-	.string "STEVEN: Hm? {PLAYER}{KUN}, hi.\n"
-	.string "It's been a while.\p"
-	.string "There's something here that you can't\n"
-	.string "see, right?\p"
-	.string "Now, if I were to use this device on\n"
-	.string "the invisible obstacle…\p"
-	.string "No, no. Rather than describing it,\n"
-	.string "I should just show you.\l"
-	.string "That would be more fun.\p"
-	.string "{PLAYER}{KUN}, are your POKéMON ready for\n"
-	.string "battle?$"
+	.string "TROY: Hm? {PLAYER}{KUN}, hi.\n"
+	.string "Es ist lange her…\p"
+	.string "Hier ist etwas, das du nicht sehen\n"
+	.string "kannst, richtig?\p"
+	.string "Also, wenn ich dieses Gerät bei einem\n"
+	.string "unsichtbaren Objekt benutzen würde…\p"
+	.string "Nein, nein. Statt es zu beschreiben,\n"
+	.string "zeige ich es dir lieber.\l"
+	.string "Das macht mehr Spaß.\p"
+	.string "{PLAYER}{KUN}, sind deine POKéMON\n"
+	.string "bereit für einen Kampf?$"
 
 Route120_Text_StevenIllWaitHere:
-	.string "STEVEN: No?\p"
-	.string "I'll wait here, so you can get ready.$"
+	.string "TROY: Nein?\p"
+	.string "Ich warte hier, dann kannst du sie\n"
+	.string "vor- bereiten.$"
 
 Route120_Text_StevenReadyForBattle:
-	.string "STEVEN: {PLAYER}{KUN}, are your POKéMON\n"
-	.string "ready for battle?$"
+	.string "TROY: {PLAYER}{KUN}, sind deine\n"
+	.string "POKéMON bereit für einen Kampf?$"
 
 Route120_Text_StevenShowMeYourPower:
-	.string "STEVEN: {PLAYER}{KUN}, show me your true\n"
-	.string "power as a TRAINER!$"
+	.string "TROY: {PLAYER}{KUN}, zeig mir deine\n"
+	.string "wahre Stärke als TRAINER!$"
 
 Route120_Text_StevenUsedDevonScope:
-	.string "STEVEN used the DEVON SCOPE.\p"
-	.string "An invisible POKéMON became completely\n"
-	.string "visible!\p"
-	.string "The startled POKéMON attacked!$"
+	.string "TROY setzt das DEVON-SCOPE ein.\p"
+	.string "Ein unsichtbares POKéMON wird\n"
+	.string "sichtbar!\p"
+	.string "Das erschreckte POKéMON greift an!$"
 
 Route120_Text_StevenGiveDevonScope:
-	.string "STEVEN: I see…\n"
-	.string "Your battle style is intriguing.\p"
-	.string "Your POKéMON have obviously grown\n"
-	.string "since I first met you in DEWFORD.\p"
-	.string "I'd like you to have this\n"
-	.string "DEVON SCOPE.\p"
-	.string "Who knows, there may be other\n"
-	.string "concealed POKéMON.$"
+	.string "TROY: Bemerkenswert… Dein\n"
+	.string "Kampfstil ist wirklich bemerkenswert.\n"
+	.string "\p"
+	.string "Deine POKéMON sind offensichtlich sehr\n"
+	.string "gewachsen, seit wir uns das erste Mal\n"
+	.string "in\l"
+	.string "FAUSTAUHAVEN getroffen haben.\p"
+	.string "Ich möchte dir dieses DEVON-SCOPE\n"
+	.string "geben.\p"
+	.string "Wer weiß, es gibt bestimmt noch andere\n"
+	.string "verborgene POKéMON.$"
 
 Route120_Text_StevenGoodbye:
-	.string "STEVEN: {PLAYER}{KUN}.\p"
-	.string "I enjoy seeing POKéMON and TRAINERS\n"
-	.string "who strive together.\p"
-	.string "I think you're doing great.\p"
-	.string "Well, let's meet again somewhere.$"
+	.string "TROY: {PLAYER}{KUN}.\p"
+	.string "Ich liebe es, TRAINER und POKéMON zu\n"
+	.string "sehen, die fest zusammenhalten.\p"
+	.string "Ich finde, du machst das großartig.\p"
+	.string "Nun, mach’s gut. Wir sehen uns!$"
 
 Kecleon_Text_SomethingUnseeable:
-	.string "Something unseeable is in the way.$"
+	.string "Etwas Unsichtbares blockiert den Weg.$"
 
 Kecleon_Text_WantToUseDevonScope:
-	.string "Something unseeable is in the way.\p"
-	.string "Want to use the DEVON SCOPE?$"
+	.string "Etwas Unsichtbares blockiert den Weg.\n"
+	.string "\p"
+	.string "Willst du das DEVON-SCOPE einsetzen?$"
 
 Kecleon_Text_UseDevonScopeMonAttacked:
-	.string "{PLAYER} used the DEVON SCOPE.\p"
-	.string "An invisible POKéMON became completely\n"
-	.string "visible!\p"
-	.string "The startled POKéMON attacked!$"
+	.string "{PLAYER} setzt DEVON-SCOPE ein.\p"
+	.string "Ein unsichtbares POKéMON wird\n"
+	.string "sichtbar!\p"
+	.string "Das erschreckte POKéMON greift an!$"
 
 Route120_Text_RouteSignFortree:
 	.string "ROUTE 120\n"
-	.string "{LEFT_ARROW} FORTREE CITY$"
+	.string "{LEFT_ARROW} BAUMHAUSEN CITY$"
 
 Route120_Text_RouteSign121:
 	.string "{RIGHT_ARROW} ROUTE 121\n"

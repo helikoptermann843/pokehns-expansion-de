@@ -74,7 +74,7 @@ Route117_EventScript_DayCareSign::
 	end
 
 Route117_EventScript_Isaac::
-	trainerbattle_single TRAINER_CHUCK_1_3, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat, Route117_EventScript_RegisterIsaac
+	trainerbattle_single TRAINER_ISAAC_1, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat, Route117_EventScript_RegisterIsaac
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchIsaac
 	msgbox Route117_Text_IsaacPostBattle, MSGBOX_DEFAULT
@@ -85,12 +85,12 @@ Route117_EventScript_RegisterIsaac::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_IsaacRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CHUCK_1_3
+	register_matchcall TRAINER_ISAAC_1
 	release
 	end
 
 Route117_EventScript_RematchIsaac::
-	trainerbattle_rematch TRAINER_CHUCK_1_3, Route117_Text_IsaacRematchIntro, Route117_Text_IsaacRematchDefeat
+	trainerbattle_rematch TRAINER_ISAAC_1, Route117_Text_IsaacRematchIntro, Route117_Text_IsaacRematchDefeat
 	msgbox Route117_Text_IsaacPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -116,7 +116,7 @@ Route117_EventScript_RematchLydia::
 	end
 
 Route117_EventScript_Dylan::
-	trainerbattle_single TRAINER_LEWIS, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
+	trainerbattle_single TRAINER_DYLAN_1, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchDylan
 	msgbox Route117_Text_DylanPostBattle, MSGBOX_DEFAULT
@@ -127,12 +127,12 @@ Route117_EventScript_RegisterDylan::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route117_Text_DylanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LEWIS
+	register_matchcall TRAINER_DYLAN_1
 	release
 	end
 
 Route117_EventScript_RematchDylan::
-	trainerbattle_rematch TRAINER_LEWIS, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
+	trainerbattle_rematch TRAINER_DYLAN_1, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
 	msgbox Route117_Text_DylanPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -211,32 +211,34 @@ Route117_EventScript_Brandi::
 	end
 
 Route117_EventScript_Aisha::
-	trainerbattle_single TRAINER_ARNIE, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
+	trainerbattle_single TRAINER_AISHA, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
 	msgbox Route117_Text_AishaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_Text_DayCarePokemonHadNewMove:
-	.string "I left my POKéMON at the DAY CARE.\p"
-	.string "When I got it back, it had a new move\n"
-	.string "that I didn't teach it.\l"
-	.string "I was really, really surprised.$"
+	.string "Ich habe mein POKéMON in der PENSION\n"
+	.string "abgegeben.\p"
+	.string "Als ich es wieder abholte, kannte es\n"
+	.string "eine Attacke, die ich ihm nicht beige-\l"
+	.string "bracht habe. Ich war total überrascht.$"
 
 Route117_Text_ArentTheseFlowersPretty:
-	.string "What do you think?\n"
-	.string "Aren't these flowers pretty?\p"
-	.string "I planted them all!$"
+	.string "Was meinst du?\n"
+	.string "Sind diese Blumen nicht wunderhübsch?\n"
+	.string "\p"
+	.string "Ich habe sie alle selber gepflanzt.$"
 
 Route117_Text_AirIsTastyHere:
-	.string "The air is tasty here!$"
+	.string "Die Luft hier ist wunderbar frisch.$"
 
 Route117_Text_RouteSignVerdanturf:
 	.string "ROUTE 117\n"
-	.string "{LEFT_ARROW} VERDANTURF TOWN$"
+	.string "{LEFT_ARROW} WIESENFLUR$"
 
 Route117_Text_RouteSignMauville:
 	.string "ROUTE 117\n"
-	.string "{RIGHT_ARROW} MAUVILLE CITY$"
+	.string "{RIGHT_ARROW} MALVENFROH CITY$"
 
 Route117_Text_DayCareSign:
-	.string "POKéMON DAY CARE\n"
-	.string "“Let us raise your POKéMON.”$"
+	.string "POKéMON-PENSION\n"
+	.string "“Lass uns deine POKéMON aufziehen.”$"

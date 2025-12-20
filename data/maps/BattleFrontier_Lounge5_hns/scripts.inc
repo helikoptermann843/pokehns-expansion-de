@@ -43,13 +43,12 @@ BattleFrontier_Lounge5_EventScript_LittleBoy::
 
 BattleFrontier_Lounge5_Text_NatureGirlGreeting::
 	.string "Ehehe!\n"
-	.string "I can tell what POKéMON are thinking!\p"
-	.string "Please!\n"
-	.string "Can I see your POKéMON?$"
+	.string "I can tell what POKéMON are thinking!\n"
+	.string "\p"
+	.string "Please! Can I see your POKéMON?$"
 
 BattleFrontier_Lounge5_Text_NatureGirlNoneShown::
-	.string "Boo!\n"
-	.string "Cheapie!$"
+	.string "Boo! Cheapie!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlLonely::
 	.string "Hmhm…\p"
@@ -132,7 +131,8 @@ BattleFrontier_Lounge5_Text_NatureGirlJolly::
 BattleFrontier_Lounge5_Text_NatureGirlModest::
 	.string "Hmhm…\p"
 	.string "This one says it looks after itself!\n"
-	.string "It says it worries about itself whether\l"
+	.string "It says it worries about itself\n"
+	.string "whether\l"
 	.string "or not it has a lot of ouchies!$"
 
 BattleFrontier_Lounge5_Text_NatureGirlMild::
@@ -187,11 +187,11 @@ BattleFrontier_Lounge5_Text_LadyClaimsSheUnderstandsPokemon::
 	.string "understand POKéMON!$"
 
 BattleFrontier_Lounge5_Text_GirlSayingSomethingProfound::
-	.string "I have this feeling that the little girl\n"
-	.string "is saying something profound.$"
+	.string "I have this feeling that the little\n"
+	.string "girl is saying something profound.$"
 
 BattleFrontier_Lounge5_Text_GirlPlaysAtRedHouseALot::
 	.string "I know something!\p"
-	.string "That little girl plays at the red house\n"
-	.string "a lot!$"
+	.string "That little girl plays at the red\n"
+	.string "house a lot!$"
 

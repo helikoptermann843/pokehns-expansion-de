@@ -21,27 +21,28 @@ Route33_EventScript_Lass::
 	end
 
 Route33_Text_HikerAnthony2Seen:
-	.string "I came through the tunnel,\n"
-	.string "but I still have plenty\l"
-	.string "of energy left.$"
+	.string "Ich bin durch den\n"
+	.string "Tunnel gegangen, aber ich habe noch\p"
+	.string "viel Energie übrig.$"
 
 Route33_Text_HikerAnthony2Beaten:
-	.string "Whoa! You've got more zip\n"
-	.string "than me!$"
+	.string "Wow! Du hast mehr Mumm als ich!$"
 
 Route33_Text_HikerAnthony2After:
-	.string "We HIKERS are at our best\n"
-	.string "in the mountains.$"
+	.string "In den Bergen sind\n"
+	.string "wir WANDERER in unserem Element.$"
 
 Route33_Text_HikerAnthonyDunsparce:
-	.string "Hey, did you get a DUNSPARCE?\p"
-	.string "I caught one too.\p"
-	.string "Take a look at it in the light.\n"
-	.string "It's got a funny face!$"
+	.string "Heh, hast du ein DUMMISEL?\p"
+	.string "Ich habe eines.\p"
+	.string "Sieh es dir im Licht an. Es hat\p"
+	.string "ein lustiges Gesicht!$"
 
 Route33_Text_Lass:
-	.string "Pant, pant…\p"
-	.string "That cave was bigger than\n"
-	.string "I'd expected.\p"
-	.string "I got too tired exploring\n"
-	.string "for MARILL, so I came outside.$"
+	.string "Hechel, keuch…\p"
+	.string "Endlich habe ich\n"
+	.string "es durch diese Höhle geschafft!\p"
+	.string "Sie war größer, als ich annahm.\p"
+	.string "Ich war zu erschöpft, um alles\p"
+	.string "zu erkunden, also habe ich sie\p"
+	.string "verlassen.$"

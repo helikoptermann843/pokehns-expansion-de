@@ -1,11 +1,5 @@
 SealedChamber_InnerRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SealedChamber_InnerRoom_OnTransition
 	.byte 0
-
-SealedChamber_InnerRoom_OnTransition:
-	setflag FLAG_TEMP_HIDE_FOLLOWER
-	setflag FLAG_LANDMARK_SEALED_CHAMBER
-	end
 
 SealedChamber_InnerRoom_EventScript_BrailleBackWall::
 	lockall
@@ -17,14 +11,6 @@ SealedChamber_InnerRoom_EventScript_BrailleBackWall::
 	playse SE_TRUCK_MOVE
 	special DoSealedChamberShakingEffect_Long
 	waitstate
-	delay 40
-	special DoSealedChamberShakingEffect_Short
-	waitstate
-	playse SE_DOOR
-	delay 40
-	special DoSealedChamberShakingEffect_Short
-	waitstate
-	playse SE_DOOR
 	delay 40
 	special DoSealedChamberShakingEffect_Short
 	waitstate

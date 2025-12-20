@@ -7,7 +7,7 @@ ShoalCave_LowTideLowerRoom_OnLoad:
 	end
 
 ShoalCave_LowTideLowerRoom_EventScript_SetShoalItemMetatiles::
-	goto_if_set FLAG_GARBAGEFLAG, ShoalCave_LowTideLowerRoom_EventScript_SetShoalItemMetatilesEnd
+	goto_if_set FLAG_RECEIVED_SHOAL_SALT_4, ShoalCave_LowTideLowerRoom_EventScript_SetShoalItemMetatilesEnd
 	setmetatile 18, 2, METATILE_Cave_ShoalCave_DirtPile_Large, TRUE
 	return
 
@@ -16,12 +16,12 @@ ShoalCave_LowTideLowerRoom_EventScript_SetShoalItemMetatilesEnd::
 
 ShoalCave_LowTideLowerRoom_EventScript_ShoalSalt4::
 	lockall
-	goto_if_set FLAG_GARBAGEFLAG, ShoalCave_LowTideLowerRoom_EventScript_ReceivedShoalSalt
+	goto_if_set FLAG_RECEIVED_SHOAL_SALT_4, ShoalCave_LowTideLowerRoom_EventScript_ReceivedShoalSalt
 	giveitem ITEM_SHOAL_SALT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setmetatile 18, 2, METATILE_Cave_ShoalCave_DirtPile_Small, FALSE
 	special DrawWholeMapView
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_RECEIVED_SHOAL_SALT_4
 	releaseall
 	end
 
@@ -47,12 +47,15 @@ ShoalCave_LowTideLowerRoom_EventScript_ReceivedFocusBand::
 	end
 
 ShoalCave_LowTideLowerRoom_Text_CanOvercomeColdWithFocus:
-	.string "The penetrating cold around these\n"
-	.string "parts is an impediment to training.\p"
-	.string "But with focus, one can overcome!\p"
-	.string "With this FOCUS BAND, buckle down and\n"
-	.string "withstand the cold!$"
+	.string "Die eisige Kälte in dieser Gegend ist\n"
+	.string "ein gewaltiges Hindernis beim\n"
+	.string "Training. \p"
+	.string "Aber wenn man sich konzentriert, kann\n"
+	.string "man doch gewinnen!\p"
+	.string "Mit diesem FOKUS-BAND kannst du dich\n"
+	.string "besser konzentrieren und der Kälte\l"
+	.string "widerstehen.$"
 
 ShoalCave_LowTideLowerRoom_Text_EverythingStartsWithFocus:
-	.string "Everything starts with focus!$"
+	.string "Alles hängt von der Konzentration ab!$"
 

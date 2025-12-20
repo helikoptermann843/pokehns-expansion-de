@@ -256,79 +256,89 @@ VermilionCity_Movement_EusineLeave:
 	step_end
 
 VermilionCity_Text_Eusine:
-	.string "EUSINE: That was so close!\n"
-	.string "I though I could corner it by\l"
-	.string "ambushing it here.\p"
-	.string "But running on the water is beyond\n"
-	.string "me.\p"
-	.string "Still, I am starting to see\n"
-	.string "a pattern.\p"
-	.string "SUICUNE prefers water!\p"
-	.string "That means...$"
+	.string "EUSINE: Das war knapp!\n"
+	.string "Ich dachte, ich könnte es\n"
+	.string "hier in die Ecke treiben.\p"
+	.string "Doch auf dem Wasser kann\n"
+	.string "ich es nicht verfolgen.\p"
+	.string "Trotzdem erkenne ich ein\n"
+	.string "Muster.\p"
+	.string "SUICUNE bevorzugt Wasser!\p"
+	.string "Das bedeutet...$"
 
 VermilionCity_Text_Eusine2:
-	.string "Sorry {PLAYER}, I've got to go!$"
+	.string "Sorry {PLAYER}, ich muss los!$"
 
 VermilionCity_Text_Teacher:
-	.string "VERMILION PORT is KANTO's seaside\n"
-	.string "gateway.\p"
-	.string "Luxury liners from around the\n"
-	.string "world dock here.$"
+	.string "Der HAFEN von\n"
+	.string "ORANIA CITY ist das Tor KANTOs zum\n"
+	.string "Meer.\p"
+	.string "Hier legen Luxus-\n"
+	.string "dampfer aus aller Welt an.$"
 
 VermilionCity_Text_MachopOwner:
-	.string "My POKéMON is preparing the land\n"
-	.string "for construction.\p"
-	.string "But I have no money to start the\n"
-	.string "project…$"
+	.string "Mein Pokémon\n"
+	.string "ebnet das Land für ein Bauwerk.\p"
+	.string "Aber ich habe\n"
+	.string "nicht genug Geld für das Projekt…$"
 
 VermilionCity_Text_Machop1:
-	.string "MACHOP: Guooh gogogoh!$"
+	.string "MACHOLLO: Guooh gogogoh!$"
 
 VermilionCity_Text_Machop2:
-	.string "A MACHOP is growling while\n"
-	.string "stomping the ground flat.$"
+	.string "Ein MACHOLLO\n"
+	.string "brüllt laut, während es auf den Boden\l"
+	.string "stampft.$"
 
 VermilionCity_Text_SuperNerd:
-	.string "There are eight GYMS in KANTO.\p"
-	.string "That big building is VERMILION's\n"
-	.string "POKéMON GYM.$"
+	.string "Es gibt acht ARENEN in KANTO.\p"
+	.string "Das große Gebäude\n"
+	.string "ist die PKMN-ARENA von ORANIA CITY.$"
 
 VermilionCity_Text_SnorlaxSleeping:
-	.string "SNORLAX is snoring peacefully…$"
+	.string "RELAXO schläft friedlich…$"
 
 VermilionCity_Text_RadioNearSnorlax:
-	.string "The RADIO was placed near the\n"
-	.string "sleeping SNORLAX…\p"
+	.string "Der PokéCOM wird\n"
+	.string "in der Nähe des schlafenden RELAXOs\n"
+	.string "platziert…\p"
 	.string "…\p"
-	.string "SNORLAX woke up!$"
+	.string "RELAXO ist aufgewacht!$"
 
 VermilionCity_Text_BadgeGuy_Trainer:
-	.string "Skilled trainers gather in KANTO.\p"
-	.string "GYM LEADERS are especially strong.\p"
-	.string "They won't be easy to defeat.$"
+	.string "In KANTO treffen\n"
+	.string "sich talentierte Trainer.\p"
+	.string "ARENALEITER sind besonders stark.\p"
+	.string "Es ist nicht leicht, sie zu besiegen.$"
 
 VermilionCity_Text_BadgeGuy_SomeBadges:
-	.string "You've started to collect KANTO\n"
-	.string "GYM BADGES?\p"
-	.string "Don't you agree that the trainers\n"
-	.string "here are tough?$"
+	.string "Du sammelst ORDEN der ARENEN in KANTO?\n"
+	.string "\p"
+	.string "Findest du nicht\n"
+	.string "auch, dass die Trainer hier stark\l"
+	.string "sind?$"
 
 VermilionCity_Text_BadgeGuy_MostBadges:
-	.string "I guess you'll be finished with\n"
-	.string "your conquest of KANTO GYMS soon.\p"
-	.string "Let me know if you get all eight\n"
-	.string "BADGES.$"
+	.string "Ich schätze, du\n"
+	.string "hast diesen Wettkampf der ARENEN in\n"
+	.string "KANTO bald beendet.\p"
+	.string "Lass mich wissen,\n"
+	.string "wenn du alle acht ORDEN hast.$"
 
 VermilionCity_Text_BadgeGuy_AllBadges:
-	.string "Congratulations!\p"
-	.string "You got all the KANTO GYM BADGES.\p"
-	.string "I've got a reward for your efforts.$"
+	.string "Gratuliere!\p"
+	.string "Du hast alle ORDEN\n"
+	.string "der ARENEN in KANTO.\p"
+	.string "Ich habe hier eine\n"
+	.string "Belohnung für deine Anstrengungen.$"
 
 VermilionCity_Text_BadgeGuy_BattleEdge:
-	.string "Having a variety of POKéMON types\n"
-	.string "should give you an edge in battle.\p"
-	.string "I'm sure the KANTO GYM BADGES will\n"
-	.string "help you.$"
+	.string "Es ist vorteilhaft, wenn du\p"
+	.string "Pokémon verschie-\n"
+	.string "dener Elemente kämpfen lässt.\p"
+	.string "Ich bin sicher,\n"
+	.string "dass die ORDEN der ARENEN in KANTO dir\l"
+	.string "helfen werden.$"
 
 VermilionCity_EventScript_CitySign::
 	msgbox VermilionCity_Text_Sign, MSGBOX_SIGN
@@ -344,22 +354,22 @@ VermilionCity_EventScript_DiglettsCaveSign::
 	end
 
 VermilionCity_Text_Sign:
-	.string "VERMILION CITY\p"
-	.string "The Port of Exquisite Sunsets$"
+	.string "ORANIA CITY\p"
+	.string "Der Hafen Der\n"
+	.string "Stimmungsvollen Sonnenuntergänge$"
 
 VermilionCity_Text_GymSign:
-	.string "VERMILION CITY\n"
-	.string "POKéMON GYM\p"
-	.string "LEADER: LT.SURGE\p"
-	.string "The Lightning American$"
+	.string "ORANIA CITY\n"
+	.string "POKéMON ARENA\p"
+	.string "LEITER: Major Bob\p"
+	.string "Der Elektro-Veteran$"
 
 VermilionCity_Text_FanClubSign:
 	.string "POKéMON FAN CLUB\p"
-	.string "All POKéMON Fans Welcome!$"
+	.string "Fans von POKéMON Willkommen!$"
 
 VermilionCity_Text_DiglettsCaveSign:
-	.string "DIGLETT'S CAVE$"
+	.string "DIGDAs HÖHLE$"
 
 VermilionCity_Text_PortSign:
-	.string "VERMILION PORT\n"
-	.string "ENTRANCE$"
+	.string "EINGANG zum HAFEN von ORANIA CITY$"

@@ -47,18 +47,18 @@ Route109_EventScript_DoSailToDewford::
 	applymovement LOCALID_PLAYER, Route109_Movement_PlayerExitBoat
 	waitmovement 0
 	addobject LOCALID_DEWFORD_BOAT
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
 	setobjectxyperm LOCALID_DEWFORD_BRINEY, 12, 8
 	addobject LOCALID_DEWFORD_BRINEY
 	setobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN, 0
 	applymovement LOCALID_DEWFORD_BRINEY, Route109_Movement_BrineyExitBoat
 	waitmovement 0
-	clearflag FLAG_GARBAGEFLAG
-	setflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
+	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
 	hideobjectat LOCALID_ROUTE109_BOAT, MAP_ROUTE109
 	msgbox DewfordTown_Text_BrineyLandedInDewford, MSGBOX_DEFAULT
 	closemessage
-	copyvar VAR_GARBAGEVAR, VAR_0x8008
+	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	resetobjectsubpriority LOCALID_PLAYER, MAP_ROUTE109
 	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
@@ -437,7 +437,7 @@ Route109_EventScript_LolaRematch::
 	end
 
 Route109_EventScript_Austina::
-	trainerbattle_single TRAINER_CODY, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -462,103 +462,111 @@ Route109_EventScript_Mel::
 	end
 
 Route109_EventScript_Chandler::
-	trainerbattle_single TRAINER_GRUNT_11, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
+	trainerbattle_single TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
 	msgbox Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Hailey::
-	trainerbattle_single TRAINER_BUGSY_2, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
+	trainerbattle_single TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
 	msgbox Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route109_EventScript_Elijah::
-	trainerbattle_single TRAINER_MARVIN, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
+	trainerbattle_single TRAINER_ELIJAH, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
 	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "We've made land in SLATEPORT!\p"
-	.string "I suppose you're going to visit CAPT.\n"
-	.string "STERN and deliver the DEVON GOODS?$"
+	.string "MR. BRACK: Ahoi! Wir haben in\n"
+	.string "GRAPHITPORT CITY angelegt.\p"
+	.string "Ich vermute, du gehst jetzt zu KAPT.\n"
+	.string "BRIGG und bringst ihm die DEVON-\l"
+	.string "WAREN?$"
 
 Route109_Text_BrineySailToDewfordQuestion:
-	.string "MR. BRINEY: I thought you're supposed\n"
-	.string "to deliver the DEVON GOODS.\p"
-	.string "Would you like to sail back to\n"
-	.string "DEWFORD, then?$"
+	.string "MR. BRACK: Überbringst du nicht die\n"
+	.string "DEVON-WAREN?\p"
+	.string "Heißt das, du willst nach FAUSTAUHAVEN\n"
+	.string "zurücksegeln?$"
 
 Route109_Text_BrineyDewfordItIs:
-	.string "MR. BRINEY: DEWFORD it is, then!\p"
-	.string "Anchors aweigh!\n"
-	.string "PEEKO, we're setting sail, my darling!$"
+	.string "MR. BRACK: Also, auf nach\n"
+	.string "FAUSTAUHAVEN! \p"
+	.string "Anker gelichtet!\n"
+	.string "PECKO, wir setzen Segel, mein\l"
+	.string "Liebling!$"
 
 Route109_Text_BrineyDeliverDevonGoods:
-	.string "MR. BRINEY: Then you go on and deliver\n"
-	.string "the DEVON GOODS. I'll be waiting.$"
+	.string "MR. BRACK: Dann geh und überbringe die\n"
+	.string "DEVON-WAREN. Ich warte hier.$"
 
 DewfordTown_Text_BrineyLandedInSlateport:
-	.string "MR. BRINEY: Ahoy! We've made land in\n"
-	.string "SLATEPORT!\p"
-	.string "You just go on and tell me whenever\n"
-	.string "you want to set sail again!$"
+	.string "MR. BRACK: Ahoi! Wir haben in\n"
+	.string "GRAPHITPORT CITY angelegt!\p"
+	.string "Wann immer du magst, können wir wieder\n"
+	.string "die Segel setzen.$"
 
 Route109_Text_BrineyWhereAreWeBound:
-	.string "MR. BRINEY: Ahoy!\n"
-	.string "For you, I'll go out to sea anytime!\p"
-	.string "Now, my friend, where are we bound?$"
+	.string "MR. BRACK: Ahoi! Für dich fahre ich\n"
+	.string "jederzeit wieder raus!\p"
+	.string "Nun, wo soll es hingehen?$"
 
 Route109_Text_BrineyTellMeWhenYouNeedToSail:
-	.string "MR. BRINEY: You just tell me whenever\n"
-	.string "you need to set sail again!$"
+	.string "MR. BRACK: Sag mir einfach Bescheid,\n"
+	.string "wenn wir wieder Segel setzen sollen.$"
 
 Route109_Text_ChillAtMyPapasSpot:
-	.string "Yo, TRAINERS!\n"
-	.string "Whether you're hot to trot,\l"
-	.string "or cool cat not,\l"
-	.string "chill at my papa's spot!$"
+	.string "Yo, TRAINER!\n"
+	.string "Seid ihr in Eile,\l"
+	.string "müsst wieder fort,\l"
+	.string "erfrischt euch doch an Papas Ort!$"
 
 Route109_Text_LittleKidsDartAround:
-	.string "Little kids can dart around so quickly…\p"
-	.string "You don't dare take your eyes off them\n"
-	.string "for an instant. It's very taxing.\p"
-	.string "Mine are with my POKéMON, so they\n"
-	.string "should be okay, but…$"
+	.string "Kleine Kinder sind blitzschnell und\n"
+	.string "flink.\p"
+	.string "Du darfst sie nicht eine Sekunde aus\n"
+	.string "den Augen lassen. Das strengt an.\p"
+	.string "Meine Kinder sind mit meinen POKéMON\n"
+	.string "zusammen, da sind sie gut aufgehoben.$"
 
 Route109_Text_SandCastleTakingLongTime:
-	.string "Our sand castle's taking a long time\n"
-	.string "to make.$"
+	.string "Wir brauchen ganz lange, um unsere\n"
+	.string "Sandburg zu bauen.$"
 
 Route109_Text_YouCanHaveThis:
-	.string "You can have this!$"
+	.string "Das schenk ich dir!$"
 
 Route109_Text_WereGoingToMakeBigCastle:
-	.string "We're going to get all the sand from\n"
-	.string "the beach and make a big castle!\p"
-	.string "And then we're going to be a king and\n"
-	.string "queen.\p"
-	.string "We'll let you be a servant.$"
+	.string "Wir nehmen allen Sand vom Strand\n"
+	.string "und bauen damit eine gaaanz große\n"
+	.string "Burg. \p"
+	.string "Und dann sind wir Königin und König!\p"
+	.string "Und du darfst unser Diener sein.$"
 
 Route109_Text_ZigzagoonPicksUpLitter:
-	.string "The water around these parts is clean.\p"
-	.string "But, I get my ZIGZAGOON to pick up\n"
-	.string "litter from the shoreline at times.\p"
-	.string "Dirty water becomes rain and joins our\n"
-	.string "rivers, which we drink from…\p"
-	.string "If we pollute the sea, it all comes\n"
-	.string "back to haunt us eventually.$"
+	.string "Das Wasser in diesen Breiten ist\n"
+	.string "sauber. \p"
+	.string "Aber ich sammle zusammen mit meinem\n"
+	.string "ZIGZACHS den Müll am Ufer auf.\p"
+	.string "Verschmutztes Wasser wird zu Regen und\n"
+	.string "gelangt in die Flüsse, aus denen wir\l"
+	.string "unser Trinkwasser gewinnen…\p"
+	.string "Verschmutzen wir das Meer, bekommen\n"
+	.string "wir den Schmutz wieder zurück.$"
 
 Route109_Text_ZigzagoonCry:
-	.string "ZIGZAGOON: Guguu?$"
+	.string "ZIGZACHS: Guguu?$"
 
 Route109_Text_SeashoreHouseSign:
-	.string "SEASHORE HOUSE\p"
-	.string "“May hot battles rage on hot sands!\n"
-	.string "The place for hot TRAINERS!”$"
+	.string "STRANDHAUS\p"
+	.string "“Mögen heiße Kämpfe im heißen Sand\n"
+	.string "stattfinden! Heiße TRAINER\l"
+	.string "willkommen!”$"
 
 Route109_Text_TrainerTipsSign:
-	.string "TRAINER TIPS\p"
-	.string "POKéMON at the same level may not\n"
-	.string "always have identical stats.\p"
-	.string "POKéMON raised by TRAINERS are said\n"
-	.string "to grow stronger than wild POKéMON.$"
+	.string "TIPPS für TRAINER\p"
+	.string "POKéMON mit gleichem Level haben nicht\n"
+	.string "unbedingt identische Statuswerte.\p"
+	.string "POKéMON, die von TRAINERn aufgezogen\n"
+	.string "werden, wachsen schneller als wilde\l"
+	.string "POKéMON.$"

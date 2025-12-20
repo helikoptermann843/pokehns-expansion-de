@@ -88,90 +88,116 @@ Route31_EventScript_ItemAntidote::
 	end
 
 Route31_Text_CooltrainerM:
-	.string "DARK CAVE…\p"
-	.string "If POKéMON could light it up,\n"
-	.string "I'd explore it.$"
+	.string "DUNKELHÖHLE…\p"
+	.string "Wenn ein Pokémon\n"
+	.string "für Licht sorgen könnte, würde ich sie\l"
+	.string "erforschen.$"
 
 Route31_Text_BugCatcherWade1_Seen:
-	.string "I caught a bunch of POKéMON.\n"
-	.string "Let me battle with you!$"
+	.string "Ich habe einige\n"
+	.string "Pokémon gefangen. Lass uns kämpfen!$"
 
 Route31_Text_BugCatcherWade1_Beaten:
 	.string "Awwwww…$"
 
 Route31_Text_BugCatcherWade1_After:
-	.string "You can catch POKéMON even if\n"
-	.string "you have six with you.\p"
-	.string "If you catch one, it'll go to\n"
-	.string "your BOX automatically.$"
+	.string "Du kannst Pokémon fangen, auch wenn\p"
+	.string "du bereits sechs bei dir trägst.\p"
+	.string "Fängst du eines,\n"
+	.string "wird es automatisch auf die BOX im PC\l"
+	.string "übertragen.$"
 
 Route31_Text_SleepyMan:
-	.string "… Hnuurg… Huh?\p"
-	.string "I walked too far today looking\n"
-	.string "for POKéMON.\p"
-	.string "My feet hurt and I'm sleepy…\p"
-	.string "If I were a wild POKéMON, I'd\n"
-	.string "be easy to catch…\p"
+	.string "…Uargh… Hä?\p"
+	.string "Heute bin ich auf\n"
+	.string "der Suche nach Pokémon zu viel\n"
+	.string "gelaufen.\p"
+	.string "Meine Füße schmer-\n"
+	.string "zen und ich bin müde…\p"
+	.string "Wenn ich ein wil-\n"
+	.string "des Pokémon wäre, würde ich mich\n"
+	.string "leicht fangen lassen…\p"
+	.string "…Uargh… Hä?\p"
+	.string "Heute bin ich auf\n"
+	.string "der Suche nach Pokémon zu viel\n"
+	.string "gelaufen.\p"
+	.string "Meine Füße schmer-\n"
+	.string "zen und ich bin müde…\p"
+	.string "Wenn ich ein wil-\n"
+	.string "des Pokémon wäre, würde ich mich\n"
+	.string "leicht fangen lassen…\p"
 	.string "…Zzzz…$"
 
 Route31_Text_SleepyManGotMail:
-	.string "…Zzzz… Huh?\p"
-	.string "What's that? You have MAIL\n"
-	.string "for me?$"
+	.string "…Zzzz… Häh?\p"
+	.string "Was ist? Du hast einen BRIEF für mich?$"
 
 Route31_Text_SleepyManFail:
+	.string "…Uargh… Hä?\p"
+	.string "Heute bin ich auf\n"
+	.string "der Suche nach Pokémon zu viel\n"
+	.string "gelaufen.\p"
+	.string "Meine Füße schmer-\n"
+	.string "zen und ich bin müde…\p"
+	.string "Wenn ich ein wil-\n"
+	.string "des Pokémon wäre, würde ich mich\n"
+	.string "leicht fangen lassen…\p"
 	.string "…Zzzz…$"
 
 Route31_Text_HandOverMailMon:
-	.string "{PLAYER} handed over the\n"
-	.string "POKéMON holding the MAIL.$"
+	.string "{PLAYER} übergibt\n"
+	.string "das Pokémon, das den BRIEF trägt.$"
 
 Route31_Text_ReadingMail:
-	.string "Let's see…\p"
-	.string "Thanks for bringing this to\n"
-	.string "me.\p"
-	.string "My friend's a good guy, and\n"
-	.string "you're swell too!\p"
-	.string "I'd like to do something good\n"
-	.string "in return too!\p"
-	.string "I know! I want you to have\n"
-	.string "this!$"
+	.string "Mal sehen…\p"
+	.string "…die DUNKELHÖHLE\n"
+	.string "führt zu einem anderen Weg…\p"
+	.string "Gut zu wissen.\p"
+	.string "Danke, dass du mir\n"
+	.string "den BRIEF brachtest.\p"
+	.string "Mein Freund ist\n"
+	.string "ein netter Mensch, genau wie du!\p"
+	.string "Ich möchte mich\n"
+	.string "bei dir dafür revanchieren!\p"
+	.string "Ich hab's! Ich\n"
+	.string "möchte dir das hier geben!$"
 
 Route31_Text_DescribeNightmare:
-	.string "That TM contains TORMENT.\p"
-	.string "It's a wicked move that\n"
-	.string "makes the enemy super nervous and\l"
-	.string "stops them from using the same\p"
-	.string "move multiple times in a row.$"
+	.string "TM50 enthält NACHTMAHR.\p"
+	.string "Dies ist eine gemeine Attacke,\p"
+	.string "die einem schlaf-\n"
+	.string "enden Gegner kontinuierlich KP\n"
+	.string "abzieht.\p"
+	.string "Uuuuuuh… Das ist fies…\p"
+	.string "Ich möchte nicht schlecht träumen.$"
 
 Route31_Text_WrongMail:
-	.string "This MAIL isn't for me.$"
+	.string "Der BRIEF ist nicht für mich.$"
 
 Route31_Text_MissingMail:
-	.string "Why is this POKéMON so special?\p"
-	.string "It doesn't have any MAIL.$"
+	.string "Was ist so beson-\n"
+	.string "ders an diesem Pokémon?\p"
+	.string "Es trägt keinen BRIEF.$"
 
 Route31_Text_DeclinedToHandOverMail:
-	.string "What? You don't want\n"
-	.string "anything?$"
+	.string "Was? Du möchtest nichts?$"
 
 Route31_Text_CantTakeLastMon:
-	.string "If I take that POKéMON from\n"
-	.string "you,\p"
-	.string "what are you going to use in\n"
-	.string "battle?$"
+	.string "Wenn ich dir dieses Pokémon weg-\p"
+	.string "nehme, womit willst du dann\p"
+	.string "kämpfen?$"
 
 Route31_Text_Youngster:
-	.string "I found a good POKéMON in DARK\n"
-	.string "CAVE.\p"
-	.string "I'm going to raise it to take\n"
-	.string "on FALKNER.\p"
-	.string "He's the leader of VIOLET\n"
-	.string "CITY's GYM.$"
+	.string "Ich habe ein gutes\n"
+	.string "Pokémon in der DUNKELHÖHLE gefunden.\p"
+	.string "Ich ziehe es groß,\n"
+	.string "um später gegen FALK anzutreten.\p"
+	.string "Er ist der ARENA-\n"
+	.string "LEITER von VIOLA CITY.$"
 
 Route31_Text_Sign:
 	.string "ROUTE 31\p"
-	.string "VIOLET CITY - CHERRYGROVE CITY$"
+	.string "VIOLA CITY - ROSALIA CITY$"
 
 Route31_Text_DarkCaveSign:
-	.string "DARK CAVE$"
+	.string "DUNKELHÖHLE$"

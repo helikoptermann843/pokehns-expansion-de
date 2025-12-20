@@ -107,108 +107,108 @@ Route30_EventScript_Mailbox::
 	end
 
 Route30_Text_Mailbox:
-	.string "MR.POKéMON's House$"
+	.string "MR.Pokémon's Haus$"
 
 Route30_Text_UseTackle:
-	.string "Go, RATTATA!\p"
-	.string "TACKLE!$"
+	.string "Los, Rattfratz!\p"
+	.string "Tackle!$"
 
 Route30_Text_ThisIsABigBattle:
-	.string "What? This is a big battle!\n"
-	.string "Leave me alone!$"
+	.string "Was? Das ist ein\n"
+	.string "harter Kampf! Lass mich in Ruhe!$"
 
 Route30_Text_YoungsterJoey1Seen:
-	.string "I just lost, so I'm trying to\n"
-	.string "find more POKéMON.\p"
-	.string "Wait! You look weak! Come on,\n"
-	.string "let's battle!$"
+	.string "Ich habe verloren!\n"
+	.string "Ich versuche, mehr Pokémon zu finden.\n"
+	.string "\p"
+	.string "Halt! Du siehst\n"
+	.string "schwach aus! Los, lass uns kämpfen!$"
 
 Route30_Text_YoungsterJoey1Beaten:
-	.string "Ack! I lost again!\n"
-	.string "Doggone it!$"
+	.string "Ahh! Wieder verloren! Mist!$"
 
 Route30_Text_YoungsterJoey1After:
-	.string "Do I have to have more POKéMON\n"
-	.string "in order to battle better?\p"
-	.string "No! I'm sticking with this one\n"
-	.string "no matter what!$"
+	.string "Benötige ich noch mehr Pokémon, um\p"
+	.string "noch besser zu kämpfen?\p"
+	.string "Nein! Ich behalte\n"
+	.string "dieses, egal, was passiert!$"
 
 Route30_Text_YoungsterMikeySeen:
-	.string "You're a POKéMON trainer,\n"
-	.string "right?\p"
-	.string "Then you have to battle!$"
+	.string "Du bist ein Pokémon-Trainer, oder?\p"
+	.string "Dann musst du kämpfen!$"
 
 Route30_Text_YoungsterMikeyBeaten:
-	.string "That's strange.\n"
-	.string "I won before.$"
+	.string "Das ist seltsam.\n"
+	.string "Davor habe ich gewonnen.$"
 
 Route30_Text_YoungsterMikeyAfter:
-	.string "Becoming a good trainer is\n"
-	.string "really tough.\p"
-	.string "I'm going to battle other\n"
-	.string "people to get better.$"
+	.string "Ein guter Trainer\n"
+	.string "zu werden ist nicht einfach.\p"
+	.string "Ich kämpfe gegen\n"
+	.string "andere Trainer, um besser zu werden.$"
 
 Route30_Text_BugCatcherDonSeen:
-	.string "Instead of a bug POKéMON,\n"
-	.string "I found a trainer!$"
+	.string "Anstatt eines\n"
+	.string "Käfer-Pokémon traf ich auf einen\l"
+	.string "Trainer!$"
 
 Route30_Text_BugCatcherDonBeaten:
-	.string "Argh! You're too strong!$"
+	.string "Argh! Du bist zu stark!$"
 
 Route30_Text_BugCatcherDonAfter:
-	.string "I ran out of POKé BALLS while\n"
-	.string "I was catching POKéMON.\p"
-	.string "I should've bought some more…$"
+	.string "Mir sind während\n"
+	.string "des Fangens die Pokébälle ausgegangen.\n"
+	.string "\p"
+	.string "Ich hätte mehr kaufen sollen…$"
 
 Route30_Text_YoungsterDirectionsToMrPokemon:
-	.string "MR. POKéMON's house?\n"
-	.string "It's a bit farther ahead.$"
+	.string "Das Haus von\n"
+	.string "MR. Pokémon ist gleich da vorne!$"
 
 Route30_Text_YoungsterEveryoneIsBattling:
-	.string "Everyone's having fun\n"
-	.string "battling!\p"
-	.string "You should too!$"
+	.string "Jedem macht das Kämpfen Spaß!$"
 
 Route30_Text_CooltrainerF:
-	.string "I'm not a trainer.\p"
-	.string "But if you look one in the\n"
-	.string "eyes, prepare to battle.$"
+	.string "Ich bin kein Trainer.\p"
+	.string "Wenn du einem in\n"
+	.string "die Augen siehst, dann bereite dich\l"
+	.string "auf einen Kampf vor.$"
 
 Route30_Text_Sign:
 	.string "ROUTE 30\p"
-	.string "VIOLET CITY - CHERRYGROVE CITY$"
+	.string "VIOLA CITY - ROSALIA CITY$"
 
 Route30_Text_MrPokemonsHouseDirectionsSign:
-	.string "MR. POKéMON'S HOUSE\n"
-	.string "STRAIGHT AHEAD!$"
+	.string "Das Haus von\n"
+	.string "MR. Pokémon? Immer geradeaus.$"
 
 Route30_Text_MrPokemonsHouseSign:
-	.string "MR. POKéMON'S HOUSE$"
+	.string "Das HAUS von MR. Pokémon$"
 
 Route30_Text_TrainerTips:
-	.string "TRAINER TIPS\p"
-	.string "No stealing other people's\n"
-	.string "POKéMON!\p"
-	.string "POKé BALLS are to be thrown\n"
-	.string "only at wild POKéMON!$"
+	.string "TIPPS für TRAINER\p"
+	.string "Du sollst keine Pokémon stehlen!\p"
+	.string "Pokébälle dürfen\n"
+	.string "nur bei wilden Pokémon eingesetzt\l"
+	.string "werden!$"
 
 Route30_Text_YoungsterJoeyGiveHPUp:
-	.string "I lost again…\n"
-	.string "Gee, you're tough!\p"
-	.string "Oh yeah, I almost forgot that\n"
-	.string "I had to give you this.\p"
-	.string "Use it to get even tougher,\n"
-	.string "OK?\p"
-	.string "I'm going to get tougher too.$"
+	.string "Ich habe schon wieder verloren…\n"
+	.string "Mann, du bist echt stark!\p"
+	.string "Oh ja, fast hätte ich vergessen,\n"
+	.string "dir das hier zu geben.\p"
+	.string "Benutz es, um noch stärker zu\n"
+	.string "werden, okay?\p"
+	.string "Ich werde auch stärker werden.$"
 
 Route30_Text_Elm_Disaster:
-	.string "PROF ELM: H-hello? {PLAYER}? It's\n"
-	.string "a disaster!\p"
-	.string "Uh, um, it's just terrible!\p"
-	.string "What should I do? It…\n"
-	.string "Oh, no…\p"
-	.string "Please get back here now!$"
+	.string "PROF. Lind: H-hallo? {PLAYER}? Es\n"
+	.string "ist eine Katastrophe!\p"
+	.string "Äh, ähm, es ist einfach schrecklich!\p"
+	.string "Was soll ich nur tun? Es…\n"
+	.string "Oh nein…\p"
+	.string "Bitte komm sofort hierher zurück!$"
 
 
 Route30_Text_Poliwag:
-	.string "POLIWAG: Wag waag!$"
+	.string "Quapsel: Quap Quaap!$"

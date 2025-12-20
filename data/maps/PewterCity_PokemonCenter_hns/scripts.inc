@@ -18,15 +18,18 @@ PewterCity_PokemonCenter_EventScript_BugCatcher::
 	end
 
 PewterCity_PokemonCenter1F_Text_Teacher:
-	.string "…Yeah, and the GYM in CINNABAR's gone.\p"
-	.string "I was really amazed.\p"
-	.string "…Yes? I'm on the phone. Go away!$"
+	.string "…Ja, und die PKMN-ARENA auf der\p"
+	.string "ZINNOBERINSEL ist verschwunden. Das\p"
+	.string "finde ich merkwürdig.\p"
+	.string "…Ja? Ich\n"
+	.string "telefoniere! Lass mich in Ruhe!$"
 
 PewterCity_PokemonCenter1F_Text_Jigglypuff:
-	.string "JIGGLYPUFF: Puu pupuu.$"
+	.string "Pummeluff: Puu pupuu.$"
 
 PewterCity_PokemonCenter1F_Text_BugCatcher:
-	.string "Most POKéMON get drowsy if they hear a\n"
-	.string "JIGGLYPUFF singing.\p"
-	.string "There are several moves that can be\n"
-	.string "used only while a POKéMON is asleep.$"
+	.string "Die meisten -\n"
+	.string "MON werden schläfrig, wenn PUMMELUFF\n"
+	.string "singt.\p"
+	.string "Manche Attacken kann man nur an-\p"
+	.string "wenden, wenn ein Pokémon schläft.$"

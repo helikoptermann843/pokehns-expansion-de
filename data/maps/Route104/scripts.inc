@@ -4,7 +4,7 @@ Route104_MapScripts::
 	.byte 0
 
 Route104_OnFrame:
-	map_script_2 VAR_GARBAGEVAR, 1, Route104_EventScript_StartSailToDewford
+	map_script_2 VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_StartSailToDewford
 	.2byte 0
 
 Route104_EventScript_StartSailToDewford::
@@ -21,15 +21,15 @@ Route104_OnTransition:
 Route104_EventScript_ShowOrHideWhiteHerbFlorist::
 	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_EventScript_HideWhiteHerbFlorist
 	goto_if_unset FLAG_BADGE03_GET, Route104_EventScript_HideWhiteHerbFlorist
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_ROUTE_104_WHITE_HERB_FLORIST
 	return
 
 Route104_EventScript_HideWhiteHerbFlorist::
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_ROUTE_104_WHITE_HERB_FLORIST
 	return
 
 Route104_EventScript_TrySetRivalPos::
-	goto_if_ge VAR_GARBAGEVAR, 1, Route104_EventScript_DontSetRivalPos
+	goto_if_ge VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_DontSetRivalPos
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, Route104_EventScript_DontSetRivalPos
 	goto_if_unset FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_DontSetRivalPos
 	setobjectxyperm LOCALID_ROUTE104_RIVAL, 17, 52
@@ -47,9 +47,9 @@ Route104_EventScript_Rival::
 
 Route104_EventScript_RivalTrigger::
 	lockall
-	setflag FLAG_GARBAGEFLAG
-	setvar VAR_GARBAGEVAR, 8
-	setvar VAR_GARBAGEVAR, 2
+	setflag FLAG_HIDE_RUSTBORO_CITY_RIVAL
+	setvar VAR_RUSTBORO_CITY_STATE, 8
+	setvar VAR_ROUTE104_STATE, 2
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
 	waitmovement 0
 	delay 10
@@ -334,12 +334,6 @@ Route104_EventScript_Boy2::
 	end
 
 Route104_EventScript_ReceivedBulletSeed::
-	goto_if_set FLAG_FINITE_TMS, Route104_EventScript_ReceivedBulletSeedFinite
-	msgbox Route104_Text_TMsCanBeReused, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_ReceivedBulletSeedFinite::
 	msgbox Route104_Text_TMsAreOneTimeUse, MSGBOX_DEFAULT
 	release
 	end
@@ -398,19 +392,19 @@ Route104_EventScript_ArriveInDewford::
 	setobjectxyperm LOCALID_DEWFORD_BRINEY, 12, 8
 	addobject LOCALID_DEWFORD_BRINEY
 	setobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN, 0
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
 	applymovement LOCALID_DEWFORD_BRINEY, Route104_Movement_BrineyExitBoat
 	waitmovement 0
 	addobject LOCALID_DEWFORD_BOAT
-	clearflag FLAG_GARBAGEFLAG
+	clearflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
 	call Common_EventScript_StopBrineysBoatMusic
-	setflag FLAG_GARBAGEFLAG
+	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
 	hideobjectat LOCALID_ROUTE104_BOAT, MAP_ROUTE104
-	copyvar VAR_GARBAGEVAR, VAR_0x8008
+	copyvar VAR_BRINEY_LOCATION, VAR_0x8008
 	resetobjectsubpriority LOCALID_PLAYER, MAP_ROUTE104
 	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
-	setvar VAR_GARBAGEVAR, 0
+	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
 	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_DeliverLetterReminder
 	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_LandedInDewford
 	end
@@ -859,10 +853,10 @@ Route104_EventScript_Billy::
 	end
 
 Route104_EventScript_Haley::
-	trainerbattle_single TRAINER_WHITNEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
+	trainerbattle_single TRAINER_HALEY_1, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchHaley
-	setvar VAR_0x8004, TRAINER_WHITNEY_1
+	setvar VAR_0x8004, TRAINER_HALEY_1
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterHaley
 	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
@@ -878,7 +872,7 @@ Route104_EventScript_TryRegisterHaleyAfterBattle::
 
 Route104_EventScript_RegisterHaleyAfterBattle::
 	msgbox Route104_Text_HaleyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WHITNEY_1
+	register_matchcall TRAINER_HALEY_1
 	release
 	end
 
@@ -890,12 +884,12 @@ Route104_EventScript_TryRegisterHaley::
 
 Route104_EventScript_RegisterHaley::
 	msgbox Route104_Text_HaleyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WHITNEY_1
+	register_matchcall TRAINER_HALEY_1
 	release
 	end
 
 Route104_EventScript_RematchHaley::
-	trainerbattle_rematch TRAINER_WHITNEY_1, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
+	trainerbattle_rematch TRAINER_HALEY_1, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
 	msgbox Route104_Text_HaleyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -941,10 +935,10 @@ Route104_EventScript_RematchWinston::
 	end
 
 Route104_EventScript_Cindy::
-	trainerbattle_single TRAINER_GRUNT_18, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
+	trainerbattle_single TRAINER_CINDY_1, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchCindy
-	setvar VAR_0x8004, TRAINER_GRUNT_18
+	setvar VAR_0x8004, TRAINER_CINDY_1
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterCindy
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
@@ -960,7 +954,7 @@ Route104_EventScript_TryRegisterCindyAfterBattle::
 
 Route104_EventScript_RegisterCindyAfterBattle::
 	msgbox Route104_Text_CindyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_GRUNT_18
+	register_matchcall TRAINER_CINDY_1
 	release
 	end
 
@@ -972,207 +966,225 @@ Route104_EventScript_TryRegisterCindy::
 
 Route104_EventScript_RegisterCindy::
 	msgbox Route104_Text_CindyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_GRUNT_18
+	register_matchcall TRAINER_CINDY_1
 	release
 	end
 
 Route104_EventScript_RematchCindy::
-	trainerbattle_rematch TRAINER_GRUNT_18, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
+	trainerbattle_rematch TRAINER_CINDY_1, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
 	msgbox Route104_Text_CindyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route104_EventScript_Gina::
-	trainerbattle_double TRAINER_RUTH, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Mia::
-	trainerbattle_double TRAINER_RUTH, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
+	trainerbattle_double TRAINER_GINA_AND_MIA_1, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
 	special GetPlayerBigGuyGirlString
 	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_EventScript_Darian::
-	trainerbattle_single TRAINER_JIMMY, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
+	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
 	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_Text_BrineyLivesInSeasideCottage:
-	.string "That seaside cottage is where\n"
-	.string "MR. BRINEY lives.\p"
-	.string "He was once a mighty sailor who never\n"
-	.string "feared the sea, however stormy.$"
+	.string "In dieser Hütte am Meer lebt MR.\n"
+	.string "BRACK. \p"
+	.string "Er war einst ein stolzer Seemann, der\n"
+	.string "niemals Angst vor dem Meer hatte.$"
 
 Route104_Text_WhatsItLikeAtBottomOfSea:
-	.string "The sea, huh?\p"
-	.string "I wonder what it's like at the bottom\n"
-	.string "of the sea?$"
+	.string "Das Meer, was?\p"
+	.string "Ich möchte zu gerne wissen, wie es auf\n"
+	.string "dem Meeresgrund aussieht…$"
 
 Route104_Text_ThrowBallAtWeakenedPokemon:
-	.string "If you're going to throw a POKé BALL,\n"
-	.string "weaken the wild POKéMON first.\p"
-	.string "It will be easier to catch if it's been\n"
-	.string "poisoned, burned, or lulled to sleep.$"
+	.string "Bevor du einen POKéBALL wirfst,\n"
+	.string "schwäche das POKéMON erst.\p"
+	.string "Wenn es vergiftet ist, eine\n"
+	.string "Verbrennung\n"
+	.string "hat oder schläft, kann es leichter\l"
+	.string "gefangen werden.$"
 
 Route104_Text_OnlyThrowBallAtWildPokemon:
-	.string "You're a thief if you try to steal\n"
-	.string "someone else's POKéMON.\p"
-	.string "You should throw POKé BALLS only at\n"
-	.string "wild POKéMON.$"
+	.string "Du bist ein gemeiner Dieb, wenn du\n"
+	.string "ver-\n"
+	.string "suchst, das POKéMON eines anderen zu\l"
+	.string "stehlen.\p"
+	.string "Du solltest deine POKéBÄLLe nur auf\n"
+	.string "wilde POKéMON werfen.$"
 
 Route104_Text_ImNotATrainer:
-	.string "Oh, no, I'm not a TRAINER.\p"
-	.string "But that's right, if TRAINERS lock eyes,\n"
-	.string "it's a challenge to battle.\p"
-	.string "If you don't want to battle, stay out\n"
-	.string "of their sight.$"
+	.string "Oh, nein, ich bin kein TRAINER.\p"
+	.string "Aber es stimmt schon, wenn TRAINER\n"
+	.string "sich\n"
+	.string "in die Augen schauen, ist das eine\l"
+	.string "Herausforderung zum Kampf.\p"
+	.string "Willst du nicht kämpfen, weiche ihren\n"
+	.string "Blicken aus.$"
 
 Route104_Text_LikeFillingMouthWithSeedsTakeThis:
-	.string "I like filling my mouth with seeds,\n"
-	.string "then spitting them out fast!\p"
-	.string "You can have this, so you try it out!\p"
-	.string "Use it on a POKéMON, and it will learn\n"
-	.string "a move for firing seeds rapidly.$"
+	.string "Ich liebe es, meinen Mund voller\n"
+	.string "Saatkörner zu nehmen und sie dann in\l"
+	.string "hohem Bogen auszuspucken.\p"
+	.string "Du kannst dies hier haben, versuch es\n"
+	.string "einfach mal!\p"
+	.string "Wende es an einem POKéMON an und es\n"
+	.string "wird lernen, in schneller Folge\l"
+	.string "Saatkörner auszuspucken.$"
 
 Route104_Text_TMsAreOneTimeUse:
-	.string "A word of advice!\p"
-	.string "A TM, TECHNICAL MACHINE, is good only\n"
-	.string "for one-time use.\p"
-	.string "Once you use it, it's gone.\n"
-	.string "Think twice before using it!$"
-
-Route104_Text_TMsCanBeReused:
-	.string "By the way, a TM, TECHNICAL MACHINE,\n"
-	.string "can be used as many times as you want!$"
+	.string "Ein Hinweis noch!\p"
+	.string "Eine TM, eine TECHNISCHE MASCHINE,\n"
+	.string "kann nur einmal beigebracht werden.\p"
+	.string "Einmal verwendet, ist sie weg. Denke\n"
+	.string "zweimal nach, bevor du eine TM nutzt.$"
 
 Route104_Text_DontNeedThisTakeIt:
-	.string "This FLOWER SHOP started selling\n"
-	.string "saplings recently.\p"
-	.string "It made me so happy, I went overboard\n"
-	.string "shopping.\p"
-	.string "I don't need this WHITE HERB anymore.\n"
-	.string "Would you take it, please?$"
+	.string "Der BLUMENLADEN verkauft seit kurzem\n"
+	.string "junge Bäume.\p"
+	.string "Das macht mich so glücklich, dass ich\n"
+	.string "ganz viele gekauft habe. Dieses\l"
+	.string "SCHLOHKRAUT brauche ich nicht, das\l"
+	.string "schenke ich dir.$"
 
 Route104_Text_FlowerShopSellingSaplings:
-	.string "This FLOWER SHOP started selling\n"
-	.string "saplings recently.\p"
-	.string "It made me so happy, I went overboard\n"
-	.string "shopping. Where should I put them?$"
+	.string "Der BLUMENLADEN verkauft seit kurzem\n"
+	.string "junge Bäume.\p"
+	.string "Das macht mich so glücklich, dass ich\n"
+	.string "ganz viele gekauft habe. Wohin damit?$"
 
 Route104_Text_MrBrineysCottage:
-	.string "MR. BRINEY'S COTTAGE$"
+	.string "MR. BRACKS HÜTTE$"
 
 Route104_Text_RouteSignPetalburg:
-	.string "ROUTE 1O4\n"
-	.string "{RIGHT_ARROW} PETALBURG CITY$"
+	.string "ROUTE 104\n"
+	.string "{RIGHT_ARROW} BLÜTENBURG CITY$"
 
 Route104_Text_RouteSignRustboro:
-	.string "ROUTE 1O4\n"
-	.string "{UP_ARROW} RUSTBORO CITY$"
+	.string "ROUTE 104\n"
+	.string "{UP_ARROW} METAROST CITY$"
 
 Route104_Text_PrettyPetalFlowShop:
-	.string "PRETTY PETAL FLOWER SHOP$"
+	.string "BLÜTENTRAUM BLUMENLADEN$"
 
 Route104_Text_TrainerTipsDoubleBattles:
-	.string "TRAINER TIPS\p"
-	.string "In the HOENN region there are pairs\n"
-	.string "of TRAINERS who challenge others\l"
-	.string "for 2-on-2 POKéMON battles called\l"
-	.string "DOUBLE BATTLES.\p"
-	.string "In a DOUBLE BATTLE, the TRAINER must\n"
-	.string "send out two POKéMON, the one at the\l"
-	.string "left of the list and the top one.\l"
-	.string "Watch how POKéMON are lined up.$"
+	.string "TIPPS für TRAINER\p"
+	.string "In der HOENN-Region gibt es Paare von\n"
+	.string "TRAINERn, die andere zu einem\l"
+	.string "2-gegen-2-POKéMON-Kampf, einem\l"
+	.string "DOPPELKAMPF, herausfordern.\p"
+	.string "In einem DOPPELKAMPF muss der TRAINER\n"
+	.string "zwei POKéMON antreten lassen. Das \l"
+	.string "POKéMON links neben der Liste und das\l"
+	.string "an der Spitze der Liste. Achte also\n"
+	.string "auf\l"
+	.string "die Reihenfolge der POKéMON.$"
 
 Route104_Text_MayWeShouldRegister:
-	.string "MAY: Oh, hi, {PLAYER}{KUN}!\p"
-	.string "DEVON upgraded your POKéNAV with\n"
-	.string "the MATCH CALL system, huh?\p"
-	.string "We should register each other so we\n"
-	.string "can get in contact anytime.$"
+	.string "MAIKE: Oh, hi, {PLAYER}{KUN}!\p"
+	.string "DEVON hat deinen POKéNAV mit einem\n"
+	.string "TRAINER/RUF-System ausgestattet?\p"
+	.string "Wir sollten uns gegenseitig eintragen,\n"
+	.string "dann können wir jederzeit miteinander\l"
+	.string "reden.$"
 
 Route104_Text_RegisteredMay:
-	.string "{PLAYER} registered MAY\n"
-	.string "in the POKéNAV.$"
+	.string "{PLAYER} trägt MAIKE in das POKéNAV-\n"
+	.string "Verzeichnis ein.$"
 
 Route104_Text_MayHowsYourPokedex:
-	.string "MAY: Oh, by the way, {PLAYER}{KUN},\n"
-	.string "how's your POKéDEX coming along?$"
+	.string "MAIKE: Und, {PLAYER}{KUN}?\n"
+	.string "Wie geht es mit deinem POKéDEX voran?$"
 
 Route104_Text_MayMinesDecentLetsBattle:
-	.string "Mine's looking pretty decent.\n"
-	.string "So…\l"
-	.string "How about a little battle?$"
+	.string "Meiner sieht schon ganz anständig aus.\n"
+	.string "Daher…\l"
+	.string "Wie wäre es mit einem kleinen Kampf?$"
 
 Route104_Text_MayHaventRaisedPokemon:
-	.string "MAY: Oh, what's the matter?\p"
-	.string "Haven't you caught or raised your\n"
-	.string "POKéMON very much?\p"
-	.string "That's not very good for a TRAINER!$"
+	.string "MAIKE: Oh, was ist das?\p"
+	.string "Du hast dich aber nicht um deine\n"
+	.string "POKéMON gekümmert? Und auch\l"
+	.string "nicht viele gefangen?\p"
+	.string "Als Trainer machst du wirklich keinen\n"
+	.string "guten Eindruck!$"
 
 Route104_Text_MayLetsBattle:
-	.string "MAY: So, what do you think?\n"
-	.string "How about a little battle here?$"
+	.string "MAIKE: Was hältst du von einem Kampf?$"
 
 Route104_Text_MayIntro:
-	.string "MAY: You just became a TRAINER,\n"
-	.string "{PLAYER}{KUN}. I'm not going to lose!$"
+	.string "MAIKE: Du bist gerade erst TRAINER\n"
+	.string "geworden, {PLAYER}{KUN}. Ich werde\n"
+	.string "nicht\l"
+	.string "verlieren.$"
 
 Route104_Text_MayDefeat:
-	.string "Yikes!\n"
-	.string "You're better than I expected!$"
+	.string "AchDuSchande!\n"
+	.string "Du bist besser als ich gedacht habe.$"
 
 Route104_Text_MayPostBattle:
-	.string "MAY: I can tell you've gotten pretty\n"
-	.string "good with the way you handle POKéMON.\p"
-	.string "But instead of only making them\n"
-	.string "battle, you should be like MR. BRINEY.\p"
-	.string "It's important to become friends with\n"
-	.string "POKéMON, too.$"
+	.string "MAIKE: Du bist wirklich sehr gut im\n"
+	.string "Umgang mit POKéMON.\p"
+	.string "Aber anstatt sie nur kämpfen zu\l"
+	.string "lassen,\n"
+	.string "solltest du dir ein Beispiel an MR.\p"
+	.string "BRACK\l"
+	.string "nehmen.\p"
+	.string "Es ist wichtig, dass man sich mit den\n"
+	.string "POKéMON anfreundet.$"
 
 Route104_Text_BrendanWeShouldRegister:
-	.string "BRENDAN: Oh, hey, {PLAYER}!\p"
-	.string "Cool, you had DEVON install the MATCH\n"
-	.string "CALL system on your POKéNAV!\p"
-	.string "Let's register each other in our\n"
-	.string "POKéNAVS so we can keep in touch.$"
+	.string "BRIX: Hey, {PLAYER}!\p"
+	.string "Cool! DEVON hat deinen POKéNAV mit\n"
+	.string "einem TRAINER/RUF-System\l"
+	.string "ausgestattet?\p"
+	.string "Wir sollten uns gegenseitig eintragen,\n"
+	.string "dann können wir jederzeit miteinander\l"
+	.string "reden.$"
 
 Route104_Text_RegisteredBrendan:
-	.string "{PLAYER} registered BRENDAN\n"
-	.string "in the POKéNAV.$"
+	.string "{PLAYER} trägt BRIX in das POKéNAV-\n"
+	.string "Verzeichnis ein.$"
 
 Route104_Text_BrendanHowsYourPokedex:
-	.string "BRENDAN: {PLAYER}, how's your POKéDEX?\n"
-	.string "Have you filled in any pages yet?$"
+	.string "BRIX: {PLAYER}, wie sieht es mit\n"
+	.string "deinem POKéDEX aus?$"
 
 Route104_Text_BrendanDoingGreatLetsBattle:
-	.string "Me, I'm doing great!\p"
-	.string "Want to check out how good I am with\n"
-	.string "a battle?$"
+	.string "Mir? Mir geht es gut! Alles bestens!\p"
+	.string "Willst du mal sehen, wie gut ich im\n"
+	.string "Kampf bin?$"
 
 Route104_Text_BrendanNoConfidence:
-	.string "BRENDAN: What's the matter? Don't have\n"
-	.string "any confidence in your POKéMON?$"
+	.string "BRIX: Oh, hast du ein Problem? Nicht\n"
+	.string "genügend Selbstbewusstsein und\l"
+	.string "Vertrauen in deine POKéMON, was?$"
 
 Route104_Text_BrendanLetsBattle:
-	.string "BRENDAN: What's up?\n"
-	.string "Want to have a battle with me?$"
+	.string "BRIX: Wie geht’s? Lust auf einen\n"
+	.string "Kampf?$"
 
 Route104_Text_BrendanIntro:
-	.string "BRENDAN: I know you just became\n"
-	.string "a TRAINER, but I won't go easy!$"
+	.string "BRIX: Ich weiß, du bist gerade erst\n"
+	.string "ein\n"
+	.string "TRAINER geworden, aber ich werde mich\l"
+	.string "nicht zurückhalten.$"
 
 Route104_Text_BrendanDefeat:
-	.string "Hmm…\n"
-	.string "You're pretty good.$"
+	.string "Hmm… Du bist sehr gut.$"
 
 Route104_Text_BrendanPostBattle:
-	.string "BRENDAN: You've gotten pretty decent\n"
-	.string "at handling POKéMON.\p"
-	.string "But, you know, you shouldn't just be\n"
-	.string "making POKéMON battle.\p"
-	.string "Like MR. BRINEY, it's important to\n"
-	.string "become friends with your POKéMON.$"
+	.string "BRIX: Du bist sehr gut im Umgang mit\n"
+	.string "POKéMON geworden.\p"
+	.string "Aber du solltest deine POKéMON nicht\n"
+	.string "nur kämpfen lassen.\p"
+	.string "Mach es wie MR. BRACK. Es ist wichtig,\n"
+	.string "dass man sich mit ihnen anfreundet.$"
