@@ -1273,9 +1273,9 @@ const u8 gText_Answer[] = _("ANTWORT");
 const u8 gText_PokeBalls[] = _("POKéBÄLLe");
 const u8 gText_Berry[] = _("BEERE");
 const u8 gText_Berries[] = _("BEEREn");
-const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
-const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
-const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOn[] = _("Der EP-Teiler wurde aktiviert.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOff[] = _("Der EP-Teiler wurde deaktiviert.{PAUSE_UNTIL_PRESS}");
+const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s Basispunkte\nwurden zurückgesetzt auf 0!{PAUSE_UNTIL_PRESS}");
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
@@ -1283,10 +1283,10 @@ const u8 gText_Relearn_LevelUp[] = _("{START_BUTTON} RELEARN LEVEL");
 const u8 gText_Relearn_Egg[] = _("{START_BUTTON} RELEARN EGG");
 const u8 gText_Relearn_TM[] = _("{START_BUTTON} RELEARN TM");
 const u8 gText_Relearn_Tutor[] = _("{START_BUTTON} RELEARN TUTOR");
-const u8 gText_Rename[] = _("RENAME");
-const u8 gText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbecause it knows a HM move.{PAUSE_UNTIL_PRESS}");
-const u8 gText_CannotSendMonToBoxActive[] = _("Cannot send an active battler\nto the box.{PAUSE_UNTIL_PRESS}");
-const u8 gText_CannotSendMonToBoxPartner[] = _("Cannot send a mon that doesn't,\nbelong to you to the box.{PAUSE_UNTIL_PRESS}");
+const u8 gText_Rename[] = _("SPITZNA.");
+const u8 gText_CannotSendMonToBoxHM[] = _("Kann dieses mon nicht in wegschicken,\nweil es eine VM kennt.{PAUSE_UNTIL_PRESS}");
+const u8 gText_CannotSendMonToBoxActive[] = _("Aktiv kämpfendes mon kann nicht\nin die Box.{PAUSE_UNTIL_PRESS}");
+const u8 gText_CannotSendMonToBoxPartner[] = _("Ein mon was dir nicht gehört,\nkann nicht in die Box.{PAUSE_UNTIL_PRESS}");
 
 // start HnS
 const u8 gText_ProfBirchMatchCallName[] = _("PROF. BIRK");
