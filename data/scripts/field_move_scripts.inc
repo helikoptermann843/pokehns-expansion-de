@@ -58,16 +58,16 @@ EventScript_CancelCut::
 	end
 
 Text_WantToCut:
-	.string "Dieser Baum sieht aus als\n"
-	.string "könnte man ihn fällen!\p"
+	.string "Dieser Baum sieht aus,\n"
+	.string "als könnte man ihn fällen!\p"
 	.string "ZERSCHNEIDER einsetzen?$"
 
 Text_MonUsedFieldMove:
 	.string "{STR_VAR_1} benutzt {STR_VAR_2}!$"
 
 Text_CantCut:
-	.string "Dieser Baum sieht aus als\n"
-	.string "könnte man ihn fällen!$"
+	.string "Dieser Baum sieht aus,\n"
+	.string "als könnte man ihn fällen!$"
 
 @ Use rock smash from party menu
 EventScript_UseRockSmash::

@@ -183,46 +183,48 @@ BerryTree_EventScript_PlantBerry::
 	return
 
 ApricornTree_Text_Growing:
-	.string "It's a berry tree!\n"
-	.string "These berries aren't ripe yet.$"
+	.string "Ein Strauß Beeren!\n"
+	.string "Diese Beeren sind nicht reif.$"
 
 BerryTree_Text_ItsSoftLoamySoil:
-	.string "It's soft, loamy soil.$"
+	.string "Das ist weicher Lehmboden.$"
 
 BerryTree_Text_BerryGrowthStage1:
-	.string "One {STR_VAR_1} was planted here.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Eine {STR_VAR_1} wurde gepflanzt.\n"
+	.string "Möchtest du sie gießen?$"
 
 BerryTree_Text_BerryGrowthStage2:
-	.string "{STR_VAR_1} has sprouted.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "{STR_VAR_1} blüht auf.\n"
+	.string "Möchtest du sie gießen?$"
 
 BerryTree_Text_BerryGrowthStage3:
-	.string "This {STR_VAR_1} plant is growing taller.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Die {STR_VAR_1}-Pflanze wächst.\n"
+	.string "Möchtest du sie gießen?$"
 
 BerryTree_Text_BerryGrowthStage4:
-	.string "These {STR_VAR_1} flowers are\n"
-	.string "blooming {STR_VAR_2}. Want to water them?$"
+	.string "Diese {STR_VAR_1}-Blumen sind\n"
+	.string "{STR_VAR_2}. Möchtest du sie gießen?$"
 
 BerryTree_Text_CareAdverbGreat:
-	.string "very beautifully$"
+	.string "wunderschön$"
 
 BerryTree_Text_CareAdverbPoor:
-	.string "cutely$"
+	.string "zierlich$"
 
 BerryTree_Text_CareAdverbGood:
-	.string "prettily$"
+	.string "hübsch$"
 
 BerryTree_Text_PickedTheBerry:
-	.string "{PLAYER} picked the {STR_VAR_2} {STR_VAR_1}.$"
+	.string "{PLAYER} pflückt die {STR_VAR_2}\n"
+	.string "{STR_VAR_1}.$"
 
 BerryTree_Text_BerryPocketFull:
-	.string "The BAG's BERRIES POCKET is full.\p"
-	.string "The {STR_VAR_1} couldn't be taken.$"
+	.string "Die BEERENTASCHE des BEUTELs ist voll.\p"
+	.string "Die {STR_VAR_1} können nicht\n"
+	.string "mitgenommen werden.$"
 
 BerryTree_Text_ExclamationPoint:
 	.string "!$"
 
 BerryTree_Text_BerryTreeSprouted:
-	.string "The berry tree suddenly sprouted!$"
+	.string "Die Pflanze blüht plötzlich!$"
