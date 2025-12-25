@@ -261,7 +261,7 @@ const struct FollowerMsgInfo gFollowerCuriousMessages[] = {
 };
 
 // Unconditional music messages
-static const u8 sMusicMsg00[] = _("{STR_VAR_1} zeigt seine\Nagilität!");
+static const u8 sMusicMsg00[] = _("{STR_VAR_1} zeigt seine\nAgilität!");
 static const u8 sMusicMsg01[] = _("{STR_VAR_1} bewegt sich fröhlich umher!");
 static const u8 sMusicMsg02[] = _("Woah! ");
 static const u8 sMusicMsg03[] = _("{STR_VAR_1} hält\nbeständig mit Ihnen Schritt!");

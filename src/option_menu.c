@@ -94,7 +94,7 @@ static const u8 sEqualSignGfx[] = INCBIN_U8("graphics/interface/option_menu_equa
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
-    [MENUITEM_TEXTSPEED]   = COMPOUND_STRING("TEXT SPEED"),
+    [MENUITEM_TEXTSPEED]   = COMPOUND_STRING("TEXT GES."),
     [MENUITEM_BATTLESCENE] = COMPOUND_STRING("KAMPF SZENE"),
     [MENUITEM_BATTLESTYLE] = COMPOUND_STRING("KAMPF STIL"),
     [MENUITEM_SOUND]       = COMPOUND_STRING("TON"),
